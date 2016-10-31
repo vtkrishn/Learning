@@ -15,9 +15,11 @@ int main(){
 
   mod = a;
   int div = 1;
+  //find the position of the digits
   for(int i=mod;i>0;i=i/10){
     div *= 10;
     std::cout << div << std::endl;
+    //std::cout << div << std::endl;
   }
 
   // a = temp % 10;

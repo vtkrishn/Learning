@@ -1,5 +1,5 @@
 #include <iostream>
-
+/* static_cast */
 int main(){
 
   std::cout << "ASCII equivalent of 'A'" << static_cast <int  >('A') << std::endl;
