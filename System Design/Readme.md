@@ -1,4 +1,4 @@
-Possible Questions
+#Possible Questions
 
 	* Trending Algorithm
 	* Chat Function
@@ -16,15 +16,15 @@ Possible Questions
 	* Cache System
 	* Recommendation System
 	* Logging System
-        * LRU Cache
+  * LRU Cache
 
-Topics to cover and thing and include in the discussion
+#Topics to cover and thing and include in the discussion
 
 	* Simple use case
 	* Optimize on Time
 	* optimize on Space
 	* Considering Concurrency
-        * Scaling Up
+  * Scaling Up
 	* Load Balance
 	* Partitioning
 	* Distribution
@@ -48,4 +48,4 @@ Topics to cover and thing and include in the discussion
 	* Buffering
 	* Query Tuning
 	* Indexing
-        * throughput
+  * throughput
