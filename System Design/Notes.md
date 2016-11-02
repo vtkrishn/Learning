@@ -38,6 +38,8 @@ Common Entities in any system
 * Queue
 * Executor
 * Orchestrator
+* Aggregator
+* Delegate
 
 
 Common Social Components
