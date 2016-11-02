@@ -23,6 +23,9 @@
 	* Simple use case
 	* Optimize on Time
 	* optimize on Space
+	* Backup
+	* Recovery
+	* Benchmarking
 	* Considering Concurrency
   * Scaling Up
 	* Load Balance
