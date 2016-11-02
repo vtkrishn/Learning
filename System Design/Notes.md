@@ -34,8 +34,27 @@ Common Entities in any system
 * Service
 * Discovery
 
-Common Social Stacks
-* Load Balancer
-* Http Server
+Common Social Components
+* Http Server/Load Balancer
+* Web Server
 * Cache
 * Message Queue
+* Data Store
+
+Common Social Stacks
+* Programmming Languages : C , C++ , Javascript , Lua, Python, PHP
+* Client Libraries : Angular , Backbone, Bootstrap , Jquery, React
+* Platform/Hosting/Infra structure : NGINX, Appache Http Server, Amazon EC2, Heroku, HA proxy, IIS
+* Server Libraries : Django , Flask,
+* Data Store : Redis, MySQL, Mongo, memcached, Hive,  CouchDB, Couchbase
+* Data processing: Rabbit MQ, Apache MQ, Kafka, Spark
+* Operation System : CentOS, Ubuntu, Linux
+* Devops :
+  * Versioning : Git, Github
+  * Monitoring : Pingdom , Sentry
+  * Container : Dockers
+  * Package Manager : NPM
+  * JS Build : Gulp
+  * Text Editor : Atom , Sublime
+* Content Delivery Network : Akamai, Amazon CroudFront
+* Utilities, Google Analytics, Amazon Elastic Search , Twillio Voice and SMS, Paypal, Jenkins for continuous integration
