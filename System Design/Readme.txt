@@ -16,7 +16,7 @@ Possible Questions
 	* Cache System
 	* Recommendation System
 	* Logging System
-  * LRU Cache
+        * LRU Cache
 
 Topics to cover and thing and include in the discussion
 
@@ -24,7 +24,7 @@ Topics to cover and thing and include in the discussion
 	* Optimize on Time
 	* optimize on Space
 	* Considering Concurrency
-  * Scaling Up
+        * Scaling Up
 	* Load Balance
 	* Partitioning
 	* Distribution
@@ -40,12 +40,12 @@ Topics to cover and thing and include in the discussion
 	* Storage
 	* Formatting
 	* Ranking
-  * Networking
-  * Abstraction
-  * Estimation
-  * Reliability
-  * Repeatability
-  * Buffering
-  * Query Tuning
-  * Indexing
-  * throughput
+	* Networking
+	* Abstraction
+	* Estimation
+	* Reliability
+	* Repeatability
+	* Buffering
+	* Query Tuning
+	* Indexing
+        * throughput
