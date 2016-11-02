@@ -52,3 +52,15 @@ https://github.com/checkcheckzz/system-design-interview/blob/master/README.md
 * Query Tuning
 * Indexing
 * throughput
+* Cloning
+* Latency
+* Denormalize
+* Offline processing
+* Map reduce
+* CAP theorum
+* ACID property
+* SOLID principles
+* Asynchronous
+* Hashing
+* Immutability
+* Laziness

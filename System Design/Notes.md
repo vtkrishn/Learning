@@ -33,6 +33,12 @@ Common Entities in any system
 * Cluster
 * Service
 * Discovery
+* Request Handler
+* proxy
+* Queue
+* Executor
+* Orchestrator
+
 
 Common Social Components
 * Http Server/Load Balancer
