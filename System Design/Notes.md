@@ -1,8 +1,13 @@
 #Notes
 
 SDLC Lifecycle
-* Requirment
+* Requirement
+  * Understand the requirment properly
+  * Ask Questions
+  * come up with different use cases and interactions for the system
 * Design
+  * come up with the high level design
+  * include a mock up, wireframe to explain your design
 * Implementation
 * Testing
 * Evolution
@@ -29,4 +34,8 @@ Common Entities in any system
 * Service
 * Discovery
 
-Common Stacks
+Common Social Stacks
+* Load Balancer
+* Http Server
+* Cache
+* Message Queue
