@@ -4,9 +4,9 @@ I am just trying to figure out the possible way to track the knoweldge that I am
 
 Some of the topics are
 
-Algorithms
-Data Structures
-Domain knowledge
-Languages
-System Design
-WebServicess
+* Algorithms
+* Data Structures
+* Domain knowledge
+* Languages
+* System Design
+* WebServicess
