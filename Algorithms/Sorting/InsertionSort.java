@@ -1,4 +1,4 @@
-public class YourClassNameHere {
+public class InsertionSort {
 	    public static void main(String[] args) {
         //init array elements
         int[] a = {5,4,3,1,2,9,0};
