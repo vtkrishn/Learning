@@ -6,5 +6,5 @@ Behavior Diagram
 * Activty Diagram
 * Interaction Diagram
 
-Class Diagram
+Class Diagram:
 !(http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png "class-diagrams")
