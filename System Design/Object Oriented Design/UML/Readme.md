@@ -7,4 +7,4 @@ Behavior Diagram
 * Interaction Diagram
 
 Class Diagram
-![alt text](http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png"class-diagrams")
+!(http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png "class-diagrams")
