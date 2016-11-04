@@ -45,7 +45,8 @@
 * Indirection
   * how to communicate between two objects, so that others are not direcly coupled
   * Adapter, Faceade, Observer
-Don’t Talk to Strangers
+* Protected Variations
+  * information hiding, open close
 
 #KISS
 Keep it simple stupid
