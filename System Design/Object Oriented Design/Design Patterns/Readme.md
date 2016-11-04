@@ -1,5 +1,11 @@
 #Design Patterns
 
+###Basic
+#Delegation
+#Interface
+#Marker
+#Immutable
+
 ###Creational
 #Factory
     provide interface to create objects
@@ -49,6 +55,40 @@
     Object representation reducing cost of creating the complex object
     eg. Proxy and real subject
 ###Behavioral
-    
+#Chain of responsibilty
+    passing request between chain of objects
+    eg. ATM denomiation of currency
+#Command
+    encapsulate command request
+    eg. command execution. Waiter Order cook executes the order
+#Interpreter
+    language element parsing
+    eg. Piano. notes, singnals, signatures
+#Iterator
+    sequenctial access of a collection of objects
+    eg. TV channel navigation
+#Mediator
+    Defines the object that encasulates how the other objects interact
+    eg. Airport terminal Mediator for flight landing
+#Memento
+    Externalization of object state
+    eg. undo redo.. object state is retained at each modification  
+#Observer
+    Notification of changes
+    eg. Auction bidding.
+#State
+    alters objects behavior with a state change
+    eg.vending machine.. deposit state and delivery state
+#Null Object
+    to mark an absence of an object
+#Vistor
+    allows an operation to be performed on the object without changing the class on which it operates
+    eg. cashier, products.. visitable object. 
+#Strategy
+      encapsulate algorithm inside a class
+      eg. airport shuttle. car, bus, van based on number of people
+#Template method
+      defines exact steps to the subclass
+      eg. Worker, electrician, plumber, postman all are working
 
 ###Concurrency
