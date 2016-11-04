@@ -9,9 +9,8 @@ Behavior Diagram
 Examples
 http://www.uml-diagrams.org/index-examples.html
 
-Class Diagram: ![class](http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png)
-
 Common Designs
+Class Diagram: ![class](http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png)
 
 Train Reservation
 Class Diagram: ![class](http://2.bp.blogspot.com/-cikjZlA18uc/T1ybB_UFG4I/AAAAAAAAAI0/zdu9hlZJCqM/s1600/class+diagram+railway+reservation.JPG)
