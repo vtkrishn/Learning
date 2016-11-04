@@ -25,16 +25,27 @@
 * invariant
 * exceptions
 
-#GRASP
-* Controller
+#GRASP (General Responsibility Assignment Software Patterns)
+
+* Expert
+  * Assign Responsibility to those who know complete about the object
 * Creator
+  * Who creates object (Factory)
+* Controller
+  * How to delegate the request from UI to the object domain layer
+* Low Coupling
+  * how strong the objects are connected to each other
 * High Cohesion
-* Indirection
-* Information Expert
+  * how much manageable or how its functionaly Dependant
 * Polymorphism
-* Protected Variations
+  * how to handle based on different types  
 * Pure Fabrication
-* Loose Coupling
+  * fabricate the class to assign Responsibility which is not representing any db objects  
+  * Adapter, Strategy
+* Indirection
+  * how to communicate between two objects, so that others are not direcly coupled
+  * Adapter, Faceade, Observer
+Don’t Talk to Strangers
 
 #KISS
 Keep it simple stupid
