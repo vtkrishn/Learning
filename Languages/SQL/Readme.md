@@ -1,32 +1,32 @@
 #Common functions
 
-  ABS(value)
-  TO_DATE(String,Format)
-  TO_TIMESTAMP(String,Format)
-  TO_CHAR(String)
-  TRUNC(Number or Date or String as Number, format)
-  ASCII(character)/asciistr(character)
-  ADD_MONTHS(Date1,Number)
-  MONTHS_BETWEEN(Date1, Date2)
-  LENGTH(String)
-  ROUND(number)
+  * ABS(value)
+  * TO_DATE(String,Format)
+  * TO_TIMESTAMP(String,Format)
+  * TO_CHAR(String)
+  * TRUNC(Number or Date or String as Number, format)
+  * ASCII(character)/asciistr(character)
+  * ADD_MONTHS(Date1,Number)
+  * MONTHS_BETWEEN(Date1, Date2)
+  * LENGTH(String)
+  * ROUND(number)
 
 #Date timestamp literals
-  sysdate
-  systimestamp
-  DATE <date>
-  TIMESTAMP <date with timestamp>
+  * sysdate
+  * systimestamp
+  * DATE <date>
+  * TIMESTAMP <date with timestamp>
 
 #Query Hints
-  /*+ ALL_ROWS */
-  /*+ FIRST_ROWS */
-  /*+ FULL(table) */
-  /*+ INDEX(table index) */
-  /*+ NO_INDEX(table index) */
+  * + ALL_ROWS
+  * + FIRST_ROWS
+  * + FULL(table)
+  * + INDEX(table index)
+  * + NO_INDEX(table index)
 
 V$SYSSTATS
 
-Syntax
+#Syntax
 
   create view v as select * from dual;
   INSERT INTO departments   VALUES (280, 'ENTERTAINMENT_CLERK', 206, 1700);
