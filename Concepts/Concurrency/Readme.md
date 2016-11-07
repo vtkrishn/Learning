@@ -67,3 +67,22 @@ https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/packag
 #Reentrant Lock
 
 #Read Write Locking
+
+#countdown latch
+
+#producer consumer
+
+#Atomic Variables
+
+#Barrier
+
+#Volatile
+
+#Fairness Policy
+
+#Guarded Blocking
+
+
+#Executors
+
+#Timers
