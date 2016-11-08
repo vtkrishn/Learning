@@ -22,6 +22,53 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 * eg. Two threads trying the increment and decrement simultaneosly resulting in a race condition
 * This will happen inside the critical section
 * multiple thread share the same resources, safe to read but write will be a problem
+* you can add a synchronized keyword or lock or use Atomic variables
+* use AtomicInteger - compareAndSet(), compareAndSwap()
+    while(true){
+      int current = get();
+      int next = current + 1;
+      if(compare(current,next))
+        return next;
+    }
+
+#Critical Section
+* increment or decrement code is the critical section
+* All local variables are thread safe
+* All local reference are shared and stored as objects in shared heap
+
+#synchronized
+* block can be for method synchronized void add()
+* inside a method synchronized(this)
+* for static method synchronized static void add()
+
+#Volatile
+* Thread reads from cpu cache memory and not form main memory
+* volatile keywork make sure that the thread always reads from the main memory
+* Visiblity problem - Thread not seeing the latest value
+
+#Thread Local
+* Create variables that can be read and written only by the same thread
+* usage initialValue(), get(), set()
+* InheritableThreadLocal allows access for all threads and its child
+private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
+    @Override protected String initialValue() {
+        return "This is the initial value";
+    }
+};
+
+#Missed Signal
+* sometime the notify may be missed by the thread
+
+#spurious wakeups
+* sometime thread wakes up without the notify from other thread
+
+#Busy wait
+* thread waits for other thread to signal to proceed
+* CPU utilization is high on wait
+
+#Thread Signalling
+* signalling between thread with some shared variable as signal flag
+* wait(), notify(), notifyAll()
 
 #Contention
 * Two or more thread uses the shared resources simultaneosly which causes the jvm to run slowly
@@ -30,6 +77,11 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 ##Starvation
 * priority thread keeps acquiring the lock and low priority keeps on waiting and unable to progress
 * greedy threads takes access to shared Resources
+* all threads waiting to enter the sync block simultaneously
+
+#Fairness
+* use locks instead of Synchronization ie. guard critical section using locks
+* Fair Lock
 
 ##Liveness
 * Concurrent application should execute in a timely manner
@@ -38,10 +90,19 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 
 ###Deadlock
 * one thread is waiting for the other thread to release the lock and keep waiting forever
+* Database deadlock - waiting for the transaction to complete - SQL UPDATE dependant on another UPDATE
+* Deadlock prevention
+  * lock ordering
+  * lock timeout
+  * deadlock detection
 
 ###Livelock
 * both the threads responding to the action of the other threads
 * too busy responding to others than resuming the work assigned
+
+#SpinLock
+* wait call within while loop is called spin lock
+* while(isLocked)
 
 #response time
 
@@ -60,7 +121,7 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 
 #Thread Pool
 
-#Thread Local
+
 
 #Non Blocking Data structures
 
@@ -79,9 +140,9 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 #Preemptive
 #Non Preemptive
 
-#SpinLock
 
-#Critical Section
+
+
 
 #Conpare and Swap
 
@@ -100,10 +161,6 @@ http://tutorials.jenkov.com/java-concurrency/index.html
 #Atomic Variables
 
 #Barrier
-
-#Volatile
-
-#Fairness Policy
 
 #Guarded Blocking
 

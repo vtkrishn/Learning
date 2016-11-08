@@ -4,21 +4,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Counter {
     AtomicInteger value = new AtomicInteger();
+    //volatile int value;
     public Counter() {
         super();
     }
 
-    void increment(){
+    synchronized void add(){
         value.incrementAndGet();
-        System.out.println(value);
-    }
-
-    void decrement(){
-        value.decrementAndGet();
+        //value++;
         System.out.println(value);
     }
 
 }
+
 ---------------------------
 package com.vinod.concurrency;
 
