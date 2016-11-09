@@ -27,4 +27,23 @@ public class YourClassNameHere {
 
 	      System.out.println(str.toString());
 	    }
+
+--------------
+
+int[] ch = new int[26];
+      for(int i=0;i<s1.length();i++){
+         int x = s1.charAt(i);
+         ch[x-97]++;
+      }
+
+      for(int i=0;i<26;i++){
+       if(ch[i]>0){
+         int c = 97+i;
+         str.append((char)c);
+         str.append(ch[i]);
+       }
+      }
+       
+
+
 	}
