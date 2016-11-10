@@ -95,6 +95,14 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
   * lock ordering
   * lock timeout
   * deadlock detection
+  * lock free and wait free algorithm
+  * optimistic concurrency Control
+
+#Deadlock conditions
+* mutual exclusive - this should occur and only one thread is allowed at any given timeout
+* No preemption - there should not be a case of preemtion based on priority
+* Hold and wait - process should hold one resource and waiting for other resource
+* curcular wait -
 
 ###Livelock
 * both the threads responding to the action of the other threads
@@ -105,10 +113,25 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
 * while(isLocked)
 
 #response time
+total time taken for the request or service to complete
+
+#Latency
+round trip delay in network Latency
+* Network Latency
+* mechanical letency
+* operational Latency
+* hardware and softare Latency
 
 #throughput
+* maximum amount that can be sent through for processing
+* bandwidth - maximum channel capacity
 
 #ACID rule
+Atomictiy - every transaction should be atomic. maintained in
+deadlocks, db failures, cpu failures, system failures,
+Consistency - the changes or the view should be consistent across different users
+isolation - user should be isolated and involved in the concurrent transaction
+Durability - the commit should exist for later retrieval evn if power goes off etc
 
 #Locking mechanism
 
@@ -121,8 +144,6 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
 
 #Thread Pool
 
-
-
 #Non Blocking Data structures
 
 #Message passing
@@ -130,19 +151,20 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
 #Synchronization
 
 #Mutex
+wait()
+notify()
 
 #Semaphone
+release()
+signal()
 
 #priority Inversion
 
 #Context Switch
 
 #Preemptive
+
 #Non Preemptive
-
-
-
-
 
 #Conpare and Swap
 
@@ -163,7 +185,6 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
 #Barrier
 
 #Guarded Blocking
-
 
 #Executors
 

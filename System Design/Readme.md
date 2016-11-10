@@ -1,5 +1,6 @@
 Good reads
 https://github.com/checkcheckzz/system-design-interview/blob/master/README.md
+http://blog.gainlo.co
 
 #Possible Questions
 
