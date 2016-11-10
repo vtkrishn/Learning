@@ -1,5 +1,4 @@
 public class YourClassNameHere {
-	
 	    public static void main(String[] args) {
 	        isUnique("aaaabbcd");
 	        isUnique("abcd");
