@@ -6,7 +6,9 @@ public class YourClassNameHere {
 	      ll.insertLast(2);
 	      ll.insertLast(3);
 	      ll.insertLast(4);
-	      ll.insertLast(5);
+	      ll.insertFirst(5);
+
+	      ll.delete(4);
 	    }
 
 static class LinkedList{
@@ -16,6 +18,17 @@ static class LinkedList{
  LinkedList(){
    this.size=0;
  }
+
+ public void delete(int value){
+    Node dummy = head;
+    while(dummy != null){
+      if(dummy.next != null && dummy.next.data == value)
+        dummy.next = dummy.next.next;
+
+      dummy = dummy.next;
+    }
+ }
+
 
  public void insertLast(int value){
 	       Node newNode = new Node(value);
