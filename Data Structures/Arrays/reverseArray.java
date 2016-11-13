@@ -49,9 +49,11 @@ public class YourClassNameHere {
           return -1;
 
         int j = reverse3(a,i+1)+1;
+        if(j<a.length/2){
         int temp = a[i];
           a[i] = a[j];
           a[j] = temp;
+        }
         return j;
       }
   }
