@@ -45,4 +45,7 @@
 #Find Mother Vertex
 * do DFS, keep track of last finished vertex
 * then do the DFS from v
- 
+
+#Topological sort
+* do same as DFS
+* but pushiing the stack will be outside the second loop
