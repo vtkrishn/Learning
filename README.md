@@ -21,11 +21,22 @@ Networks
 Distrubuted Systems
 
 ##Advanced Search
-* Optimization
+* Optimization - for free text search
 * improving query performance
 * using index
-* hints
-* SQL tuning excercise
+* hints - query hints
+* SQL tuning excercise - look for no FTS , joins
+* using UPPER()
+* SQL profiling , rewriting the SQL
+* remove unnecessary FTS
+* if the table is small and its FTS then cache it
+* /* FIRST ROWS *
+* temporary table  - complex queries
+* use minus instead of exists (NOT in or NOT)
+* using analytical functions
+* index the null values
+* avoid not in, and havings.. use not exists
+* us nvl, decode etc
 
 ##Audit Trial
 * shadow table
