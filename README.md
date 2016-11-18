@@ -49,5 +49,19 @@ Distrubuted Systems
 #interactive MAP
 * Geo location
 * jersy code
+* google.maps.DirectionRenderer
+* google.maps.DirectionsService
+* google.maps.LatLng
+* google.maps.TravelMode
+* google.maps.InfoWindow
+* google.maps.Polyline
+* google.maps.MarkerImage
+* google.maps.MapTypeId.ROADMAP
+* google.maps.ZoomControlStyle.LARGE
+* google.maps.MapTypeControlStyle.DEFAULT
+
+directionsService.route(request,function(){
+DirectionRenderer.setMap(, setDirections() etc
+  })
 
 #Custom protocol
