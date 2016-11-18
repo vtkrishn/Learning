@@ -6,3 +6,10 @@ XML, SOAP, HTTP, messaging . web application communication
     It is not tied to any one operating system or programming language.
     It is self-describing via a common XML grammar.
     It is discoverable via a simple find mechanism.
+#Components
+SOAP, UDDI, WSDL
+#how it works
+java - exposed as a service - web application - over a network - http protocol - invoke the operation using xml soap service
+xml - data format
+soap - transfer messages
+wsdl -describes the service
