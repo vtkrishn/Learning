@@ -25,6 +25,8 @@ REpresentational State Transfer
 * Response Header - clietn agents, meta data information
 * Response Body - message
 
+API: ![class](http://restful-api-design.readthedocs.io/en/latest/_images/scope.png)
+
 #URI
 <protocol>://<service-name>/<ResourceType>/<ResourceID>
 
@@ -42,6 +44,11 @@ REpresentational State Transfer
 
 #VERBS
 GET PUT POST DELETE OPTIONS
+
+#caching
+Date Time max age expiry
+cache control
+* public private no cache max age
 
 @GET
    @Path("/users")
