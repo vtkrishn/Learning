@@ -28,21 +28,21 @@ http://blog.gainlo.co
 * Simple use case
 * Optimize on Time
 * optimize on Space
-* Considering Concurrency
-* Scaling Up
-* Load Balance
-* Partitioning
+* Considering Concurrency - race condition and deadlocks
+* Scaling out - increase performance by adding machines
+* Load Balance - task allocation - failover - DNS - delegation
+* Partitioning - database shards
 * Distribution
-* Pooling
-* Replication
-* Caching
-* Parsing
+* Pooling - all workers in a pool
+* Replication - copy content to other servers
+* Caching - local cache - global cache
+* Parsing - pars
 * Consider throughput, Response Time
 * Micro Services
 * Synchronization
-* Message Queue
+* Message Queue - request message, response
 * permissions
-* Storage
+* Storage - DB
 * Formatting
 * Ranking
 * Networking
@@ -52,7 +52,7 @@ http://blog.gainlo.co
 * Repeatability
 * Buffering
 * Query Tuning
-* Indexing
+* Indexing -for performance
 * throughput
 * Cloning
 * Latency
