@@ -20,6 +20,7 @@ uddi - universal description discovery integration
 platform dependant , language dependant
 protocol
 only xml
+SOA - Service oriented Architecture
 
 #Different services
 REST - REpresentational State Transfer
