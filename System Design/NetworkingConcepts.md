@@ -39,7 +39,7 @@ HTTP Caching
 * Graph
 * data structure
 
-Distributed caching
+#Distributed caching
 * Write through
 * write behind
 * Eviction Policy
@@ -48,8 +48,7 @@ Distributed caching
    * LIFO
    * Cache invalidation
 
-
-Shared State Concurrency
+#Shared State Concurrency
 * ConcurrentHashMap
 * BlockingQueue
 * ReentrantLock
@@ -58,14 +57,14 @@ Shared State Concurrency
 * ConcurrentQueue
 * ExecutorService
 
-Messaging
+#Messaging
 * Publish Subscribe
 * Point to Point
 * Store Forward
 * Request Reply
 
-MapReduce
-Splitting
-Mapping
-Shuffling
-reduce
+#MapReduce
+* Splitting
+* Mapping
+* Shuffling
+* reduce

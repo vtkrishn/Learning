@@ -43,7 +43,6 @@ Distrubuted Systems
 
 ##Tag clouds
 * Tag data access
-*  
 
 #pickup scheduling Algorithm
 

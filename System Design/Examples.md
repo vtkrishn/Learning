@@ -21,79 +21,79 @@
 * Execution Orchestrator
 
 #Trending Topic
-based on Hashtags
-Ranking
-Window
-Oldest - Latest slots
-Map
-Circular Linked List
-Max Heap
+* based on Hashtags
+* Ranking
+* Window
+* Oldest - Latest slots
+* Map
+* Circular Linked List
+* Max Heap
 
 #Facebook Chat Function
-Client
-Web Tier
-Chat Logger
-Online/Offline presence - Service
-Channel
+* Client
+* Web Tier
+* Chat Logger
+* Online/Offline presence - Service
+* Channel
 
 #Web Crawler
-Page Processor
-Page Indexer
-Page Storage
+* Page Processor
+* Page Indexer
+* Page Storage
 
 #Garbage Collection
-Mark and sweep
-Reference counting
-post order traversal
-topological sort
+* Mark and sweep
+* Reference counting
+* post order traversal
+* topological sort
 
 #Distributed Content Delivery Network
 
 #Google docs
-User
-page
-buffer
-request Queue
+* User
+* page
+* buffer
+* request Queue
 
 #RandomId generator
-clock synchronization
-timestamp
-date
-multiple server - id consolidation
-radio frequency - generator
+* clock synchronization
+* timestamp
+* date
+* multiple server - id consolidation
+* radio frequency - generator
 
 #Cache System
-frequenctly used in Hash table
-compress the data
-frequent in memory - less frequent in disk
+* frequenctly used in Hash table
+* compress the data
+* frequent in memory - less frequent in disk
 
 #Tiny URL
-hash Function based on the ascii value
-data base sharding
+* hash Function based on the ascii value
+* data base sharding
 
 #Recommendation System
-user interest
-geography
-recent watch
-user past activity
-knowledge model
+* user interest
+* geography
+* recent watch
+* user past activity
+* knowledge model
 
 #Google Search
-indexing all the pages
-web Crawler
+* indexing all the pages
+* web Crawler
 
 #youtube
-Indexing
-Storage
-sharding
-cache
+* Indexing
+* Storage
+* sharding
+* cache
 
 #Hit counter
-timestamp - ordering for 1 minute
-concurency issue
+* timestamp - ordering for 1 minute
+* concurency issue
 
 #News Feed
-based on users friends
-based on interest
-based on subscriptions
-Ranking
+* based on users friends
+* based on interest
+* based on subscriptions
+* Ranking
