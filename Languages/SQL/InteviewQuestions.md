@@ -1,5 +1,5 @@
 https://www.google.com/#q=sql+interview+questions
-
+https://en.wikibooks.org/wiki/SQL_Exercises
 
 * SELECT count(emp.EMPLOYEE_ID) cnt,
 * mgr.EMPLOYEE_ID,
