@@ -28,7 +28,7 @@ public class ride {
 
     //init product values
   	int product1=1;
-  	int product1=1;
+  	int product2=1;
 
     //for each characters in the string multiply with the corresponding position
     //input will be all UPPER CASE - so start from (65-1) to assign position a=1, b=2 otherwise it will be like a=0,b=1

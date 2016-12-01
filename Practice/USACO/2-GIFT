@@ -1,4 +1,13 @@
-public class YourClassNameHere {
+http://train.usaco.org/usacoprob2?a=iJ0r7MLJ6j4&S=gift1
+/*
+ID: vin.sin1
+LANG: JAVA
+PROG: gift1
+*/
+import java.io.*;
+import java.util.*;
+
+public class gift1 {
 
   static class Friend{
 
@@ -22,10 +31,7 @@ public class YourClassNameHere {
 		this.givers = values;
 	}
 
-	public void compute(java.util.LinkedHashMap<String,Friend> names){
-	   int split = giftCount != 0 ? availableMoney / giftCount : availableMoney;
-	   int remaining = giftCount != 0 ? availableMoney % giftCount : availableMoney;
-	   setAvailableMoney(remaining-availableMoney);
+	public void compute(java.util.LinkedHashMap<String,Friend> names,int split){
 	   for(int i=0;i<giftCount;i++){
 	     Friend f = names.get(givers[i]);
 	      f.setAvailableMoney(f.availableMoney + split);
@@ -35,12 +41,15 @@ public class YourClassNameHere {
 
 }
 
-	    public static void main(String[] args) {
+	public static void main(String[] args) throws IOException,FileNotFoundException{
 
+  // Use BufferedReader rather than RandomAccessFile; it's much faster
+  BufferedReader f = new BufferedReader(new FileReader("gift1.in"));
+    // input file name goes above
+  PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("gift1.out")));
 
-	java.util.StringTokenizer st = new java.util.StringTokenizer(
-	 "5" + "\ndave" + "\nlaura" + "\nowen" + "\nvick" + "\namr" + "\ndave" + "\n" + "\n200 3" + "\nlaura" + "\nowen" + "\nvick" + "\nowen" + "\n500 1" + "\ndave" + "\namr" + "\n150 2" + "\nvick" + "\nowen" + "\nlaura" + "\n0 2" + "\namr" + "\nvick" + "\nvick" + "\n0 0");
-  //if there are more elements
+	// Use StringTokenizer vs. readLine/split -- lots faster
+  StringTokenizer st = new StringTokenizer(f.readLine());
   //no of friends
   int NP = Integer.parseInt((String)st.nextElement());
   //name of each of the friends
@@ -57,35 +66,49 @@ public class YourClassNameHere {
   	  //get the name
   	  String name = st.nextToken();
   	  //get the money
-  	  int availableMoney = Integer.parseInt((String)st.nextElement());
+  	  int money = Integer.parseInt((String)st.nextElement());
   	  //get the count
   	  int giftCount = Integer.parseInt((String)st.nextElement());
 
   	  String[] givers = new String[giftCount];
+
   	  //get the givers name
-  	  for(int i=0;i<giftCount;i++){
-  		  givers[i] = st.nextToken();
-  	  }
-  	  //for each of the friends assign the values
-  	  Friend friend = names.get(name);
-  	  friend.compute(names);
+  	  if(giftCount > 0){
+    	  for(int i=0;i<giftCount;i++){
+    		  givers[i] = st.nextToken();
+    	  }
+    	  //for each of the friends assign the values
+    	  Friend friend = names.get(name);
 
-  	  availableMoney = friend.availableMoney == 0 ? availableMoney : friend.availableMoney - availableMoney;
-  	  friend.setAvailableMoney(availableMoney);
-  	  friend.setGiftCount(giftCount);
-  	  friend.setGivers(givers);
+    	  //set the available money
+    	  if(friend.availableMoney == 0){
+    	    friend.setAvailableMoney(money);
+    	  }
+    	  else{
+    	    //if availanble money is already set
+    	    friend.setAvailableMoney(friend.availableMoney-money);
+    	  }
+    	  //set the giftCount and the givers
+    	  friend.setGiftCount(giftCount);
+    	  friend.setGivers(givers);
 
+        int split = giftCount != 0 ? money / giftCount : money;
+	      int remaining = giftCount != 0 ? money % giftCount : money;
+	      if(money == friend.availableMoney)
+	      friend.setAvailableMoney(remaining-friend.availableMoney);
+
+    	  friend.compute(names,split);
+    }
   }
 
-  // for (String key : names.keySet()) {
-  // Friend friend = names.get(key);
-  // int split = friend.giftCount != 0 ? friend.availableMoney / friend.giftCount : friend.availableMoney;
-	 //  int remaining = friend.giftCount != 0 ? friend.availableMoney % friend.giftCount : friend.availableMoney;
-	 //  friend.setAvailableMoney(remaining-friend.availableMoney);
-	 //  for(int i=0;i<friend.giftCount;i++){
-	 //    Friend f = names.get(friend.givers[i]);
-	 //     f.setAvailableMoney(f.availableMoney + split);
-	 //  }
-  // }
+  //print the values
+  printMap(names);
+  out.close();  // close the output file
 }
-	}
+
+public static void printMap(java.util.Map<String,Friend> names){
+  for (java.util.Map.Entry<String, Friend> entry : names.entrySet())
+      System.out.println(entry.getKey() + "/" + entry.getValue().availableMoney);
+}
+
+}
