@@ -22,10 +22,14 @@ public class YourClassNameHere {
 		this.givers = values;
 	}
 
-	public void compute(){
-	   int split = availableMoney / giftCount;
-	   int remaining = availableMoney % giftCount;
-	   setAvailableMoney(remaining);
+	public void compute(java.util.LinkedHashMap<String,Friend> names){
+	   int split = giftCount != 0 ? availableMoney / giftCount : availableMoney;
+	   int remaining = giftCount != 0 ? availableMoney % giftCount : availableMoney;
+	   setAvailableMoney(remaining-availableMoney);
+	   for(int i=0;i<giftCount;i++){
+	     Friend f = names.get(givers[i]);
+	      f.setAvailableMoney(f.availableMoney + split);
+	   }
 
 	}
 
@@ -49,6 +53,7 @@ public class YourClassNameHere {
 
   //if there are more elements
   while(st.hasMoreElements()){
+
   	  //get the name
   	  String name = st.nextToken();
   	  //get the money
@@ -63,21 +68,24 @@ public class YourClassNameHere {
   	  }
   	  //for each of the friends assign the values
   	  Friend friend = names.get(name);
+  	  friend.compute(names);
+
+  	  availableMoney = friend.availableMoney == 0 ? availableMoney : friend.availableMoney - availableMoney;
   	  friend.setAvailableMoney(availableMoney);
   	  friend.setGiftCount(giftCount);
   	  friend.setGivers(givers);
 
   }
 
-  for (String key : names.keySet()) {
-  Friend friend = names.get(key);
-  int split = friend.giftCount != 0 ? friend.availableMoney / friend.giftCount : friend.availableMoney;
-	   int remaining = friend.giftCount != 0 ? friend.availableMoney % friend.giftCount : friend.availableMoney;
-	   friend.setAvailableMoney(remaining-friend.availableMoney);
-	   for(int i=0;i<friend.giftCount;i++){
-	     Friend f = names.get(friend.givers[i]);
-	      f.setAvailableMoney(f.availableMoney + split);
-	   }
-  }
+  // for (String key : names.keySet()) {
+  // Friend friend = names.get(key);
+  // int split = friend.giftCount != 0 ? friend.availableMoney / friend.giftCount : friend.availableMoney;
+	 //  int remaining = friend.giftCount != 0 ? friend.availableMoney % friend.giftCount : friend.availableMoney;
+	 //  friend.setAvailableMoney(remaining-friend.availableMoney);
+	 //  for(int i=0;i<friend.giftCount;i++){
+	 //    Friend f = names.get(friend.givers[i]);
+	 //     f.setAvailableMoney(f.availableMoney + split);
+	 //  }
+  // }
 }
 	}
