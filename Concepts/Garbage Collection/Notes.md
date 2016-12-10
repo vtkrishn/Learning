@@ -93,7 +93,6 @@ finalize() method - no guarantee when GC happens, but all closing statements goe
 -XX:PermSize -perm gen
 -XX:MaxPermSize - max perm size (64 MB)
 
-
 How to print GC
 -XX:PrintGCDetails
 -verbose:gc
