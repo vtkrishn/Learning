@@ -102,3 +102,26 @@ How to print GC
 jvisualvm
 JHAT - Java Heap Analyzer Tool
 Jrockit
+http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf
+
+c:\Users\vtkrishn.ORADEV\Desktop>java -Dcom.sun.management.jmxremote.port=3333 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Xms1m -Xmx14m test
+
+c:\Users\vtkrishn.ORADEV\Desktop>java -Dcom.sun.management.jmxremote.port=3333 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Xms1m -Xmx3m -XX:+PrintGC test
+[GC (Allocation Failure)  512K->408K(1536K), 0.0017038 secs]
+[GC (Allocation Failure)  920K->576K(1536K), 0.0017612 secs]
+[GC (Allocation Failure)  1088K->728K(1536K), 0.0019512 secs]
+[GC (Allocation Failure)  1240K->904K(1536K), 0.0018695 secs]
+[Full GC (Ergonomics)  904K->825K(3072K), 0.0106195 secs]
+[GC (Allocation Failure)  1337K->1129K(3072K), 0.0023680 secs]
+Performing GC
+Performing GC[GC (Allocation Failure)  1641K->1665K(3072K), 0.0034392 secs]
+
+Performing GC[GC (Allocation Failure)  2177K->2198K(3072K), 0.0036665 secs]
+[Full GC (Ergonomics)  2198K->2117K(3584K), 0.0364177 secs]
+
+c:\Users\vtkrishn.ORADEV\Desktop>java -Dcom.sun.management.jmxremote.port=3333 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Xms1m -Xmx3m -XX:+PrintGCDetails test
+[GC (Allocation Failure) [PSYoungGen: 512K->400K(1024K)] 512K->408K(1536K), 0.0025834 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+[GC (Allocation Failure) [PSYoungGen: 912K->512K(1024K)] 920K->568K(1536K), 0.0025354 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+[GC (Allocation Failure) [PSYoungGen: 1024K->512K(1024K)] 1080K->736K(1536K), 0.0029276 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+[GC (Allocation Failure) [PSYoungGen: 1024K->512K(1024K)] 1248K->904K(1536K), 0.0028784 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+[Full GC (Ergonomics) [PSYoungGen: 512K->501K(1024K)] [ParOldGen: 392K->324K(2048K)] 904K->825K(3072K), [Metaspace: 5346K->5346K(1056768K)], 0.0139627 secs] [Times: user=0.00 sys=0.00, real=0.01 secs]
