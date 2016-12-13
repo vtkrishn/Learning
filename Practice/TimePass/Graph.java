@@ -122,6 +122,5 @@ public class YourClassNameHere {
 		edgeList.add(edge1);
 		edgeList.add(edge2);
 		}
-
 	}
 }
