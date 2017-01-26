@@ -1,0 +1,39 @@
+#title {
+  color : #1f5c98;
+  font-family: Verdana, Arial, Sans-Serif;
+	font-size: 17px;
+}
+#pushtext{
+  width: 20px;
+  color : #1f5c98;
+  font-family: Verdana, Arial, Sans-Serif;
+  font-size: 12px;
+}
+#push{
+  font-family: Verdana, Arial, Sans-Serif;
+	font-size: 12px;
+}
+
+#pop{
+  font-family: Verdana, Arial, Sans-Serif;
+	font-size: 12px;
+}
+
+#topText{
+  color : #1f5c98;
+  font-family: Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+}
+#top{
+  width: 20px;
+  background-color :  #efeded;
+}
+#spacer{
+  width=1px;;
+  height: 200px;
+}
+#stack{
+  width: 25px;
+  height: 1px;
+  border: 1px solid #000000;
+}
