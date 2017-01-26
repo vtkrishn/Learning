@@ -1,0 +1,62 @@
+<!DOCTYPE HTML5>
+<html>
+<head><title="DragAndDropDemo">
+<link rel="stylesheet" href="stylesheet.css">
+<script>
+// function Stack{
+//   this.stack = new Array();
+//
+//   this.pop = function(){
+//     return this.stack.pop();
+//   }
+//
+//   this.push = function(value){
+//     this.stack.push(value);
+//   }
+//
+//   this.peek = function peek(){
+//     return this.stack[this.stack.length - 1];
+//   }
+//
+// }
+function pushClick() {
+  //var stack=new Stack();
+  var pushValue = document.getElementById("pushtext");
+  //stack.push(pushValue.value);
+  var stackElement = document.getElementById("stack");
+  var iDiv = document.createElement('div');
+  if(document.getElementById("1") == null)
+    iDiv.id = '1';
+  else
+      iDiv.id = iDiv.id + 1;
+  iDiv.innerHTML=pushValue.value;
+  stackElement.appendChild(iDiv);
+}
+
+function popClick() {
+  //var stack=new Stack();
+  var iDiv = document.getElementById('div');
+  //stack.push(pushValue.value);
+  var stackElement = document.getElementById("stack");
+  iDiv.innerHTML=pushValue.value;
+  stackElement.appendChild(iDiv);
+}
+
+</script>
+</head>
+<body>
+  <h3 id="title">Stack Demo</h3>
+  <input type="text" id="pushtext">
+  <div id="button">
+    <div id="push" onclick="pushClick();"> Push</div>
+    <div id="pop"  onclick="popClick();">Pop</div>
+    <input type="text" id="top" readonly/> <span id="topText">Top Element</span>
+  </div>
+  <div id="spacer"></div>
+  <div id="stack">
+
+  </div>
+</body>
+
+
+</html>
