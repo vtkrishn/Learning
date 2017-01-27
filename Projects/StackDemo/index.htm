@@ -3,58 +3,91 @@
 <head><title="DragAndDropDemo">
 <link rel="stylesheet" href="stylesheet.css">
 <script>
-// function Stack{
-//   this.stack = new Array();
-//
-//   this.pop = function(){
-//     return this.stack.pop();
-//   }
-//
-//   this.push = function(value){
-//     this.stack.push(value);
-//   }
-//
-//   this.peek = function peek(){
-//     return this.stack[this.stack.length - 1];
-//   }
-//
-// }
 function pushClick() {
-  //var stack=new Stack();
   var pushValue = document.getElementById("pushtext");
-  //stack.push(pushValue.value);
-  var stackElement = document.getElementById("stack");
-  var iDiv = document.createElement('div');
-  if(document.getElementById("1") == null)
-    iDiv.id = '1';
-  else
-      iDiv.id = iDiv.id + 1;
-  iDiv.innerHTML=pushValue.value;
-  stackElement.appendChild(iDiv);
+    if(!isEmpty(pushValue.value)){
+        var stackElement = document.getElementById("stack");
+        var iDiv = document.createElement('div');
+        if(stackElement.children.length == 0)
+          iDiv.id = 'child1';
+        else
+            iDiv.id = 'child'+(stackElement.children.length + 1);
+        iDiv.innerHTML=pushValue.value;
+        pushValue.value = null;
+        if(stackElement.children.length == 0){
+          stackElement.appendChild(iDiv);
+         }
+        else{
+          var firstChild = document.getElementById('child'+(stackElement.children.length - 1));
+          stackElement.insertBefore(iDiv,stackElement.childNodes[0]);
+        }
+        var top = document.getElementById('top');
+        top.value = document.getElementById('child'+stackElement.children.length).innerHTML;
+
+        stackElement.style.height = (10 * 2 * stackElement.children.length) + 'px';
+        //alert(isEmpty(stackElement.style.marginTop));
+        stackElement.style.marginTop =  isEmpty(stackElement.style.marginTop) ? '-20px' : (parseInt(stackElement.style.marginTop) - (10 * 2)) + 'px';
+
+        var sizeValue = document.getElementById("sizeText");
+        sizeValue.innerHTML= 'Size : ' + stackElement.children.length;
+    }
+}
+
+function isEmpty(obj) {
+   for (var x in obj) { return false; }
+   return true;
 }
 
 function popClick() {
-  //var stack=new Stack();
   var iDiv = document.getElementById('div');
-  //stack.push(pushValue.value);
   var stackElement = document.getElementById("stack");
-  iDiv.innerHTML=pushValue.value;
-  stackElement.appendChild(iDiv);
-}
+  stackElement.removeChild(document.getElementById('child'+stackElement.children.length));
+  stackElement.style.height = (parseInt(stackElement.style.height) - 10 * 2) + 'px';
+  stackElement.style.marginTop =  isEmpty(stackElement.style.marginTop) ? '-20px' : (parseInt(stackElement.style.marginTop) + (10 * 2)) + 'px';
 
+  var sizeValue = document.getElementById("sizeText");
+  sizeValue.innerHTML= 'Size : ' + stackElement.children.length;
+
+  var top = document.getElementById('top');
+  if(stackElement.children.length != 0)
+  	top.value = document.getElementById('child'+stackElement.children.length).innerHTML;
+  else
+  	top.value = null;
+}
 </script>
 </head>
 <body>
   <h3 id="title">Stack Demo</h3>
+  <span id="sizeText"> Size : 0</span> <br/>
+  <input type="text" id="top" readonly/> <span id="topText">Top Element</span><br/>
   <input type="text" id="pushtext">
-  <div id="button">
     <div id="push" onclick="pushClick();"> Push</div>
     <div id="pop"  onclick="popClick();">Pop</div>
-    <input type="text" id="top" readonly/> <span id="topText">Top Element</span>
-  </div>
-  <div id="spacer"></div>
-  <div id="stack">
+  <div id="spacer">
+  <pre id="stackText">
+function Stack(){
+this.elements = [];
+};
 
+Stack.prototype.push = function(element){
+this.data.push(element);
+}
+
+Stack.prototype.pop = function(){
+this.data.pop();
+}
+
+Stack.prototype.isEmpty = function(){
+return this.data.length == 0;
+}
+
+Stack.protptype.top = function(){
+var length = this.data.length;
+return data[length-1];
+}
+  </pre>
+  </div>
+  <div id="stack" class="stackParent">
   </div>
 </body>
 

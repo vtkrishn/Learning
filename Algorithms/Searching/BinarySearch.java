@@ -21,7 +21,7 @@ public class BinarySearch {
       //every recursion is reduced to two levels - O(log n)
 	    public static int binarySearch(int[] a,int n,int low, int high){
         //find the mid element
-        int mid = low + (high-low)/2; // or mid + low >>> 1;
+        int mid = low + (high-low)/2; // or (low + high) >>> 1;
 
         //if mid element is equal then return the mid element
 	      if(a[mid] == n)

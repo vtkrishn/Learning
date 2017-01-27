@@ -15,16 +15,20 @@
   font-family: Verdana, Arial, Sans-Serif;
   font-size: 12px;
   width: 40px;
-  background-color: #d1cece;
+  background-color: #91c8ff;
   border: 1px solid #bfbfbe;
+   text-align: center;
+  display: inline;
 }
 
 #pop {
   font-family: Verdana, Arial, Sans-Serif;
   font-size: 12px;
   width: 40px;
-  background-color: #d1cece;
+  background-color: #91c8ff;
   border: 1px solid #bfbfbe;
+   text-align: center;
+  display: inline;
 }
 
 #button {
@@ -36,6 +40,8 @@
   color: #1f5c98;
   font-family: Verdana, Arial, Sans-Serif;
   font-size: 13px;
+  text-align: center;
+  display: inline;
 }
 
 #top {
@@ -43,15 +49,38 @@
   background-color: #efeded;
 }
 
+#sizeText {
+  color: #1f5c98;
+  font-family: Verdana, Arial, Sans-Serif;
+  font-size: 15px;
+}
+
 #spacer {
-  width=1px;
-  ;
-  height: 200px;
+  width=1px;  ;
+  height: 300px;
   background-color: #ffffff;
 }
 
+#stackText{
+    font-family: Verdana, Arial, Sans-Serif;
+    font-size: 11px;
+    color: #1f5c98;
+}
+
 #stack {
-  width: 25px;
+  width: 30px;
   height: 1px;
+  border: 1px solid #bfbfbe;
+  margin-left : 350px;
+}
+
+.stackParent *{
+  border: 1px solid #bfbfbe;
+  font-family: Verdana, Arial, Sans-Serif;
+  font-size: 13px;
+   text-align: center;
+}
+
+#stackBase{
   border: 1px solid #000000;
 }
