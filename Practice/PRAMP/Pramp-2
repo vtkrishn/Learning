@@ -1,0 +1,117 @@
+The "Array of Array Products" Problem
+
+Given an array of integers arr, write a function that returns another array at the same length where the value at each index i is the product of all array values except arr[i].
+
+Solve without using division and analyze the runtime and space complexity
+
+Example: given the array [2, 7, 3, 4]
+your function would return: [84, 24, 56, 42] (by calculating: [7*3*4, 2*3*4, 2*7*4, 2*7*3])
+
+
+class Pramp {
+   public static void main(String[] args) {
+      int[] arr = {3,2,5,7};   // [70, 105, 42, 30]
+      findProduct(arr);
+   }
+
+   public static int[] findProduct(int[] arr){
+      String str="";
+      str.length();
+
+      int[] dp = new int[arr.length];
+      int[] dpRight = new int[arr.length];
+      dp[0] = 1;
+      dpRight[0] = 1;
+
+      // left products
+      for(int i=1;i<arr.length;i++){
+         dp[i] = arr[i] * dp[i-1];
+      }
+      // dp? , arr={3,2,5,7}
+      // 1,3,6,30  => 1, 3, 3*2, 3*2*5
+      //           => 2*5*7, 3*5*7, 3*2*7, 3*2*5
+
+      for(int i=arr.length-1;i>0;i--){
+         dpRight[i-1] = dpRight[i] * arr[i];
+      }
+
+      return
+   }
+}
+
+/**
+  [3,2,5,7] => [70, 105, 42, 30]
+**/
+
+
+
+function pramp() {
+   console.log("Practice Makes Perfect");
+}
+
+pramp();
+//arr [a,b,c,s] = wewertabscfcfgggabacsdd  => bacs, absc
+//arr [a,b,c,s] = wewertabsdfcfgggabcsdd   => abcs
+
+//weeabcaksfgfggabcs arr=[a,b,c,s] => abcaks
+//   visitedCount = 4 (not in substr but in arr)
+//   visitedCount == arr.length then all char found and return substr
+
+// substr = "abcaks"
+
+// substrs = [];
+// min(substrs);
+
+// exists in the array
+// found in the substring
+// checked in the array  , substring = char(i+1)
+
+// substring.length == array.length
+
+
+
+
+// weeabcaksfgfggabcs  arr=[a,b,c,s] => abcs
+function findSmallestSub(str, arr) {
+   substrings = [];
+   getSmallestString(arr, str, substrings);
+
+   return getMinSubString(substrings);
+};
+
+// weeabcaksfgfggabcs  arr=[a,b,c,s] => abcs
+// substr = 'abcs'
+// visitedCount = 4
+// substrings = ["abcaks", "abcs"]
+function getSmallestString(arr, str, substrings) {
+   var substr = '';
+   var visitedCount = 0;
+   for (var i=0; i<str.length; i++) {
+      if (!isInSubString(substr, str[i]) && (checkIfInArray(arr, str[i]))) {
+         visitedCount++;
+         substr += str[i];
+      } else if (substr.lenght > 0) {
+         substr += str[i];
+      }
+
+      if (arr.length === visitedCount) {
+         substrings.push(substr);
+         substr = '';
+         visitedCount=0;
+      }
+   }
+}
+
+
+function getMinSubString(substrings){}
+/**
+   exists in substring already
+**/
+function isInSubstring(str,c){
+   return str.indexOf(c) !== -1;
+}
+/**
+   exists in the array , O(1)
+   true/false
+**/
+function checkIfInArray() {}
