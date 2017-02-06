@@ -13,9 +13,9 @@ public class Pramp {
       //count = 3;
 
       while(end < s.length()) {//start -> end
-         if(map[s.charAt(end)] > 0){
+         if(map[s.charAt(end)] > 0)
             count--;
-         }
+
          map[s.charAt(end)]--;
          while(count == 0) {
             if(end - start + 1 < minLen) {
