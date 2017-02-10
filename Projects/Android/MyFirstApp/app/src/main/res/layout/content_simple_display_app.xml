@@ -13,8 +13,11 @@
     tools:context="com.example.vtkrishn.myfirstapp.simple_display_app"
     tools:showIn="@layout/activity_simple_display_app">
 
-    <TextView
+    <Button
+        android:text="@string/submit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
