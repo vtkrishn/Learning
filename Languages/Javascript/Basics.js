@@ -6,6 +6,14 @@ var para = document.createElement('p');
  document.body.appendChild(para);
 
  document.innerHTML = 'one two';
+
+ var div = document.createElement('div');
+div.innerHTML = 'vinod';
+document.body.appendChild(div);
+div.addEventListener('click',function(){
+alert('Hi');
+});
+
 -----------------------------
 <h1>d</h1>
 will change to
@@ -85,6 +93,12 @@ alert(human.wife.name);
 ------
 Math
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+Math.floor(Math.random() * 100) + 1;
+alert(Math.ceil(1.6)) // 2
+undefined
+alert(Math.floor(1.4))//1
+
 Integer , float, double
 arithmetic expression
 operator precedence
