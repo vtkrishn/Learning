@@ -160,3 +160,15 @@ alert(m[0]);
 
 shift() - //removes the first element and returns the elemnt, undefined if its empty
 unshift() - //adds a value to the first of the array
+-------------------
+How to check if the value is empty
+function isEmpty(obj) {
+   for (var x in obj) { return false; }
+   return true;
+}
+or
+if(input.value == '')
+  return;
+-------------
+Conditonal Statements
+If, else, Switch, case   
