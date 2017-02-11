@@ -1,5 +1,19 @@
 var myHeading = document.querySelector('h1');
 myHeading.textContent = 'vinod';
+
+var para = document.createElement('p');
+ para.textContent = 'You clicked the button!';
+ document.body.appendChild(para);
+
+ document.innerHTML = 'one two';
+
+ var div = document.createElement('div');
+div.innerHTML = 'vinod';
+document.body.appendChild(div);
+div.addEventListener('click',function(){
+alert('Hi');
+});
+
 -----------------------------
 <h1>d</h1>
 will change to
@@ -79,6 +93,12 @@ alert(human.wife.name);
 ------
 Math
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+Math.floor(Math.random() * 100) + 1;
+alert(Math.ceil(1.6)) // 2
+undefined
+alert(Math.floor(1.4))//1
+
 Integer , float, double
 arithmetic expression
 operator precedence
@@ -115,3 +135,28 @@ charAt() - //like str[4]
 charCodeAt() -- // like str[4] but returns the ascii
 
 toLowerCase(), toUpperCase()
+--------------------
+Array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+var arr = [1,2,3,4];
+var arr2 = ['vinod',2,3,4];
+push() - //add a value , return lengthh
+pop() - //remove element, undefined if the element is empty
+
+var c = new Array();
+alert(c);
+undefined
+var c = new Array();
+alert(typeof c);
+undefined
+var m = [1,2];
+alert(typeof m);
+undefined
+var m = [1,2];
+alert(c[0]);
+undefined
+var m = [1,2];
+alert(m[0]);
+
+shift() - //removes the first element and returns the elemnt, undefined if its empty
+unshift() - //adds a value to the first of the array
