@@ -18,3 +18,33 @@ public class YourClassNameHere {
 	      }
 	    }
 	}
+---------------------------
+public class Solution{
+
+    public static void main(String[] args){
+        int arr = {1,2,3,4};
+        findProduct(arr);
+    }
+
+
+    private static int[] findProduct(int[] array){
+        int totalProduct = array[0];
+        int int[] result = new int[array.length];
+
+        for(int i = 1;i<arr.length;i++){
+            totalProduct = totalProduct * array[i];
+        }
+
+        for(int i = 0;i<arr.length;i++){
+            result[i] = totalProduct / arr[i];
+        }
+    }
+
+    return result;
+
+    //total - 24
+    //result[0] = 24/1 = 24
+    //result[1] = 24/2 = 12
+    //result[2] = 24/3 = 8
+    //result[3] = 24/4 = 6
+}
