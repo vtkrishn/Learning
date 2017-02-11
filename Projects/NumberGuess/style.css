@@ -7,6 +7,7 @@ h1{
 h3{
   font-family: Verdana, Arial, Sans-Serif;
   font-size: 15px;
+  color: #1f5c98;
 }
 pre {
   font-family: Verdana, Arial, Sans-Serif;
@@ -22,4 +23,21 @@ input {
   color: #1f5c98;
   font-family: Verdana, Arial, Sans-Serif;
   font-size: 12px;
+}
+
+#traces{
+  color: #1f5c98;
+  font-family: Verdana, Arial, Sans-Serif;
+  font-size: 12px;
+}
+
+.table *{
+  color: #1f5c98;
+  border: 1px solid #bfbfbe;
+  font-family: Verdana, Arial, Sans-Serif;
+  width:140px;
+}
+
+#tableHeader{
+   font-size: 13px;
 }
