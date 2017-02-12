@@ -26,7 +26,7 @@ Distrubuted Systems
 * using index
 * hints - query hints
 * SQL tuning excercise - look for no FTS , joins
-* using UPPER()
+* using UPPER() - function based index
 * SQL profiling , rewriting the SQL
 * remove unnecessary FTS
 * if the table is small and its FTS then cache it
