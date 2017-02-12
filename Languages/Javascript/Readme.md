@@ -4,21 +4,23 @@ http://es6-features.org
 
 
 Advanced Jargons
-Prototype
+Prototype - object
 prototype inheritance
-Hoisting
+Hoisting - var, function
 Currying
 Arity
-Closures
-Promises
+Closures - nested function scoping
+Promises - async function
 Generators
-Events
+Events -
 Mutation
 Pragma
 Sentinel
-Anonymous
+Anonymous - function
 Vanilla
-Scoping
+Scoping - global, local
 type Coercion
 Template literals
-Event Bubbling/Capturing
+Event Bubbling/Capturing - event propogation
+Array destructuring - arrays
+  

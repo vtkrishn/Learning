@@ -1,3 +1,7 @@
+var - //scope of the variable is in the function, even within the block it will be for the complete function
+let - //scope is within the block say only within if or for loop
+const - //read only Variable
+-----
 var myHeading = document.querySelector('h1');
 myHeading.textContent = 'vinod';
 
@@ -13,7 +17,13 @@ document.body.appendChild(div);
 div.addEventListener('click',function(){
 alert('Hi');
 });
-
+----
+//variable hoisting
+//varible declared anywhere will be dragged to the top, only the declaration
+//function also the same while interpretting
+-----
+parseInt()
+parseFloat()
 -----------------------------
 <h1>d</h1>
 will change to
@@ -177,3 +187,71 @@ If, else, Switch, case   - // same as java
 
 ----
 for loop, while l0op, do while // same as java
+for(var x in object) // enumeration for object
+for(var x of Array) //enumeraion for collections
+----------
+//this - will represent the current object as in java
+//because of scopes, we use it as
+var self = this;
+..
+self.age++;
+
+-----
+//build in functions
+eval()
+isNaN()
+parseFloat()
+parseInt()
+encodeURI()
+
+-----
+//destructuing
+var [one, two, three] = foo;
+
+unary operator
+delete object
+
+var x = [1,2,3]
+  delete x[1]; //x[1] = undefined;
+-----
+void - function without return
+instanceof
+
+---
+//octal representation
+//non strict - 000
+//strict - 0o13
+
+-----
+//Number.MAX_VALUE
+//Number.MAX_VALUE
+
+var Xmas95 = new Date('December 25, 1995');
+array.sort();
+-----
+//re = /ab+/
+
+//g 	Global search.
+//i 	Case-insensitive search.
+//m 	Multi-line search.
+
+//Array Assignment
+var arr = new Array(arrayLength);
+var arr = Array(arrayLength);
+var arr = [];
+arr.length = arrayLength;
+//forEach
+var arr = [1,2,3,4,5,'vinod'];
+arr.forEach(x => console.log(x));
+
+//splice() removes and replaces
+//slice() - extract section of the arrayLength
+
+//multi dimension
+var a = new Array(4);
+for (i = 0; i < 4; i++) {
+  a[i] = new Array(4);
+  for (j = 0; j < 4; j++) {
+    a[i][j] = '[' + i + ', ' + j + ']';
+  }
+}
