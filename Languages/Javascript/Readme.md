@@ -5,6 +5,7 @@ http://es6-features.org
 
 Advanced Jargons
 Prototype
+prototype inheritance
 Hoisting
 Currying
 Arity
@@ -20,3 +21,4 @@ Vanilla
 Scoping
 type Coercion
 Template literals
+Event Bubbling/Capturing

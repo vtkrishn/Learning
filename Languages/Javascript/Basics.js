@@ -135,6 +135,8 @@ charAt() - //like str[4]
 charCodeAt() -- // like str[4] but returns the ascii
 
 toLowerCase(), toUpperCase()
+replace()
+concat()
 --------------------
 Array
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
@@ -171,4 +173,7 @@ if(input.value == '')
   return;
 -------------
 Conditonal Statements
-If, else, Switch, case   
+If, else, Switch, case   - // same as java
+
+----
+for loop, while l0op, do while // same as java
