@@ -7,20 +7,21 @@ Advanced Jargons
 Prototype - object
 prototype inheritance
 Hoisting - var, function
-Currying
-Arity
-Closures - nested function scoping
+Currying - breaking the multiple function to different
+Arity - function arguments
+Closures - nested function scoping, lexical scoping
 Promises - async function
-Generators
+Generators - iterators
 Events -
-Mutation
-Pragma
-Sentinel
+Mutation - addListenr function()
+Pragma - 'use strict' - preprocessor directives
+Sentinel - indexOf, not found return -1
 Anonymous - function
-Vanilla
+Vanilla - plain without jquery
 Scoping - global, local
-type Coercion
-Template literals
+type Coercion - == and === checking for type
+Template literals - `` pre
 Event Bubbling/Capturing - event propogation
-Array destructuring - arrays
-  
+Array destructuring - array
+Arrows function - functional programming - s => s.length
+variadic - arguments function (x,y ... a)

@@ -255,3 +255,16 @@ for (i = 0; i < 4; i++) {
     a[i][j] = '[' + i + ', ' + j + ']';
   }
 }
+----
+// var str = "foo";
+ //var chars = [ ...str ]
+
+ class Shape{
+ constructor(id){
+   this.id = id;
+ }
+ move(x){
+ }
+}
+
+--------------
