@@ -1,0 +1,55 @@
+1) What is HTML 5?
+  HTML4 + XHTML1.0 + XHTML1.1
+
+2)Advantages?
+  * persistant local storage
+  * New elements <header><footer><section>
+  * Form 2.0
+  * Audio video
+  * Geo location
+  * canvas
+backward compatible
+tags not case sensitive
+tags
+    section
+    article
+    header
+    aside
+    footer
+    nav
+    dialog
+    figure
+custom attributes
+      data-
+Web form 2.0
+
+  Color.
+  Date
+  Datetime-local
+  Email
+  Time
+  Url
+  Range
+  Telephone
+  Number
+  Search
+
+<svg>
+cookies - drawbacks
+  sent through the request, sending same data over network, 4kb size, no security
+sessionStorage
+localStorage
+ServerSide events
+Geolocation
+    getCurrentPosition
+    watchPosition
+    clearPostion
+Web Workers
+<video> tag
+Datalist
+
+API suppport
+Application Cache
+  manifest - cache manifest
+  network, fallback
+browser Cache

@@ -23,3 +23,10 @@
 <samp> 	Defines computer output
 <var> 	Defines a variable
 <pre> 	Defines preformatted text
+
+HTML quirks mode
+css condinal comments
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
