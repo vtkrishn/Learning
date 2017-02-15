@@ -1,24 +1,24 @@
 https://git-scm.com/docs
 
 #Git init in a foloder
-  go to that folder (cd /scratch/vtkrishn/my_repository)
-  ##  git init
+    go to that folder (cd /scratch/vtkrishn/my_repository)
+    git init
 
 #Do some changes like add a file and then commit it
-  ##  git add .
-  ##  git add .txt
-  ##  git add LICENSE Readme.md text.java
-  ##  git mv
-  ##  git rm
+  git add .
+  git add .txt
+  git add LICENSE Readme.md text.java
+  git mv
+  git rm
 
 #get the status
   git status
 
 # Do the commit
-  ## git commit -m 'changes to the file'
+  git commit -m 'changes to the file'
 
 #Cloning an existing repository
-  ## git clone https://github.com/vtkrishn/Learning.git
+  git clone https://github.com/vtkrishn/Learning.git
 
 #Create a new branch
   ## git branch testing
