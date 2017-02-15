@@ -31,7 +31,7 @@ https://git-scm.com/docs
     git log --oneline --decorate --graph --all
 
 ## Checkout the branch
-    git checkout testing (the branch will be switched and the HEAD pointer will be moved from the master to the testing branch)
+    git checkout testing (switch back HEAD to new branch)
     git checkout master (switch back to master)
 
 ## Add local repository to the server
