@@ -1,0 +1,25 @@
+#find pattern
+find location -name <pattern> -type <file or directory> -print[0]
+find .
+find . -type [d|f|l]
+find . -name '*.txt'
+find . -iname '*.txt' - igonore case
+find . maxdepth 3
+find . -not -name ''*.txt'
+
+multiple search
+
+! to combine searches
+-o or operator
+~ - hidden files
+-perm - for permission
+-perm /u=r
+-user vtkrishn
+-group developer
+
+-mtime , -atime
+-cmin, -amin , -mmin (changes, accessed, modified)
+-size 50m
+
+-empty
+-exec [command] {} \;
