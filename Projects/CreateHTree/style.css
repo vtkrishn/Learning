@@ -1,0 +1,15 @@
+#depth, #length{
+  width:40px;
+  background-color: rgba(200,200,200,.2);
+  color : rgba(120,134,156,.9);
+  border: 1px solid #c8ccd0;
+  font-family: Calibri;
+}
+
+#htree{
+  width:120px;
+  border: 1px solid #c8ccd0;
+  border-radius: 8px;
+  font-family: Calibri;
+  color : rgba(120,134,156,.9);
+}
