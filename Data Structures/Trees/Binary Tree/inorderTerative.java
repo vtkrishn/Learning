@@ -54,3 +54,20 @@ public class TreeTraversal {
     }
 
 }
+----------------
+while(true){
+
+    while(node != null){
+        s.push(node);
+        node = node.left;
+    }
+
+    if(s.isEmpty())
+        return;
+
+    node = s.pop();
+    System.out.println(node.value);
+    node = node.right;
+}
+}
+------------------
