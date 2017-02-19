@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-    }
-
-    private void readItems(){
-        
     }
 
     public void onAddItem(View v){
