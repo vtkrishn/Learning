@@ -7,7 +7,7 @@
 	<meta name="author" content="Vinod Krishnan">
 	<meta name="keywords" content="HTML, CSS, Javascript">
 
-    <title>Todo Application</title>
+    <title>Create H Tree</title>
 
     <!-- external style links  -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,18 +15,15 @@
 
      <!-- styles  -->
      <link rel="stylesheet" href="style.css">
-
-     <script type="text/javascript">
-        var canvas = document.querySelector('.canvas');
-        var context = canvas.getContext('2d');
-        alert(canvas);
-     </script>
 </head>
 <body>
 <div>
-<h1> Todo Application </h1>
+<h1>Create H Tree</h1>
+Depth : <input type="text" id="depth" value="4">
+Length : <input type="text" id="length" value="500">
+<button type="button" id="htree" onclick="draw();">Create H Tree</button>
 </div>
-<canvas width="500" height="500" class="canvas"></canvas>
+<canvas width="1000" height="1000"></canvas>
 <!-- Footer Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
