@@ -6,10 +6,16 @@
   font-family: Calibri;
 }
 
-#htree{
-  width:120px;
+#fractal{
+  width:150px;
   border: 1px solid #c8ccd0;
   border-radius: 8px;
   font-family: Calibri;
+  color : rgba(120,134,156,.9);
+}
+
+#slider{
+  width:150px;
+  border: 1px solid #c8ccd0;
   color : rgba(120,134,156,.9);
 }
