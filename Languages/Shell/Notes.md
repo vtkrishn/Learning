@@ -19,7 +19,7 @@ chmod | change the file permission , 4 - Read, 2 - write , 1 - execute - total 7
 uname | print system information -a- all, -n - node, -m - machine, -p processor, -o os
 file | determine file type - directory, or file etc
 wc | word count -c bytes, -m - chars , -l - lines, -w - word -L max line length
-sort | sort the lines of text files -f - ignore case, -g generic sort, -r reverse -u unique - d - dictinoary order , -M  month sort , -V version sort - b - ignore blank
+sort | sort the lines of text files -f - ignore case, -g generic sort, -r reverse -u unique - d - dictinoary order , -M  month sort , -V version sort - b - ignore blank -n numeric sort
 cut | cut lines , -f field number -d - delimiter eg. echo sample.txt | cut -f1 -d'.'
 dd | convert and copy the file -  IF= input file, OF=output file, CONV= option (lcase, ucase etc) dd if=sample.txt of=out.txt conv=ucase
 man | help repository eg. man cat
@@ -44,30 +44,45 @@ uniq | unique lines -d - print duplicates , -u - print only unique lines -c - co
 tput |
 set  set something
 exec |
-sleep | 
+sleep |
+tr | translate or delete characters -d - to delete
 
 
 
 
-Advanced Commands
+#Advanced Commands
+#grep
+search for text  - n - number, -i ignore case, -c lines , -v - revrese option
 
-grep
-search for text  - n - number, -i ignore case, -c lines , -v - revese option
+#find
+find . -name 'txt' -type f -s 20M
+
+#awk
+ls -l | awk 'BEGIN {print "----begin----"} {print $1} END {print "----end----"}'
+NF - Number of fields
+NR - number of records
+OFS, IFS - Input and output field separator
+RS - Record separator
+ORS - Outpu Record separator
+FILENAME - current file name
+ARGC - number of arguments
+
+length()
+rand()
+substr()
+split()
+index()
+
+#sed
+sed s/vinod/VINOD/ sample.txt
+sed -e - Script
+-s - separate
+d - delete
 
 
-find
-
-
-awk
-
-
-sed
-
-
-Script Structure
+#Script Structure
 
 $? - to view exist status
-
 if then elif else fi
 [ ]
 check of number
