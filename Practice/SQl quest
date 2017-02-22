@@ -1,0 +1,111 @@
+// This is the text editor interface.
+// Anything you type or change here will be seen by the other person in real time.
+Niyati
+
+SELECT m.memberid as memberID, trim(p.firstname || ' ' || p.lastname) as name, trim(c.name) as householdName, m.alternateidentifier as alternateIdentifier,
+                trim(a.line1) as addressLine1, trim(a.line2) as addressLine2, trim(a.line3) as addressLine3, trim(a.city) as city, trim(a.statecv) as state, trim(a.zip) as zip, trim(m.email) as email, ph.phonenumber as phoneNumber, ph.countrycode as countryCode, ph.extension as extension, NVL(cs.coremarketvalue,0) as marketValue, c.advisorid as advisorID, c.organizationid as organizationID, c.clientid as clientID FROM
+                client c JOIN
+                member m ON m.clientid = c.clientid JOIN
+                profile p ON m.profileid = p.profileid JOIN
+                address a ON m.profileid = a.profileid AND a.sequence IN (SELECT min(sequence) FROM
+                address where profileid = a.profileid) LEFT OUTER JOIN (SELECT * FROM
+                phonenumber phnum WHERE phnum.sequence IN (SELECT MIN(sequence) FROM
+                phonenumber WHERE profileid = phnum.profileid)) ph ON m.profileid = ph.profileid
+                LEFT OUTER JOIN HOLDINGDBO.mv_clientsummary cs ON c.clientid = cs.clientid;
+
+
+                Table
+                client - clientid as PK
+                member - clientid FK, profile FK
+                profile - profile PK
+                address profileid FK, matches with m.profile id
+                phonenumber profileid FK, matches with m.profile id
+                mv_clientSummary clientid FK
+
+                Schema
+                HOLDINGDBO
+
+                ph  subquery
+
+                i am user A, i want to access table tab in schema B
+
+                select "A".* from B.tab;
+
+user 1
+01-jan
+03-jan
+
+user 2
+
+
+select u.user_id, count(user_id), b.Date from user b where b.user_id != select u.user_id from user u
+
+select LoginDate, count(user_id) from user group by LoginDate
+Date     count
+01-JAN    12
+02-JAN    14
+03-JAN    9
+select distinct user_id, LoginDate from user
+1 01-JAN
+1 03-JAN
+
+with disinctuser as(
+    select distinct user_id, LoginDate from user
+)
+select u1.LoginDate, count(u1.user_id) from user u1
+where u1.user_id != disinctuser.user_id
+group by LoginDate
+
+
+userID  LogInDate
+1       01-JAN
+2       01-JAN
+3       01-JAN
+4       01-JAN
+2       01-JAN
+2       02-JAN
+4       02-JAN
+5       02-JAN
+3       02-JAN
+6       03-JAN
+2       03-JAN
+1       03-JAN
+
+1) find the number of new users, every day
+Date    NumOfNewUsers
+01-JAN  4
+02-JAN  1
+03-JAN  1
+
+2) list the users that logged in every day for last 3 days
+
+select user_id from user where LogInDate > (sysdate-3);
+user id
+1
+2
+3
+
+employee
+EmployeeID      ManagerID
+1               2
+2               null
+3               4
+4               2
+5               4
+
+select * from employee connect by prior employeeID = managerID;
+
+select id, name from employee where id = 1;
+
+customer
+custID      name    startDate
+
+order
+orderID     custID      orderDate
+1           101         01-JAN
+
+select orderID, custID, orderDate from order where custID = :1 and orderDate >= :2;
+
+2
+1 4
+  3 5
