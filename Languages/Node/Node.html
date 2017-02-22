@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+<body>
+<div class="container">
+<h1>Node.js Tutorial</h1>
+<div class="well">Node.js = Runtime Environment + JavaScript Library</div>
+ <button class="btn btn-info" data-toggle="collapse" data-target="#pro">Advantages</button>
+ <div id="pro" class="collapse">
+ <ul class="list-group">
+  <li class="list-group-item">Asynchronous</li>
+  <li class="list-group-item">Event Driven</li>
+  <li class="list-group-item">Fast</li>
+  <li class="list-group-item">Single Threaded</li>
+  <li class="list-group-item">No Buffering</li>
+</ul>
+ </div>
+ <br/>
+<img src="http://www.tutorialspoint.com/nodejs/images/nodejs_concepts.jpg" class="img-rounded" alt="Concept">
+<br/>
+ <button class="btn btn-info" data-toggle="collapse" data-target="#demo1">Hello World Example</button>
+<div id="demo1" class="collapse">
+<pre>
+	<code>
+var http = require('http');
+<p class="text-danger">
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+</p>
+console.log('Server running at http://127.0.0.1:8124/');
+</code>
+</pre>
+</div>
+<br/>
+<button class="btn btn-info" data-toggle="collapse" data-target="#demo2">Blocking & Non Blocking Code</button>
+<div id="demo2" class="collapse">
+	<pre>
+	<code>
+var http = require('http');
+var fs = require('');
+<p class="text-danger">
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+</p>
+console.log('Server running at http://127.0.0.1:8124/');
+</code>
+</pre>
+</div>
+</div>
+</body>
+</html>
