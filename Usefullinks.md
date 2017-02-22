@@ -1,33 +1,33 @@
-System Design
+#### System Design
 
-HiredInTech
+##### HiredInTech
 
     https://www.hiredintech.com/classrooms/system-design/lesson/52
     http://www.hiredintech.com/system-design/scalability-fundamentals/
     http://www.hiredintech.com/data/uploads/hiredintech_system_design_the_twitter_problem_beta.pdf
 
-Scalability
+##### Scalability
 
     http://www.lecloud.net/post/7295452622/scalability-for-dummies-part-1-clones
     http://www.lecloud.net/post/7994751381/scalability-for-dummies-part-2-database
     http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache
     http://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism
 
-Important YouTube Video on Scalability
+##### Important YouTube Video on Scalability
 
     https://www.youtube.com/playlist?list=PLifX7FLW45Ncn-YnaBPSsVz2HYsW8mfAX
     http://cs.harvard.edu/malan/courses/
     https://en.wikipedia.org/wiki/Database_caching
 
 
-Gainlo
+##### Gainlo
 
     http://blog.gainlo.co/index.php/2016/09/12/dropbox-interview-design-hit-counter/
     http://blog.gainlo.co/index.php/category/system-design-interview-questions/
     http://blog.gainlo.co/index.php/2016/10/07/facebook-interview-longest-substring-without-repeating-characters/
     http://blog.gainlo.co/index.php/2015/10/22/8-things-you-need-to-know-before-system-design-interviews/
 
-Misc
+##### Misc
 
     https://www.quora.com/What-are-some-good-blogs-about-distributed-systems
     http://www.allthingsdistributed.com/
@@ -38,7 +38,7 @@ Misc
     http://katemats.com/distributed-systems-basics-handling-failure-fault-tolerance-and-monitoring/
     http://www.cs.utah.edu/~grudy/Building%20Scalable%20Web%20Sites.pdf
 
-High Scalability
+##### High Scalability
 
     http://highscalability.com/blog/2009/8/6/an-unorthodox-approach-to-database-design-the-coming-of-the.html
     http://highscalability.com/blog/2016/5/11/performance-and-scaling-in-enterprise-systems.html
@@ -46,8 +46,7 @@ High Scalability
     http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html
     http://highscalability.com/google-architecture
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Other Topics in System Design - Misc Links - REST/ MicroServices
+##### Other Topics in System Design - Misc Links - REST/ MicroServices
 
     https://en.wikipedia.org/wiki/Representational_state_transfer
     https://en.wikipedia.org/wiki/Message_queue
@@ -84,7 +83,7 @@ Other Topics in System Design - Misc Links - REST/ MicroServices
     https://www.udacity.com/courses/ud388
     http://blog.getpostman.com/2015/12/10/belong-keeps-its-architecture-in-order-with-postman/
 
-LinkedIn
+##### LinkedIn
 
     https://engineering.linkedin.com/open-source
     https://www.linkedin.com/pulse/design-interview-from-interviewers-perspective-joey-addona
@@ -97,7 +96,7 @@ LinkedIn
     https://github.com/linkedin/rest.li/wiki
     https://github.com/linkedin/ambry/wiki
 
-Facebook
+##### Facebook
 
     https://www.facebook.com/notes/facebook-engineering/under-the-hood-building-posts-search/10151755593228920
     https://www.facebook.com/notes/facebook-engineering/wormhole-pubsub-system-moving-data-through-space-and-time/10151504075843920
@@ -106,7 +105,7 @@ Facebook
     https://www.facebook.com/note.php?note_id=39391378919
 
 
-General Blogs
+##### General Blogs
 
     http://haseebq.com/how-to-break-into-tech-job-hunting-and-interviews/?utm_content=bufferc78f3&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer
     https://www.dataquest.io/blog/apartment-finding-slackbot/
@@ -129,7 +128,7 @@ General Blogs
     http://www.thumbtack.com/engineering/introducing-smarty/
     http://www.thumbtack.com/engineering/makefiles-for-less-and-css/
 
-Algo
+##### Algo
 
     https://www.facebook.com/tusharroy25/timeline
     https://www.youtube.com/watch?v=CE2b_-XfVDk
@@ -144,7 +143,7 @@ Algo
     https://leetcode.com/articles/recursive-approach-segment-trees-range-sum-queries-lazy-propagation/
     http://bigocheatsheet.com/
 
-Concurrency
+##### Concurrency
 
     http://dondodge.typepad.com/the_next_big_thing/2010/09/how-to-get-a-job-at-google-interview-questions-hiring-process.html
     http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
@@ -158,7 +157,7 @@ Concurrency
     http://www.javaworld.com/article/2078809/java-concurrency/java-concurrency-java-101-the-next-generation-java-concurrency-without-the-pain-part-1.html?page=4
 
 
-Algo Solution Manual
+##### Algo Solution Manual
 
     https://github.com/haoel/leetcode
     https://github.com/illuz/leetcode
@@ -178,7 +177,7 @@ Algo Solution Manual
     https://leetcode.com/submissions/1/
     https://github.com/careercup/CtCI-6th-Edition/tree/master/Java
 
-UML
+##### UML
 
     http://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html?context=cls-examples
     https://www.gliffy.com/go/html5/launch?app=1b5094b0-6042-11e2-bcfd-0800200c9a66&templateId=4998827
