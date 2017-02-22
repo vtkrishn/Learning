@@ -1,3 +1,4 @@
+#### common Commands
 command | Description
 ---|---|
 clear | clear the screen. cursor set to first, you cna still scroll to see previous
@@ -47,82 +48,76 @@ exec |
 sleep |
 tr | translate or delete characters -d - to delete
 
+#### Advanced Commands
+##### grep
+* search for text  - n - number, -i ignore case, -c lines , -v - revrese option
 
+##### find
+* find . -name 'txt' -type f -s 20M
 
+##### awk
+* ls -l | awk 'BEGIN {print "----begin----"} {print $1} END {print "----end----"}'
+  * NF - Number of fields
+  * NR - number of records
+  * OFS, IFS - Input and output field separator
+  * RS - Record separator
+  * ORS - Outpu Record separator
+  * FILENAME - current file name
+  * ARGC - number of arguments
+###### methods
+* length()
+* rand()
+* substr()
+* split()
+* index()
 
-#Advanced Commands
-#grep
-search for text  - n - number, -i ignore case, -c lines , -v - revrese option
+##### sed
+* sed s/vinod/VINOD/ sample.txt
+* sed -e - Script
+  * -s - separate
+  * d - delete
 
-#find
-find . -name 'txt' -type f -s 20M
+#### Script Structure
+* $? - to view exist status
+* check of number
+* -lt, -gt, -le, -ge
+* -eq
+* read - should check for 2 including carriage return
+* IFS=interal field separator
 
-#awk
-ls -l | awk 'BEGIN {print "----begin----"} {print $1} END {print "----end----"}'
-NF - Number of fields
-NR - number of records
-OFS, IFS - Input and output field separator
-RS - Record separator
-ORS - Outpu Record separator
-FILENAME - current file name
-ARGC - number of arguments
-
-length()
-rand()
-substr()
-split()
-index()
-
-#sed
-sed s/vinod/VINOD/ sample.txt
-sed -e - Script
--s - separate
-d - delete
-
-
-#Script Structure
-
-$? - to view exist status
-if then elif else fi
-[ ]
-check of number
--lt, -gt, -le, -ge
--eq
-read - should check for 2 including carriage return
-
-//interal field separator
-IFS=
-
--a - AND operator
+>-a - AND operator
 -o - OR operator
 
--f- check for directory
+>-f- check for directory
 -d - check for directory
 -s - size greater than 0
 -w - check for write permission
 
--n - length of the string greater than 0
+>-n - length of the string greater than 0
 -z - null check for string
 
-case $var in
+>if then elif else fi
+[ ]
+
+>case $var in
 [a-z])
   //lower case check
   ;;
 ?)
   //one character check
   ;;
-* )
+)
   //check all
   ;;
 esac
 
-until
+>until
 while [ $num -le 10]
 do
  echo    
 done
 
-for item in *
+>for item in *
 do
 //echo
 done
