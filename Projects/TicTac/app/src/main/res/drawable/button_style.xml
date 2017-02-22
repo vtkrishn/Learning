@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thickness="0dp"
+    android:shape="rectangle"
+    android:useLevel="@bool/abc_action_bar_embed_tabs">
+    <gradient
+        android:startColor="#ff8e1c"
+        android:endColor="#ff421c"
+        android:type="linear"
+        android:angle="270" android:gradientRadius="2" />
+</shape>
