@@ -1,0 +1,42 @@
+public class Solution {
+    public int romanToInt(String s) {
+        int result=0;
+        if(s != null && !s.equals("")){
+            int n = s.length();
+            int i = 0;
+            while(i <= n-1) {
+                    if(i==(n-1)){
+                        return result + char2Number(s.charAt(i));
+                    }
+                    int n1 = char2Number(s.charAt(i));
+                    int n2 = char2Number(s.charAt(i+1));
+                    if(n1 < n2)
+                        result = result - n1;
+                    else
+                        result = result + n1;
+                    i++;
+                }
+            }
+            return result;
+        }
+    public int char2Number(char c){
+        switch(c){
+                    case 'I':
+                        return 1;
+                    case 'V':
+                        return 5;
+                    case 'X':
+                        return 10;
+                    case 'L':
+                        return 50;
+                    case 'C':
+                        return 100;
+                    case 'D':
+                        return 500;
+                    case 'M':
+                        return 1000;
+                    default:
+                        return 0;
+                }
+    }
+}

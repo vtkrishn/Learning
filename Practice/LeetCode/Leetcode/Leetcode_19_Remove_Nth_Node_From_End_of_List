@@ -1,0 +1,79 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int i = 0;
+        int len = 0;
+        
+        //assign the head to the curr Node
+        ListNode curr = head;
+        
+        //if head is null then the we have to return null, no more operation supported
+        if(head == null)
+            return head;
+        
+        //first find the length of the list, for this we traverse and store it in len variable
+        //loop until curr is not null
+        while(curr != null){
+                curr = curr.next; //move next
+                len++; //increment
+        }
+        
+        //if the length is same ans the Nth node then we have to remove head and return the next node
+        if(n == len)
+            return head.next;
+        
+        //assign head to curr because curr will be at the end now because of the above loop
+        curr = head;
+        //since we have to find the nth node we have to make sure to move to the next next node 
+        //if the count is 1 less than actual count
+        int pos = len-n-1;
+        //loop for curr and curr.next not equal to null
+        while(curr != null && curr.next != null){
+            //if the position is not 1 less then move forward
+            if(i != pos){
+                curr = curr.next;
+            }
+            else{
+                //else move the next pointer to next next
+                curr.next = curr.next.next;
+            }
+            //increment i    
+            i++;
+        }
+        //return the head
+        return head; 
+        
+   //------------------------------------------------     
+        //using fast and slow pointer
+        ListNode start = new ListNode(0);
+        start.next = head;
+        
+        ListNode fast = start;
+        ListNode slow = start;
+        
+        //if head is null then the we have to return null, no more operation supported
+         if(head == null)
+             return head;
+        
+        //loop until 1 less than n and place the fast pointer upto that
+         for(int i = 0;i<n;i++)
+             fast = fast.next;
+        
+        //loop if the next is not null for fast pointer
+             while(fast.next != null){
+                // increment fast and slow, slow will point to the correct element to delete when the fast pointer reaches the end
+                 fast = fast.next;
+                 slow = slow.next;
+        /     }
+             //move the pointer for the slow to next next
+             slow.next = slow.next.next;
+        return start.next;
+    }
+}

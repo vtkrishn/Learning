@@ -1,0 +1,76 @@
+class DList{
+	DList prev;
+	DList next;
+	int val;
+
+	public DList(int val){
+		this.val = val;
+	}
+}
+
+class TreeNode{
+	TreeNode left;
+	TreeNode right;
+	int val;
+
+	public TreeNode(int val){
+		this.val = val;
+	}
+}
+
+public class TreeCheck{
+	
+	public static void main(String args[]){
+		TreeNode a = new TreeNode(4);
+		TreeNode b = new TreeNode(2);
+		TreeNode c = new TreeNode(5);
+		TreeNode d = new TreeNode(1);
+		TreeNode e = new TreeNode(3);
+		// TreeNode f = new TreeNode(6);
+		// TreeNode g = new TreeNode(7);
+		a.left = b;
+		a.right = c;
+		b.left = d;
+		b.right = e;
+		//c.left = f;
+		//c.right = g;
+		
+		treeToList(a);
+  }
+  
+  public static void treeToList(TreeNode root){
+    DList l = new DList(0);
+    treeToListHelper(root,l);
+    
+    //make the last as pointing to head
+     DList head = l;
+     while(head.next != null)
+        head = head.next;
+        
+      head.next = l; 
+      l.prev = head;
+  }
+  
+  public static void treeToListHelper(TreeNode root, DList l){
+    if(root == null)
+      return;
+    
+    //inorder traversal
+    treeToListHelper(root.left,l);
+    append(l,root.val);
+    treeToListHelper(root.right,l);
+  }
+  
+  public static void append(DList node,int val){
+    if(node == null)
+      return;
+     
+    DList newNode = new DList(val);
+    while(node.next != null)
+      node = node.next;
+      
+    node.next = newNode;
+    newNode.prev = node;
+  }
+  
+}	

@@ -1,0 +1,34 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	      int[] a = {1, 4, 5, 9, 1};
+	      arrPalindrome(a);
+	    }
+	    
+	    static public int arrPalindrome(int arr[]){
+	      if(arr == null)
+	        return -1;
+	        
+	      int len = arr.length; 
+	      int i=0;
+	      int j = len-1;
+	      int result=0;
+	      while(i<j){
+	         if(arr[i] != arr[j]){
+	          int value = 0;
+	          if(arr[i] > arr[j]){
+	            value = arr[j] + arr[j-1];
+	            arr[j] = value;
+	            j--;
+	          }
+	          else{
+	            value = arr[i] + arr[i+1];
+	            arr[i] = value;
+	            i++;
+	          }
+	          result++;
+	         }
+	      }
+	      
+	      return result;
+	    }
+	}

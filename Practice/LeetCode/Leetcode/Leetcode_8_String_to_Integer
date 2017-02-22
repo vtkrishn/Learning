@@ -1,0 +1,37 @@
+public class Solution {
+public int myAtoi(String str) {
+    if(str==null||str.length()==0){
+        return 0;
+    }
+    str=str.trim();
+    int n =str.length();
+    int sign =1;
+    int res=0;
+    for(int i=0;i<n;i++){
+        char ch =  str.charAt(i);
+        if(ch =='+'|| ch =='-'){
+            if(i==0){
+                sign=ch=='+'?1:-1;
+            }
+            else{
+                return sign*res;
+            }
+        }
+        else if(ch =='.'){
+            return sign*res;
+        }
+        else if(!Character.isDigit(ch)){
+            return sign*res;
+        }
+        else{
+            int charnum =Integer.parseInt(ch+"");
+            int temp = res*10+charnum;
+            if(res>=Integer.MAX_VALUE/10&&charnum>=8||(temp-charnum)/10!=res){
+                return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+            }
+            res=temp;
+        }
+    }
+    return sign*res;
+}
+}

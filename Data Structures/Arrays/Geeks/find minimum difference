@@ -1,0 +1,23 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	         int[] arr = {1, 5, 3, 19, 18, 25};
+	         //int[] arr2 = {1,2,3,4};
+	         
+	         findMinimumDifference(arr);
+	         
+	    }
+	    
+	    static void findMinimumDifference(int[] arr){
+	      if(arr == null)
+	        return;
+	       
+	      int min = Integer.MAX_VALUE;
+	      java.util.Arrays.sort(arr);
+	      
+	      for(int i=1;i<arr.length;i++){
+	            min = Math.min(min,arr[i]-arr[i-1]);
+	      }
+	      
+	      System.out.println(min);
+	    }
+	}

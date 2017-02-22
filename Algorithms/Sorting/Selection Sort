@@ -1,0 +1,21 @@
+    private static void selectionSort(int[] a){
+     int n = a.length;
+       int minIndex = 0;
+     for(int i=0; i<n-1;i++){
+       minIndex =  i;
+       for(int j=i+1; j<n; j++){
+         if(a[j] < a[minIndex]){
+           minIndex = j;
+         }
+       }
+       if(i != minIndex && a[i] != a[minIndex]){
+         a[i] ^= a[minIndex];
+         a[minIndex] ^= a[i];
+         a[i] ^= a[minIndex];
+       }
+     }
+     
+        for(int i=0;i<array.length;i++){
+               System.out.println(array[i]);
+        }
+    }

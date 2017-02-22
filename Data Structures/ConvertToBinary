@@ -1,0 +1,30 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        convertToBinary(8);
+	    }
+	    
+	    private static int convertToBinary(int n){
+	      if(n == 0)
+	        System.out.println(n);
+	      
+	      int sign = 1;
+	      if (n < 0)
+	        sign = -1;
+	        
+	     int val = Math.abs(n);
+	     //Iteration
+	     while(val >= 1){
+	          int quot = val/2;
+	          int rem = val%2;
+	          val = quot;
+	          System.out.println(rem);
+	      }
+	     
+	     //Recursion
+	     int rem = val %2;
+	     
+	     if(val == 1 || val == 0)
+	      return val;
+	     return rem + convertToBinary(val/2)*10;
+	    }
+	}

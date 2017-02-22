@@ -1,0 +1,30 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l1 = new LL();
+	        l1.add(1);
+	        l1.add(2);
+	        l1.add(3);
+	        l1.add(4);
+	        
+	         LL l2 = new LL();
+	        l2.add(10);
+	        l2.add(20);
+	        l2.add(30);
+	        l2.add(40);
+	        
+	        reverse(l1.getHead());
+
+	        
+	    }
+	   
+	   public static void reverse(Node node1){
+	      Node dummy = null;
+	      while(node1 != null){
+	        Node temp = node1.next;
+	        node1.next = dummy;
+	        dummy = node1;
+	        node1 = temp;
+	      } 
+	   }
+     
+}

@@ -1,0 +1,29 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        String str = "My nation";
+	        int start=0;
+	         int end = 0;
+	        StringBuilder s = new StringBuilder();
+	        for(int i=0;i<str.length();i++){
+	         if(str.charAt(i) == ' '){
+	           s.append(reverse(str.substring(start,end),null));
+	           s.append(" ");
+	           start = i+1;
+	           end = i+1;
+	         }
+	         else{
+	           end++;
+	         }
+	        }
+	        s.append(reverse(str.substring(start,end),null));
+	        System.out.println(reverse(s.toString(),null));
+	    }
+	    
+	    static String reverse(String str,String result){
+	      if(str == null || str.equals(""))
+	        return str;
+	        
+	      result = reverse(str.substring(1),result);
+	      return result+str.charAt(0);
+	    }
+	}

@@ -1,0 +1,52 @@
+public class Solution {
+    public String convert(String s, int numRows) {
+        if(s != null && !s.equals("")){
+
+          int n = s.length();
+          if(n == 1 || n < numRows)
+            return s;
+            
+          int i=0;
+          int j=0;
+          StringBuilder[] sb = new StringBuilder[numRows];
+          boolean endFlag = false;
+          
+          while(i<n){
+            if(sb[j] == null){
+                sb[j] = new StringBuilder();
+            }
+
+            sb[j].append(""+s.charAt(i++));
+            if(!endFlag){
+                j++;
+                endFlag=false;
+                if(j == numRows){
+                    endFlag = true;
+                    j--;
+                }
+            }
+            
+            if(endFlag){
+                j--;
+                endFlag=true;
+                if(j == 0){
+                    endFlag = false;
+                }
+            }
+            if(j<0){
+                j=0;
+            }
+          }
+
+          j=0;
+          StringBuilder result = new StringBuilder();
+          while(j<numRows){
+            result.append(sb[j++].toString());
+          }
+          
+          return result.toString();
+        }
+
+        return "";
+    }
+}

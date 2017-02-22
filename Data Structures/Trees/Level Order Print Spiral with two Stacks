@@ -1,0 +1,80 @@
+class TreeNode{
+	TreeNode left;
+	TreeNode right;
+	int val;
+
+	public TreeNode(int val){
+		this.val = val;
+	}
+}
+
+
+public class TreeCheck{
+	
+	public static void main(String args[]){
+		TreeCheck t = new TreeCheck();
+		
+		TreeNode a = new TreeNode(1);
+		TreeNode b = new TreeNode(2);
+		TreeNode c = new TreeNode(3);
+		TreeNode d = new TreeNode(4);
+		TreeNode e = new TreeNode(5);
+		TreeNode f = new TreeNode(6);
+		TreeNode g = new TreeNode(7);
+		a.left = b;
+		a.right = c;
+		b.left = d;
+		b.right = e;
+		c.left = f;
+		c.right = g;
+		
+		printSpiral(a);
+		
+	}
+  
+  
+
+	//4567
+	public static void printSpiral(TreeNode root){
+		if(root == null)
+			return;
+		
+   Stack s1 = new Stack();
+   Stack s2 = new Stack();
+	 
+	 s1.push(root);
+	 
+	 while(!s1.isEmpty() || !s2.isEmpty()) {
+  	 while(!s1.isEmpty()){
+  	   
+  	   TreeNode temp = (TreeNode)s1.peek();
+  	   s1.pop();
+  	   
+  	   System.out.println(temp.val);
+  	   
+  	   if (temp.right != null)
+                  s2.push(temp.right);
+              if (temp.left != null)
+                  s2.push(temp.left);
+  
+  	 }
+  	 
+  	 while(!s2.isEmpty()){
+  	   
+  	   TreeNode temp = (TreeNode)s2.peek();
+  	   s2.pop();
+  	   
+  	   System.out.println(temp.val);
+  	   
+  	   if (temp.right != null)
+                  s1.push(temp.left);
+              if (temp.left != null)
+                  s1.push(temp.right);
+  
+  	 }
+	 }
+	 
+	 
+	}
+
+}
