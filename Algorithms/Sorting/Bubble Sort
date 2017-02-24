@@ -1,0 +1,18 @@
+    public static void bubbleSort(){
+                    boolean swapped = true;
+                    while(swapped){
+                        swapped = false;
+                        for(int i = 1;i<array.length;i++){
+                            if(array[i-1] > array[i]){
+                                array[i-1] ^= array[i];
+                                array[i] ^= array[i-1];
+                                array[i-1] ^= array[i];
+                                swapped = true;
+                            }
+                        }       
+                    }
+                    
+                for(int i=0;i<array.length;i++){
+                    System.out.println(array[i]);
+                }
+            }

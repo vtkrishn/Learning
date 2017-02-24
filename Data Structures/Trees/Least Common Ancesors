@@ -1,0 +1,47 @@
+
+class TreeNode{
+	TreeNode left;
+	TreeNode right;
+	int val;
+
+	public TreeNode(int val){
+		this.val = val;
+	}
+}
+
+public class TreeCheck{
+	
+	public static void main(String args[]){
+		//binary tree
+		TreeNode a = new TreeNode(20);
+		TreeNode b = new TreeNode(8);
+		TreeNode c = new TreeNode(22);
+		TreeNode d = new TreeNode(4);
+		TreeNode e = new TreeNode(12);
+		TreeNode f = new TreeNode(10);
+		TreeNode g = new TreeNode(25);
+		
+		a.left = b;
+		a.right = c;
+		b.left = d;
+		b.right = e;
+		c.left = f;
+		c.right = g;
+	
+	TreeNode t = lca(a,10,18);
+	System.out.println(t.val);
+  }
+  
+  public static TreeNode lca(TreeNode root, int n1, int n2){
+    if(root == null)
+      return null;
+    
+    if(root.val > n1 && root.val > n2)
+       return lca(root.left, n1,n2);
+       
+    if(root.val < n1 && root.val < n2)
+      return lca(root.right, n1,n2);
+    
+    return root;
+  }
+}	

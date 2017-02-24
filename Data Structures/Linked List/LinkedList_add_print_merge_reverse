@@ -1,0 +1,124 @@
+import java.io.*;
+import java.util.*;
+
+
+
+
+class Solution{
+  Node head;
+
+  static class Node{
+    Node next;
+    int data;
+
+    Node(int value){
+      this.data = value;
+      this.next = null;
+    }      
+  }
+
+  public void add(Node node){
+    if(head != null){
+      Node curr = head;
+      while(curr.next != null){
+        curr = curr.next;
+      }
+      curr.next = node;
+    }
+    else{
+      head = node;
+    }
+  }
+
+  public void print(){
+    if(head != null){
+      Node curr = head;
+      System.out.println(curr.data);
+      while(curr.next != null){
+        curr = curr.next;  
+        System.out.println(curr.data);
+      }
+    }
+    else{
+      System.out.println("No Record");
+    }
+  }
+
+  public void reverse(){
+    if(head != null){
+      Node prev = null;
+      Node curr = head;
+      Node next = curr.next;
+      while(next != null){
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+        next = next.next;
+      }
+      curr.next= prev;
+      head = curr;
+    }
+  }
+
+  public void merge(Solution s){
+      if(s == null || s.getHead() == null)
+        return;
+      if(head == null){
+        head = s.getHead();
+        return;
+      }
+
+      Node tmp1 = head;
+      Node tmp2 = s.getHead();
+
+      if(tmp1.data < tmp2.data){
+        head = tmp1;
+        tmp1 = tmp1.next;
+      }
+      else{
+       head = tmp2;
+        tmp2 = tmp2.next; 
+      }
+      
+  }
+
+
+  public static void main(String args[]){
+
+    Node one = new Node(1);
+    Node two = new Node(2);
+    Node three = new Node(3);
+    Node four = new Node(4);
+
+    Solution l = new Solution();
+    l.add(one);
+    l.add(two);
+    l.add(three);
+    l.add(four);
+
+    //l.print();
+    //l.reverse();
+    l.print();
+    
+    System.out.println("---------------------------");
+    
+    Node oneone = new Node(11);
+    Node twotwo = new Node(22);
+    Node threethree = new Node(33);
+    Node fourfour = new Node(44);
+    
+    Solution ll = new Solution();
+    ll.add(oneone);
+    ll.add(twotwo);
+    ll.add(threethree);
+    ll.add(fourfour);
+    
+    ll.print();
+
+    l.merge(ll);
+    l.print();
+
+    
+  }
+
+}

@@ -1,0 +1,30 @@
+public class Solution {
+    public List<String> letterCombinations(String digits) {
+        //have the array of combinations
+        String[] dic = {" ","", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        List<String> ret = new ArrayList<String>();
+        StringBuilder temp = new StringBuilder(); 
+        //base conditions
+        if(digits.equals(""))
+            return ret;
+        //call dfs method
+        dfs(digits, dic, 0, temp, ret);
+        return ret;
+    }
+    
+    public void dfs(String digits, String[] dic, int deep, StringBuilder temp, List<String> ret){
+        if(deep == digits.length()){
+            ret.add(temp.toString());
+            return;
+        }
+        else{
+            for(int i = 0; i < dic[digits.charAt(deep) - '0'].length(); i++){
+                temp.append(dic[digits.charAt(deep) - '0'].charAt(i));
+                //recurse to next level
+                dfs(digits, dic, deep+1, temp, ret);
+                //delete the last char added
+                temp.deleteCharAt(temp.length()-1);
+            }
+        }
+    }
+}

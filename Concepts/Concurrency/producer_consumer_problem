@@ -1,0 +1,126 @@
+package view.coding;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProducerConsumer {
+    public ProducerConsumer() {
+        super();
+    }
+    
+    public static void main(String args[]){
+        List l = new ArrayList();
+        AtomicInt atomInt = new AtomicInt();
+        Thread producer = new Thread(new Producer(l,5,atomInt), "Producer");
+        Thread consumer = new Thread(new Consumer(l,5,atomInt), "Consumer");
+        
+        producer.start();
+        consumer.start();
+        
+    }
+}
+--------------------------
+package view.coding;
+
+import java.util.List;
+
+public class Consumer implements Runnable{
+    List l;
+    int size;
+    AtomicInt atomInt;
+    Consumer(List l, int size,AtomicInt i){
+        this.l = l;
+        this.size = size;
+        atomInt = i;
+    }
+    public void run() {
+        while(true){
+            if(l.size() > 0){
+                int x = l.size()-1;
+                System.out.println("Consumer removed : Item " + l.get(x));
+                l.remove(x);
+                synchronized(atomInt){
+                    atomInt.decrement();
+                }
+                try {
+                    Thread.sleep(40);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                try {
+                    System.out.println("Consumer waiting for 3 sec to get any element in the queue");
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+--------------------------
+package view.coding;
+
+import java.util.List;
+
+public class Producer implements Runnable {
+    List l;
+    int max;
+    int size;
+    AtomicInt atomInt;
+    Producer(List l, int size,AtomicInt i){
+        this.l = l;
+        this.max = size;
+        atomInt = i;
+    }
+    
+    public void run() {
+        while(true){
+            if(l.size() < max){
+                l.add(atomInt.getI());
+                synchronized(atomInt){
+                    atomInt.increment();
+                }
+                System.out.println("Producer added : Item " + l.get(l.size()-1));
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                System.out.println("Producer added "+ max +" elements :: waiting for 3 sec");
+                try {
+                   Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+-----------------
+package view.coding;
+
+public class AtomicInt {
+    public AtomicInt() {
+        super();
+    }
+    int i;
+
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    public int getI() {
+        return i;
+    }
+    
+    public void increment(){
+        i++;
+    }
+    public void decrement(){
+        i--;
+    }
+}

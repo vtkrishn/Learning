@@ -1,0 +1,74 @@
+public class Solution {
+    public String intToRoman(int num) {
+        // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1,000
+        StringBuilder s = new StringBuilder();
+        if(num > 0){
+            if(num < 4){
+                s.append("I");
+                num = num-1;
+                s.append(intToRoman(num));
+            }
+            if(num == 4){
+                num = num % 3;
+                s.append(intToRoman(num));
+                s.append("V");
+            }
+            if(num >= 5 && num < 9){
+                s.append("V");
+                num = num % 5;
+                s.append(intToRoman(num));
+            }
+            if(num == 9){
+                num = num % 8;
+                s.append(intToRoman(num));
+                s.append("X");
+            }
+            if(num >= 10 && num < 40){
+                s.append("X");
+                num = num - 10;
+                s.append(intToRoman(num));
+            }
+            if(num >= 40 && num <= 49){
+                s.append("XL");
+                num = num - 40;
+                s.append(intToRoman(num));
+            }
+            if(num >= 50 && num <= 89){
+                s.append("L");
+                num = num - 50;
+                s.append(intToRoman(num));
+            }
+            if(num >= 90 && num <= 99){
+                s.append("XC");
+                num = num - 90;
+                s.append(intToRoman(num));
+            }
+             if(num >= 100 && num <= 399){
+                s.append("C");
+                num = num - 100;
+                s.append(intToRoman(num));
+            }
+            if(num >= 400 && num <= 499){
+                s.append("CD");
+                num = num - 400;
+                s.append(intToRoman(num));
+            }
+            if(num >= 500 && num <= 899){
+                s.append("D");
+                num = num - 500;
+                s.append(intToRoman(num));
+            }
+            if(num >= 900 && num <= 999){
+                s.append("CM");
+                num = num - 900;
+                s.append(intToRoman(num));
+            }
+            if(num >= 1000 && num <= 3999){
+                s.append("M");
+                num = num - 1000;
+                s.append(intToRoman(num));
+            }
+        }
+        return s.toString();
+    }
+}

@@ -1,0 +1,21 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	      int[] arr = {1,5,7,-1};
+	      findPair(arr,6);
+	    }
+	    
+	    static int findPair(int[] arr, int key){
+	      if(arr == null)
+	        return -1;
+	      int count = 0;
+	      java.util.Map<Integer,Integer> m = new java.util.HashMap<Integer,Integer>();
+	      for(int i= 0;i<arr.length;i++){
+	        if(m.containsKey(arr[i]))
+	          count++;
+	       else
+	          m.put(key-arr[i],arr[i]); 
+	      }
+	      
+	      return count;
+	    }
+	}

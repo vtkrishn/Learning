@@ -1,0 +1,84 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	Heap h = new Heap();
+	h.insert(10);
+	h.insert(9);
+	h.insert(7);
+	h.insert(100);
+	h.insert(5);
+	h.minValue();
+	
+	h.insert(-5);
+	h.minValue();
+	    }
+	}
+	
+class Heap{
+	
+	int[] a = new int[10];
+	int size = 0;
+
+	public Heap(){
+		a[0] = 0;
+	}
+
+	public void insert(int val){
+		size++;
+		a[size] = val;
+		bubbleUp(size);
+	}
+
+	private void bubbleUp(int index){
+		int parentIndex = index / 2;
+
+		if(size == 1 || a[parentIndex] < a[index])
+			return;
+
+		int temp = a[parentIndex];
+		a[parentIndex] = a[index];
+		a[index] = temp;
+
+		bubbleUp(parentIndex);
+
+	}
+
+	private void sinkDown(int index){
+		if(isLeaf(index))
+			return;
+
+		int leftIndex = index * 2;
+		int rightIndex = index * 2 + 1;
+		int minIndex;
+
+		if(rightIndex > size)
+			minIndex = leftIndex;	
+		else	
+			minIndex = a[leftIndex] < a[rightIndex] ? leftIndex : rightIndex;	
+
+		if(a[index] < a[minIndex])
+			return;
+
+		int temp = a[minIndex];
+		a[minIndex] = a[index];
+		a[index] = temp;		
+
+		sinkDown(minIndex);
+	}
+
+	private int remove(){
+		int minValue = a[1];
+		int lastValue = a[size--];
+		a[size] = lastValue;
+		sinkDown(1);
+		return lastValue;
+	}
+
+	public int minValue(){
+		return a[1];
+	}
+
+	private boolean isLeaf(int index){
+		return (index * 2) > size;
+	}
+
+}	

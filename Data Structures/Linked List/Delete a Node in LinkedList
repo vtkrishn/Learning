@@ -1,0 +1,70 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l = new LL();
+	        l.add(1);
+	        l.add(2);
+	        l.add(3);
+	        l.add(4);
+	        l.add(5);
+	        l.delete(4);
+	    }
+	    
+	    static class LL{
+	     Node head;
+	     int size;
+	     
+	     void delete(int position){
+	        if(position < 0)
+	          return;
+	        
+	        Node dummy = head;
+	        if(position == 0){
+	           if(head == null)
+	            return;
+	           
+	           head = head.next;
+	        }
+	        
+	        int length = 0;
+	        while(dummy != null){
+	         dummy = dummy.next;
+	         length++;
+	        }
+	         
+	         dummy = head;
+	        for(int i=1;i<length;i++){
+	          if(i==position){
+	           dummy.next = dummy.next.next; 
+	          }
+	          else{
+	            dummy = dummy.next;
+	          }
+	        }
+	     }
+	     
+	     void add(int value){
+	       Node newNode = new Node(value);
+	        if(head == null){
+	          head = newNode; 
+	        }
+	        else{
+	          Node dummy = head;
+	          while(dummy.next != null){
+	            dummy = dummy.next; 
+	          }
+	          newNode.next = dummy.next;
+	          dummy.next = newNode;
+	        }
+	       }
+	     }
+	      
+	    static class Node{
+	      Node next;
+	      int data;
+	      
+	      public Node(int value){
+	        this.data = value; 
+	      }
+	    }
+	    
+	}

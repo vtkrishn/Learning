@@ -1,0 +1,63 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l1 = new LL();
+	        l1.add(1);
+	        l1.add(9);
+	        l1.add(8);
+	        l1.add(9);
+	         
+	         addOne(l1.getHead(),1);   
+	    }
+	   
+	   
+	   public static int addOne(Node node, int value){
+	     if(node == null)
+	      return value;
+	     
+	      value = addOne(node.next,value);
+	      int sum = node.data + value;
+	      int carry = sum / 10;
+	      node.data = sum % 10;
+	      return carry;
+	   }
+	   
+	   static class LL{
+	      Node head;
+	      int size;
+	      
+	      public Node getHead(){
+	       return head; 
+	      }
+	      
+	      public void add(int value){
+	        Node newNode = new Node(value);
+	        if(head == null){
+	          head = newNode; 
+	        }
+	        else{
+	          Node dummy = head;
+	          while(dummy.next != null){
+	            dummy = dummy.next;
+	          }
+	          dummy.next = newNode;
+	        }
+	          
+	      }
+	     
+	   }
+	   
+	   
+	   //simple node 
+	   static class Node{
+	    Node next;
+	    int data;
+	    
+	    Node(int value){
+	      this.data = value;
+	    }
+	     
+	   }
+	   
+	   
+	   
+	}

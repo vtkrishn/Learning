@@ -1,0 +1,77 @@
+public class MyQueue{
+	
+	int[] array;
+	int size;
+	int maxSize;
+	int head;
+	int tail;
+
+	public MyQueue(int max){
+		this.maxSize = max;
+		array = new int[maxSize];
+		
+	}
+
+	private int getSize(){
+		return size;
+	}
+
+	private boolean isEmpty(){
+		return size == 0;
+	}
+
+	private void enque(int value){
+    if(getSize() >= maxSize){
+      System.out.println("Reached max. remove some element to add");
+      return;
+    }
+    if(tail == maxSize)
+      tail = 0;
+    
+     array[tail++] = value;
+     size++;
+	}
+
+	private int deque(){
+	  int x = -1;
+    if(isEmpty()){
+      System.out.println("No element to remove. Queue Empty");
+      head = 0;
+      tail = 0;
+    }
+    else{
+      if(head == maxSize)
+        head = 0;
+      
+      size--;
+      x = array[head];
+      array[head++] = 0;
+    }
+    return x;
+	}
+
+	public static void main(String args[]){
+		MyQueue q = new MyQueue(5);
+		q.enque(1);
+		q.enque(2);
+		q.enque(3);
+		q.enque(4);
+		q.enque(5);
+		q.enque(6); // error
+		q.enque(7);
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		q.enque(6);
+		q.enque(7);
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+		q.enque(16);
+		q.enque(27);
+		System.out.println(q.deque()); 
+		System.out.println(q.deque()); 
+	}
+}

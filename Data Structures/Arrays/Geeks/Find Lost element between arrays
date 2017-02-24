@@ -1,0 +1,25 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	         int[] arr1 = {1,2,3,4,5};
+	         int[] arr2 = {1,2,3,4};
+	         
+	         findUnique(arr1,arr2);
+	         
+	    }
+	    
+	    static void findUnique(int[] arr1, int[] arr2){
+	      if(arr1 == null || arr2 == null)
+	        return;
+	       
+	      int count = 0; 
+	      for(int i=0;i<arr1.length;i++){
+	        count = count ^ arr1[i];
+	      }
+	      
+	      for(int i=0;i<arr2.length;i++){
+	        count = count ^ arr2[i];
+	      }
+	      
+	      System.out.println(count);
+	    }
+	}

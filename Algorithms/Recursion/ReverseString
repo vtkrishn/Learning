@@ -1,0 +1,14 @@
+public class YourClassNameHere {
+	    
+	    public static String reverseString(String word) {
+     if(word == null || word.equals(""))
+        return word;
+     else
+        return reverseString(word.substring(1, word.length())) + 
+            word.substring(0,1);
+  }
+	    
+	    public static void main(String[] args) {
+	      System.out.println(reverseString("Hello"));
+	    }
+	}

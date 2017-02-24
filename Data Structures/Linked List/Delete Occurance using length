@@ -1,0 +1,97 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l = new LL();
+	        l.add(1);
+	        l.add(1);
+	        l.add(3);
+	        l.add(3);
+	        l.add(2);
+	        l.deleteLastOccurance(1);
+	    }
+	    
+	    static class LL{
+	     Node head;
+	     int size;
+	     
+	     void add(int value){
+	       Node newNode = new Node(value);
+	        if(head == null){
+	          head = newNode; 
+	        }
+	        else{
+	          Node dummy = head;
+	          while(dummy.next != null){
+	            dummy = dummy.next; 
+	          }
+	          newNode.next = dummy.next;
+	          dummy.next = newNode;
+	        }
+	       }
+	       
+	       void delete(int position){
+	        if(position < 0)
+	          return;
+	        
+	        Node dummy = head;
+	        if(position == 0){
+	           if(head == null)
+	            return;
+	           
+	           head = head.next;
+	        }
+	        
+	        int length = 0;
+	        while(dummy != null){
+	         dummy = dummy.next;
+	         length++;
+	        }
+	         
+	         dummy = head;
+	        for(int i=1;i<length;i++){
+	          if(i==position){
+	           dummy.next = dummy.next.next; 
+	          }
+	          else{
+	            dummy = dummy.next;
+	          }
+	        }
+	     }
+	     
+	     void deleteLastOccurance(int key){
+	        Node dummy = head;
+	        int length = 0;
+	        while(dummy != null){
+	          length++;
+	          dummy = dummy.next;
+	        }
+  	       
+	        int count = deleteLastOccurance(head,null,key,length);
+	        delete(length-count-1);
+	     }
+	     
+	     int deleteLastOccurance(Node node, Node prev, int key,int length){
+	        if(node == null)
+	          return 0;
+	        
+	        prev = node;
+	        node = node.next;
+	        int count = deleteLastOccurance(node,prev,key,length);
+	        if(key != prev.data){
+	          count++;
+	        }
+	        
+	        return count;
+	     }
+	      
+	    static class Node{
+	      Node next;
+	      int data;
+	      
+	      public Node(int value){
+	        this.data = value; 
+	      }
+	    }
+	    
+	}
+	
+}

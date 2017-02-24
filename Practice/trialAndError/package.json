@@ -1,0 +1,17 @@
+{
+  "name": "package-test",
+  "version": "1.0.0",
+  "description": "simple package tester",
+  "main": "main.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bower": "^1.7.9",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "vin.sinin@gmail.com",
+  "license": "ISC"
+}

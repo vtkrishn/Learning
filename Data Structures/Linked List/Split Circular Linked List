@@ -1,0 +1,57 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        CLL c = new CLL();
+	        c.add(1);
+	        c.add(2);
+	        c.add(3);
+	        c.add(4);
+	        c.split();
+	    }
+	    
+	    static class CLL{
+	     Node head;
+	     int size;
+	     
+	     void split(){
+	       Node slow = head;
+	       Node fast = head;
+	       Node dummy = head;
+	       
+	       while(dummy.next != head && fast.next.next != head){
+	          fast = dummy.next;
+	          slow = dummy;
+	          dummy = dummy.next;
+	       }
+	       
+	       Node head2 = slow.next;
+	       fast.next.next = head2;
+	       slow.next = head;
+	     }
+	     
+	     void add(int value){
+	       Node newNode = new Node(value);
+	       if(head == null){
+	         head = newNode;
+	         head.next = head;
+	       }
+	       else{
+	          Node dummy = head;
+	          while(dummy.next != head){
+	            dummy= dummy.next; 
+	          }
+	          dummy.next = newNode;
+	          newNode.next = head;
+	       }
+	     }
+	      
+	    }
+	    static class Node{
+	      Node next;
+	      int data;
+	      
+	      public Node(int value){
+	        this.data = value; 
+	      }
+	    }
+	    
+	}

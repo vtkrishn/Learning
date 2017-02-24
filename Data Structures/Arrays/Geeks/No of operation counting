@@ -1,0 +1,43 @@
+public class ClassNameHere {
+   public static void main(String[] args) {
+      int[] target = {16,16,16};
+      System.out.println(findMinOperation(target));
+   }
+   
+   static int findMinOperation(int[] arr){
+      if(arr == null)
+         return -1;
+      
+      int count=0;
+      int sum = 1;
+      while(sum > 0){
+       
+         for(int i=0;i<arr.length;i++){
+            if(arr[i] != 0){
+               int val = 0;
+               if(arr[i] % 2 == 0){
+                  val = arr[i]/2;
+                  arr[i] = val;
+                  count++;
+               }
+               else{
+                  val = arr[i]-1;
+                  arr[i]=val;
+                  count++;
+               }
+            }
+         }
+         
+         sum=0;
+         for(int j=0;j<arr.length;j++){
+            sum = sum + arr[j];
+         }
+         
+         if(sum == 0)
+            break;
+         
+      }
+      
+      return count;
+   }
+}

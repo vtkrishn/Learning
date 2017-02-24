@@ -1,0 +1,56 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l = new LL();
+	        l.add("a");
+	        l.add("bcd");
+	        l.add("dcb");
+	        l.add("aa");
+	        l.isPalindrome();
+	        
+	    }
+	    
+	    static class LL{
+	     Node head;
+	     int size;
+	   
+	      boolean isPalindrome(){
+	      StringBuilder str = new StringBuilder();
+	      Node dummy = head;
+	      
+	      while(dummy != null){
+	        str.append(dummy.data);
+	        dummy = dummy.next;
+	      }
+	      
+	      return str.toString().equals(str.reverse().toString());
+	      }
+	     
+	     void add(String value){
+	       Node newNode = new Node(value);
+	        if(head == null){
+	          head = newNode; 
+	        }
+	        else{
+	          Node dummy = head;
+	          while(dummy.next != null){
+	            dummy = dummy.next; 
+	          }
+	          newNode.next = dummy.next;
+	          dummy.next = newNode;
+	        }
+	       }
+	       
+	       
+	      
+	    static class Node{
+	      Node next;
+	      String data;
+	      
+	      public Node(String value){
+	        this.data = value; 
+	      }
+	    }
+	    
+	}
+	
+}

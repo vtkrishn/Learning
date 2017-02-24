@@ -1,0 +1,87 @@
+class ArrayStack{
+	
+	int size;
+	int[] array;
+	int head;
+	int max;
+
+  
+  public ArrayStack(int max){
+  	this.array = new int[max];
+  	this.head = 0;
+  	this.size = 0;
+  	this.max = max;
+  }
+
+  public int getSize(){
+  	return size;
+  }
+
+  public boolean isEmpty(){
+  	return size == 0;
+  }
+
+	public int peek(){
+  	return head;
+  }  
+
+  public int pop(){
+  	if(!isEmpty()){
+  		head = array[--size];
+  		array[size] = 0;
+  		return head;
+  	}
+  		System.out.println("No Element");
+  		return -1;
+
+  }
+
+  public void push(int val){
+  	if(size != max){
+  		array[size] = val;
+  		head = array[size];
+  		size++;
+  	}
+  	else
+  		System.out.println("Reached max element");
+  		//------------------Dynamic Allocation Code - START----------------
+	          //max = (max * 2) + 1; //simply doubling the size (dynamic allocation)
+	          //int[] tempArray = new int[max];
+	          //for(int i=0;i<size;i++){
+	          //  tempArray[i] = array[i];
+	          //}
+	          //array = tempArray;
+	          //array[size] = val;
+	          //head = array[size];
+	          //size++;
+	          //------------------Dynamic Allocation Code - END----------------
+  }
+
+
+}
+
+public class YourClassNameHere {
+    public static void main(String[] args) {
+       ArrayStack s = new ArrayStack(3);
+       s.push(1);
+       s.push(2);
+       s.push(3);
+       s.push(4);
+       System.out.println(s.pop());
+       s.push(4);
+       s.push(4);
+       s.push(4);
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       s.push(54);
+       System.out.println(s.peek());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+    }
+}

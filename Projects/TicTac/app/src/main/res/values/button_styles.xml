@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="button_text" >
+        <item name="android:textColor" >#ff421c</item>
+        <item name="android:textSize" >30dp</item>
+        <item name="android:textStyle" >bold</item>
+        <item name="android:shadowColor" >#ff421c</item>
+        <item name="android:shadowDx" >1</item>
+        <item name="android:shadowDy" >1</item>
+        <item name="android:shadowRadius" >2</item>
+    </style>
+</resources>

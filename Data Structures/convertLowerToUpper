@@ -1,0 +1,16 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        convertLowerToUpper("AAB");
+	    }
+	    
+	    private static void convertLowerToUpper(String str){
+	      if(str == null)
+	        return;
+	     
+	      for(int i=0;i<str.length();i++){
+	         int x = 1<<5; // Upper and lower differs only in 5th bit
+	         //mask 1 for the 5th position
+	         System.out.println((char)(str.charAt(i) ^ x)); //xor with the character to set the toggle the fitst bit
+	      }
+	    }
+	}

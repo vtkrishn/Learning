@@ -1,0 +1,62 @@
+public class YourClassNameHere {
+	    public static void main(String[] args) {
+	        LL l = new LL();
+	        l.add(1);
+	        l.add(-2);
+	        l.add(-3);
+	        l.add(4);
+	        l.add(-5);
+	        l.sortNearlySorted();
+	    }
+	    
+	    static class LL{
+	     Node head;
+	     int size;
+	     
+	     void sortNearlySorted(){
+	      Node dummy = head.next;
+	      Node prev = head;
+	      Node tempHead = null;
+	      Node dummyTemp = null;
+	      while(dummy!= null){
+	          if(dummy.data < prev.data){
+	            prev.next = dummy.next;
+	            dummy.next = head;
+	            head = dummy;
+	          }
+	          prev = dummy;
+	          dummy = dummy.next;
+	       
+	      }
+	      
+	     }
+	     
+	     void add(int value){
+	       Node newNode = new Node(value);
+	        if(head == null){
+	          head = newNode; 
+	        }
+	        else{
+	          Node dummy = head;
+	          while(dummy.next != null){
+	            dummy = dummy.next; 
+	          }
+	          newNode.next = dummy.next;
+	          dummy.next = newNode;
+	        }
+	       }
+	       
+	       
+	      
+	    static class Node{
+	      Node next;
+	      int data;
+	      
+	      public Node(int value){
+	        this.data = value; 
+	      }
+	    }
+	    
+	}
+	
+}

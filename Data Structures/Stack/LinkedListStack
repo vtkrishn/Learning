@@ -1,0 +1,72 @@
+class ListNode{
+  ListNode next;
+  int val;
+  
+  ListNode(int val){
+    this.val = val;  
+  }
+  
+}
+
+class LinkedListStack{
+    ListNode tail;
+    int size;
+    
+    public int getSize(){
+  	  return size;
+    }
+
+  public boolean isEmpty(){
+  	return size == 0;
+  }
+  
+  public int peek(){
+  	return tail.val;
+  }
+  
+  public int pop(){
+  	if(!isEmpty()){
+  	  int val = peek();
+  	  tail = tail.next;
+  		size--;
+  		return val;
+  	}
+  		System.out.println("No Element");
+  		return -1;
+
+  }
+
+  public void push(int val){
+    ListNode newNode = new 	ListNode(val);
+    newNode.next = tail;
+    tail = newNode;
+    size++;
+  }
+}
+
+public class YourClassNameHere {
+    public static void main(String[] args) {
+       LinkedListStack s = new LinkedListStack();
+       s.push(1);
+       s.push(2);
+       s.push(3);
+       s.push(4);
+       System.out.println(s.pop());
+       s.push(7);
+       s.push(8);
+       s.push(9);
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       s.push(54);
+       System.out.println(s.peek());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+       System.out.println(s.pop());
+      
+    }
+}

@@ -1,0 +1,35 @@
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int running_head_pointer = 0;
+        int head = 0;
+        int result_max = 0;
+        int temp_max = 0;
+        boolean[] flagArray = new boolean[128];
+        int length = s.length();
+        
+        char curr=' ';
+        
+        if(length == 0 || length == 1)
+            return length;
+        
+        while(running_head_pointer < length){
+            curr = s.charAt(running_head_pointer);
+            
+            if(!flagArray[curr]){
+                flagArray[curr] = true;
+                temp_max++;
+                running_head_pointer++;
+            }
+            else{
+                result_max = Math.max(result_max,temp_max);    
+                temp_max=0;
+                flagArray = new boolean[128];
+                running_head_pointer = head + 1;
+                head = running_head_pointer;
+                }
+                
+            }
+            return Math.max(result_max,temp_max);
+        }
+            
+}

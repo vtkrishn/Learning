@@ -42,3 +42,19 @@ public class BinarySearch {
 	      return binarySearch(a,n,low,high);
 	    }
 	}
+-------------------
+public static int search(int start , int end , int m, int[] array){
+        if(start < end){
+            int mid = start + (end - start)/2;
+            if(m < array[mid]){
+                return search(start , mid - 1, m , array);
+            }
+            else if(m == array[mid]){
+                    return mid;
+            }
+            else{
+                return search(mid + 1 , end, m , array);
+            }
+        }
+        return -1;
+}
