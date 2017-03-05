@@ -72,5 +72,37 @@ print (123 45 67)[2]; #prints 67
 print ((123 45 67)[2]); #prints 67
 ```
 
-list slise format
-(list elments)[1,3]
+list slice format
+(list elements)[1,3]
+
+ranges
+(list elements)(1..6)
+
+combining slice and ranges
+(list elements)[1..4]
+
+#Array
+```
+my @day;
+@day = qw(mon tue wed thurs sat sun)
+```
+```
+push @pile 'vinod'   # mon tue vinod
+pop @pile            #mon tue
+unshift @pile 'sat'    # sat mon tue
+shift @pile            #mon tue
+```
+if array is assigned to a variable its length gets stored in the Variable
+
+#hashes
+represented as
+```
+%where = {
+india => usa,
+kashmir => chennai
+}
+```
+variable to represent internal iterator next element
+```
+$_
+```
