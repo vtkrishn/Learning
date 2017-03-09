@@ -146,9 +146,6 @@ public boolean isNumber(String s) {
 			}
 
 			switch (c) {
-			/*
-			 * case ' ': continue;
-			 */ // extend to accept any space everywhere
 			case 'e':
 				// already has 'e' or no digit before 'e'
 				if (hasE || !hasDigit)
