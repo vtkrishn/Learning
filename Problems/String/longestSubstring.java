@@ -13,3 +13,26 @@ public class Solution {
         return maxLen;
         }
 }
+
+
+-----------
+public class YourClassNameHere {
+    public static void main(String[] args) {
+        String str = "abcabcbb";
+        int j=0;
+        int max=0;
+        int[] count = new int[256];
+        for(int i=0;i<str.length();i++){
+          char ch = str.charAt(i);
+          if(count[ch] == 0){
+            count[ch]++;
+            j++;
+          }
+          else{
+            max = Math.max(max,j);
+            j=0;
+          }
+        }
+        max = Math.max(max,j);
+    }
+}
