@@ -66,3 +66,4 @@ http://blog.gainlo.co
 * Hashing
 * Immutability
 * Laziness
+* No Joins
