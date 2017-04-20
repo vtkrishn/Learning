@@ -31,6 +31,7 @@ public class BubbleSort {
         while(swapped){
             System.out.println("Outer pass");
             swapped =false;
+            //for(int i=1;i<arr.length;i++){ // not-optimized
             for(int i=1;i<arr.length-pass;i++){ // optimized , omit already sorted elements
                 System.out.println("Inner loop");
                 if(arr[i-1] > arr[i]){
