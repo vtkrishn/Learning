@@ -28,11 +28,12 @@ public class BubbleSort {
         int[] arr = {5,4,3,2,1};
         boolean swapped = true;
         int pass = 0;
+        long startTime = System.nanoTime();
         while(swapped){
             System.out.println("Outer pass");
             swapped =false;
-            //for(int i=1;i<arr.length;i++){ // not-optimized
-            for(int i=1;i<arr.length-pass;i++){ // optimized , omit already sorted elements
+            for(int i=1;i<arr.length;i++){ // not-optimized
+            //for(int i=1;i<arr.length-pass;i++){ // optimized , omit already sorted elements
                 System.out.println("Inner loop");
                 if(arr[i-1] > arr[i]){
                     int temp = arr[i-1];
@@ -43,10 +44,12 @@ public class BubbleSort {
             }
             pass++;
         }
+        long endTime = System.nanoTime();
         int j = 0;
         while(j<arr.length){
             System.out.println(arr[j]);
             j++;
         }
+        System.out.println("Time taken :: " + (endTime - startTime)/1000 + " ms");
     }
 }
