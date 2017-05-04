@@ -1,3 +1,21 @@
+client - api - rest - hhtp - header - content type - ssl - web.xml - servlet - path - compression - encoding- http - servlet-mapping
+- filtering - ranges - pagination - caching -
+
+
+#How do you deal with conflict?
+##Follow these guidelines for handling conflict in the workplace.
+
+    Talk with the other person.
+    Focus on behavior and events, not on personalities.
+    Listen carefully.
+    Identify points of agreement and disagreement.
+    Prioritize the areas of conflict.
+    Develop a plan to work on each conflict.
+    Follow through on your plan.
+
+    love solving the problem from big customer having the large data as it present you different challenges                        
+    say for change that b2b experience you have now you want to do  something on consumer space suggesting there is lot to learn there as you have to be agile to move with changes also there will no room for error talk that you think it is right size where you have blend of intelligent people and you will have chance to learn from them and grow
+    for conflict say if you are open for the opinion will never have conflict say peers most of the time conflit happens when your theory or design is not liked or vice versa it is really important to understand why my peer thinks that this will not solve and be open at the same time giving the prospective to him/her on why I think that can resolve. The more we communicate and learn the more we can resolve the issue with peer. For manager mention most of the time the conflict or differences happens on the estimates the time so it is really important to communicate as early as possible for any roadblocks.. also letting him/her know why I think it is complex or simple.
 #Advanced Search Filter
 Word Search
 ##Three character Search
