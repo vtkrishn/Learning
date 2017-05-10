@@ -5,12 +5,13 @@ package game.vtkrishn.com.gameapplication.model;
  */
 
 public class Cell {
-    int x;
-    int y;
+    int row;
+    int col;
     String value;
 
     public Cell(int x,int y,String value){
-        this.x = x;
-        this.y = y;
+        this.row = x;
+        this.col = y;
+        this.value = value;
     }
 }
