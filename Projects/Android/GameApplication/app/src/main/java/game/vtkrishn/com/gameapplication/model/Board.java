@@ -16,12 +16,6 @@ public class Board {
         map = new HashMap<>();
     }
 
-    public Map<Integer,Cell> getMap(){
-        return map;
-    }
-    public void placeMarker(int id){
-        placeMarker(id,"H");
-    }
     public void placeMarker(int id,String mark){
         if(id == 1) {
             cells[0][0] = new Cell(0, 0, mark);
@@ -71,19 +65,7 @@ public class Board {
     }
 
     public int optimizeMark(){
-//            int random = 0;
-//            for(int i=0;i<cells.length;i++){
-//                for(int j=0;j<cells[0].length;j++) {
-//                    random = (int) (Math.random() * 9);
-//                    if(random > 0 && !map.containsKey(random)) {
-//                        placeMarker(random,"C");
-//                        return random;
-//                    }
-//                    else{
-//                        continue;
-//                    }
-//                }
-//            }
+
 
             return calculatedValue();
 
