@@ -1,0 +1,2 @@
+get the transaction from the output
+ade describetrans | grep TRANSACTION | awk '{print $2}'

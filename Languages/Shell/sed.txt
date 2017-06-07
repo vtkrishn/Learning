@@ -1,0 +1,15 @@
+print the line number matching the pattern
+sed -n '/m/ =' ff.txt
+
+print number of lines in the file, wc -l
+sed -n '$=' ff.txt
+
+same as cat
+sed '' ff.txt
+
+sed -n '' ff.txt - n option is to suppress automatic printing
+
+sed -n 'p' ff.txt prints content of file once
+sed 'p' ff.txt prints content of file twice, because suppressing of auto printing is removed
+
+sed -n '1p' ff.txt prints first line
