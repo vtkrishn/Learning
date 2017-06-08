@@ -61,3 +61,29 @@ public boolean isValid(String s) {
 	}
 	return stack.isEmpty();
 }
+-------------
+public class YourClassNameHere {
+    public static void main(String[] args) {
+      bracket("{(a)b][c]}");
+    }
+
+    public static boolean bracket(String str){
+      Stack<Character> stack = new Stack<Character>();
+      for(int i=0;i<str.length();i++){
+	char ch = str.charAt(i);
+	if(ch == '[' || ch == '(' || ch == '{')
+		stack.push(ch);
+	else{
+		if(ch == ']' || ch == ')' || ch == '}'){
+			char peek = stack.peek();
+			String concat = peek +""+ ch;
+			if(concat.equals("[]") || concat.equals("()") || concat.equals("{}"))
+				stack.pop();
+			else
+				return false;
+		}
+	}
+}
+return stack.isEmpty();
+    }
+}
