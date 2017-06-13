@@ -1,7 +1,7 @@
 package javaproject;
 
 import java.util.*;
-public class Tower{
+public class TowerOfHanoi{
 
 	static class Disc{
 		int length;
@@ -29,7 +29,7 @@ public class Tower{
 	}
 
 	public static void main(String[] args){
-		int n = 15;
+		int n = 5;
 		Disc[] discs = createDiscs(n);
 		Pole source = new Pole();
 		Pole destination = new Pole();
@@ -42,7 +42,7 @@ public class Tower{
                 }
 		System.out.println("Soruce : "+source.size());
 		System.out.println("Destination : "+destination.size());
-		Tower(n, source, destination, temp);
+		transferDisc(n, source, destination, temp);
 		System.out.println("Soruce : "+source.size());
 		System.out.println("Destination : "+destination.size());
                 for(Disc d : destination.discs){
@@ -55,12 +55,19 @@ public class Tower{
 		if(d != null)
 		  destination.addDisc(d);
 	}
-	public static void Tower(int n, Pole source, Pole destination, Pole temp){
+
+    /**
+     * @param n
+     * @param source
+     * @param destination
+     * @param temp
+     */
+    public static void transferDisc(int n, Pole source, Pole destination, Pole temp){
 		if(n == 0)
 			return;
-                Tower(n-1,source, temp, destination);
+                transferDisc(n-1,source, temp, destination);
                 shiftDisc(source,destination);
-                Tower(n-1,temp, destination ,source);
+                transferDisc(n-1,temp, destination ,source);
 	}
 
 	public static Disc[] createDiscs(int size){
