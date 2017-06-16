@@ -2,9 +2,10 @@ public class YourClassNameHere {
     public static void main(String[] args) {
       String str = "vinod";
 	  System.out.println(length(str));
-    System.out.println(reverse(str));
+      System.out.println(reverse(str));
 	  System.out.println(equals(str,"ginod"));
-	  System.out.println(indexOf(str,'r',0));
+	  System.out.println(indexOf(str,'n',0));
+	  System.out.println(charAt(str,4));
     }
 
     public static int length(String str){
@@ -26,6 +27,14 @@ public class YourClassNameHere {
 	public static int indexOf(String str,char ch, int i){
 		if(str == null || str.equals(""))
 			return -1;
-		return 	(str.charAt(0) == ch) ? i : indexOf(str.substring(1),ch,i+1);
+		if(str.charAt(0) == ch)
+			return i;
+		return 	indexOf(str.substring(1),ch,i+1);
+	}
+
+	public static char charAt(String str,int i){
+		if(i < 0)
+			return '-';
+		return str.toCharArray()[i];
 	}
 }
