@@ -1,0 +1,36 @@
+Introduction
+
+Examples
+Google Suggestions  - have learnt rank pages
+facebook recognize your friends
+Mail Spam recognition
+Robots  - cleaning the area - training seeing you doing
+
+How ?
+Neural networks mimics how human brain works
+Artificial Intelligence
+Learning Algorithms how human brain works
+
+Machine learns - training done and then check previous results compare
+
+Ex. Database mining
+Large datasets from growth
+Web click data , medical records, biology, engineering
+
+handwriting recognition
+Natural language processing
+Autonomous Helicopter
+Self customizing programs
+Amazon, netflix recommender systems
+Understanding human learning
+
+What is Machine Learning?
+ability learn without being explicitly programmed
+Computer program learn experience E , task T, performance measures P
+P increases based on E on T
+
+Algorithms:
+Supervised Learning
+Unsupervised Learning
+
+others: Reinforcement learning Recommender Systems

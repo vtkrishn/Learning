@@ -1,0 +1,25 @@
+Supervised Learning
+
+Ex, predict the house pricing
+housing price prediction
+
+x axis - square feet
+Y axis  prices
+
+right answers given with the datasets
+
+Regression problems
+Continuous learning - predicts with continuous output
+ex. predict the sales for 3 months from 1000 identical items
+
+classification problem
+discrete value output
+ex. datasets - tumor size - classify as malignant or benign
+what is the probability malignant or benign if the tumor size is given
+eg.classifying if the account of users is hacker or not
+
+add age also as a parameter
+no three or five features from which the machine learns.
+infinite number or features/attributes to help computer learn more efficiently based on different attributes
+
+Labelled data are supervised learning problem

@@ -1,0 +1,18 @@
+Unsupervised Learning
+Given dataset and find the pattern out of it
+breaking the data into clusters
+Clustering algorithms
+
+ex. Google news collect all related news and forms a cluster and present to the users
+social network analysis
+Market segmentation
+organize computer clusters
+Astronomical data analysis
+
+example. two microphone, two users counting from from 1 to 10 in english, spanish voice
+2 audio source given as imput.. 1 outputs english voice, another output spanish voice
+
+Octave or matlab
+SVD - single value decomposition
+
+ton of data, asking to find structure in the dataset
