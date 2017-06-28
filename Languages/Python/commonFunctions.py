@@ -33,8 +33,9 @@ def _bin(value,lst):
     lst = lst.append(str(mod))
     return x
 #------------------------------------
-    
-
+def _chr(v):
+    return chr(v)
+#------------------------------------
 
 elementList = [True, True, False]
 print(_all(elementList))
@@ -58,3 +59,5 @@ print(_isinstance(.456,float))
 print(_isinstance({},dict))
 #------------------------------------
 print(_binary(17))
+
+print(_chr(48))
