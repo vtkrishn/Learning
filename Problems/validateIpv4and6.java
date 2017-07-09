@@ -1,7 +1,7 @@
 public class Solution {
     public String validIPAddress(String IP) {
         //String should not be null and without any characters
-        if(IP == null || IP.length() == 0 || IP.equls(""))
+        if(IP == null || IP.length() == 0 || IP.equals(""))
             return "Neither";
 
         int end = IP.length() - 1;
