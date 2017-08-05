@@ -53,7 +53,10 @@ public class TicTacToeClient {
             else{
                 //TODO
                 //place on the best coordnates - AI, x, y
-                board.doBestMove();
+                if(board.count >= 3)
+                    board.doBestMove();
+                else
+                    board.placeRandomMark();
                 System.out.println("Computer moved");
             }
             //check every end of the move

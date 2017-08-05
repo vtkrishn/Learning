@@ -13,6 +13,7 @@ public class Board {
     public static final String TAILS = "T";
     Cell[][] cells;
     Display display;
+    int count = 0;
 
     public Display getDisplay() {
         return display;
@@ -124,17 +125,25 @@ public class Board {
                 cells[s.x][s.y].value = COMPUTER;
                 //display the change
                 display.replaceCell(s.x,s.y,COMPUTER);
+                count++;
             }
             else{
                 for(int i=0;i<cells.length;i++){
-                    for(int j=0;j<cells[0].length;j++){
-                        if(cells[i][j].value.equals(EMPTY)){
-                            cells[i][j].value = COMPUTER;
-                            //display the change
-                            display.replaceCell(i,j,COMPUTER);
-                            return;
-                        }
-                    }
+                        placeRandomMark();
+                }
+            }
+        }
+    }
+    
+    public void placeRandomMark(){
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[0].length;j++){
+                if(cells[i][j].value.equals(EMPTY)){
+                    cells[i][j].value = COMPUTER;
+                    //display the change
+                    display.replaceCell(i,j,COMPUTER);
+                    count++;
+                    return;
                 }
             }
         }
@@ -143,91 +152,98 @@ public class Board {
     //TODO winning logic not correct
     public boolean isWinning(){
         
-        boolean columnInRow = false;
-        boolean rowInColumn = false;
-        boolean increasingFromTopToBotton = false;
-        boolean decreasingFromLastToStart = false;
-        // any column with same value
-        for(int i=0;i<cells.length;i++){
-            for(int j=0;j<cells[0].length;j++){
-                if(!cells[i][j].value.equals(EMPTY)){
-                    if(cells[i][j].value.equals(currentPlayer)){
-                        columnInRow = columnInRow && true;
-                    }
-                    else{
-                        columnInRow = false;   
-                        break;
-                    }
-                        
-                }
-                else
-                    columnInRow = false;   
-            }   
-            if(columnInRow)
-                return columnInRow;
-        }
-        
-        // any row with same value
-        for(int i=0;i<cells.length;i++){
-            for(int j=0;j<cells[0].length;j++){
-                if(!cells[j][i].value.equals(EMPTY)){
-                    if(cells[j][i].value.equals(currentPlayer)){
-                        rowInColumn = rowInColumn && true;
-                    }
-                    else{
-                        rowInColumn = false;
-                        break;
-                    }
-                }
-                else
-                    rowInColumn = false;
-            }   
-            if(rowInColumn)
-                return rowInColumn;
-        }
-        // row and column increasing
-        for(int i=0;i<cells.length;i++){
-            for(int j=0;j<cells[0].length;j++){
-                if(!cells[i][j].value.equals(EMPTY)){
-                    if(i == j){
-                        if(cells[i][j].value.equals(currentPlayer)){
-                            increasingFromTopToBotton = increasingFromTopToBotton && true;
+        if(count > 4){
+                boolean columnInRow = true;
+                boolean rowInColumn = true;
+                boolean increasingFromTopToBotton = true;
+                boolean decreasingFromLastToStart = true;
+                // any column with same value
+                for(int i=0;i<cells.length;i++){
+                    for(int j=0;j<cells[0].length;j++){
+                        if(!cells[i][j].value.equals(EMPTY)){
+                            if(cells[i][j].value.equals(currentPlayer)){
+                                columnInRow = columnInRow && true;
+                            }
+                            else{
+                                columnInRow = false;
+                                break;
+                            }
                         }
-                        else{
+                        else
+                            columnInRow = false;   
+                    }   
+                    if(columnInRow)
+                        return columnInRow;
+                }
+            
+                // any row with same value
+                for(int i=0;i<cells.length;i++){
+                    for(int j=0;j<cells[0].length;j++){
+                        if(!cells[j][i].value.equals(EMPTY)){
+                            if(cells[j][i].value.equals(currentPlayer)){
+                                rowInColumn = rowInColumn && true;
+                            }
+                            else{
+                                rowInColumn = false;
+                                break;
+                            }
+                        }
+                        else
+                            rowInColumn = false;
+                    }   
+                    if(rowInColumn)
+                        return rowInColumn;
+                }
+                // row and column increasing
+                for(int i=0;i<cells.length;i++){
+                    for(int j=0;j<cells[0].length;j++){
+                        if(!cells[i][j].value.equals(EMPTY)){
+                            if(i == j){
+                                if(cells[i][j].value.equals(currentPlayer)){
+                                    increasingFromTopToBotton = increasingFromTopToBotton && true;
+                                }
+                                else{
+                                    increasingFromTopToBotton = false;
+                                    break;
+                                }
+                            }
+                            else{
+                                increasingFromTopToBotton = false;
+                            }
+                        }
+                        else
                             increasingFromTopToBotton = false;
-                            break;
-                        }
                     }
+                    if(increasingFromTopToBotton)
+                        return increasingFromTopToBotton;
                 }
-                else
-                    increasingFromTopToBotton = false;
-            }
-        }
-        if(increasingFromTopToBotton)
-            return increasingFromTopToBotton;
-        
-        // row and column decreasing
-        for(int i=0;i<cells.length;i++){
-            for(int j=cells.length-1;j>=0;j--){
-                if(!cells[i][j].value.equals(EMPTY)){
-                    if(i == j){
-                        if(cells[i][j].value.equals(currentPlayer)){
-                            decreasingFromLastToStart = decreasingFromLastToStart && true;
+            
+            
+                // row and column decreasing
+                for(int i=0;i<cells.length;i++){
+                    for(int j=cells.length-1;j>=0;j--){
+                        if(!cells[i][j].value.equals(EMPTY)){
+                            if(i == j){
+                                if(cells[i][j].value.equals(currentPlayer)){
+                                    decreasingFromLastToStart = decreasingFromLastToStart && true;
+                                }
+                                else{
+                                    decreasingFromLastToStart = false;
+                                    break;
+                                }
+                            }
+                            else{
+                                decreasingFromLastToStart = false;
+                            }
                         }
-                        else{
+                        else
                             decreasingFromLastToStart = false;
-                            break;
-                        }
                     }
+                    if(decreasingFromLastToStart)
+                        return decreasingFromLastToStart;
                 }
-                else
-                    decreasingFromLastToStart = false;
-            }  
-        }
-        if(decreasingFromLastToStart)
-            return decreasingFromLastToStart;
-        
-        return columnInRow || rowInColumn || increasingFromTopToBotton || decreasingFromLastToStart;
+            }
+        return false;
     }
     
     public void placeMark(int x, int y){
@@ -235,13 +251,7 @@ public class Board {
             cells[x][y].value = HUMAN;
             //display the change
             display.replaceCell(x,y,HUMAN);
-    }
-    
-    public static void main(String[] args){
-        Board b = new Board(3);
-        for(int i=0;i<3;i++)
-            for(int j=0;j<3;j++)
-                b.placeMark(i,j);
+            count++;
     }
     
     public void setCurrentPlayer(String currentPlayer) {
