@@ -91,7 +91,7 @@ public class Board {
         }
         return Math.max(tryCell(x+1, y+1, HUMAN,visited),Math.max(tryCell(x+1, y, HUMAN,visited),tryCell(x, y+1, HUMAN,visited))); 
     }
-    
+    //TODO no choosing the best move
     public void doBestMove(){
 //        check is full
         if(!isFull()){
@@ -140,21 +140,28 @@ public class Board {
         }
     }
     
+    //TODO winning logic not correct
     public boolean isWinning(){
         
-        boolean columnInRow = true;
-        boolean rowInColumn = true;
-        boolean increasingFromTopToBotton = true;
-        boolean decreasingFromLastToStart = true;
+        boolean columnInRow = false;
+        boolean rowInColumn = false;
+        boolean increasingFromTopToBotton = false;
+        boolean decreasingFromLastToStart = false;
         // any column with same value
         for(int i=0;i<cells.length;i++){
             for(int j=0;j<cells[0].length;j++){
-                if(!cells[i][j].value.equals(currentPlayer)){
-                    columnInRow = false;
-                    break;
+                if(!cells[i][j].value.equals(EMPTY)){
+                    if(cells[i][j].value.equals(currentPlayer)){
+                        columnInRow = columnInRow && true;
+                    }
+                    else{
+                        columnInRow = false;   
+                        break;
+                    }
+                        
                 }
                 else
-                    columnInRow = true;
+                    columnInRow = false;   
             }   
             if(columnInRow)
                 return columnInRow;
@@ -163,12 +170,17 @@ public class Board {
         // any row with same value
         for(int i=0;i<cells.length;i++){
             for(int j=0;j<cells[0].length;j++){
-                if(!cells[j][i].value.equals(currentPlayer)){
-                    rowInColumn = false;
-                    break;
+                if(!cells[j][i].value.equals(EMPTY)){
+                    if(cells[j][i].value.equals(currentPlayer)){
+                        rowInColumn = rowInColumn && true;
+                    }
+                    else{
+                        rowInColumn = false;
+                        break;
+                    }
                 }
                 else
-                    rowInColumn = true;
+                    rowInColumn = false;
             }   
             if(rowInColumn)
                 return rowInColumn;
@@ -176,28 +188,40 @@ public class Board {
         // row and column increasing
         for(int i=0;i<cells.length;i++){
             for(int j=0;j<cells[0].length;j++){
-                if(i == j){
-                    if(!cells[i][j].value.equals(currentPlayer)){
-                        increasingFromTopToBotton = false;
+                if(!cells[i][j].value.equals(EMPTY)){
+                    if(i == j){
+                        if(cells[i][j].value.equals(currentPlayer)){
+                            increasingFromTopToBotton = increasingFromTopToBotton && true;
+                        }
+                        else{
+                            increasingFromTopToBotton = false;
+                            break;
+                        }
                     }
-                    else
-                        increasingFromTopToBotton = true;
                 }
+                else
+                    increasingFromTopToBotton = false;
             }
         }
         if(increasingFromTopToBotton)
             return increasingFromTopToBotton;
         
         // row and column decreasing
-        for(int i=cells.length-1;i>=0;i--){
+        for(int i=0;i<cells.length;i++){
             for(int j=cells.length-1;j>=0;j--){
-                if(i == j){
-                    if(!cells[i][j].value.equals(currentPlayer)){
-                        decreasingFromLastToStart = false;
+                if(!cells[i][j].value.equals(EMPTY)){
+                    if(i == j){
+                        if(cells[i][j].value.equals(currentPlayer)){
+                            decreasingFromLastToStart = decreasingFromLastToStart && true;
+                        }
+                        else{
+                            decreasingFromLastToStart = false;
+                            break;
+                        }
                     }
-                    else
-                        decreasingFromLastToStart = true;
                 }
+                else
+                    decreasingFromLastToStart = false;
             }  
         }
         if(decreasingFromLastToStart)
