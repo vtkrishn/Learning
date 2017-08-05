@@ -1,6 +1,10 @@
 package com.learning.game.tictactoe;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
+    int size;
     private String currentPlayer;
     public static final String HUMAN = "X";
     public static final String COMPUTER = "O";
@@ -8,55 +12,44 @@ public class Board {
     public static final String HEAD = "H";
     public static final String TAILS = "T";
     Cell[][] cells;
-    
-    String[][] board = {
-        {"............................"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|........|........|........|"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|........|........|........|"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|        |        |        |"},
-        {"|........|........|........|"},
-    };
-    
-    String[][] humanMark = {
-            {"*  *"},
-            {" ** "},
-            {"*  *"}
-    };
-    
-    String[][] computerMark = {
-            {"****"},
-            {"*  *"},
-            {"****"},
-    };
-        
-    
+    Display display;
+
+    public Display getDisplay() {
+        return display;
+    }
+
     class Cell{
         int x;
         int y;
         String value;
         
-        public Cell(int x, int y, String value){
+        Cell(int x, int y, String value){
             this.x = x;
             this.y = y;
             this.value = value;
         }
     }
     
-    public Board(int size) {
-        cells = new Cell[size][size];
-        //init the board
-        initialize(size);
+    class Score{
+        int x;
+        int y;
+        int score;
+        
+        Score(int x,int y, int value){
+            this.x = x;
+            this.y = y;
+            this.score = value;
+        }
     }
     
-    private void initialize(int size){
+    public Board(int size) {
+        this.size = size;
+        display = new Display();
+        cells = new Cell[size][size];
+        //init the board
+        initializeCells(size);
+    }
+    private void initializeCells(int size){
         for(int i=0;i<size;i++)
             for(int j=0;j<size;j++)
                 cells[i][j] = new Cell(i,j,EMPTY);
@@ -69,47 +62,162 @@ public class Board {
         return false;
     }
     
+    private boolean isFull(){
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[0].length;j++){
+                if(cells[i][j].value.equals(EMPTY))
+                    return false;
+            }
+        }
+        return true;
+    }
+    
+    private int tryCell(int x, int y,String player,boolean[][] visited){
+        if(x >= cells.length || y >= cells.length)
+            return 0;
+        if(cells[x][y].value.equals(EMPTY) && !visited[x][y]){
+            visited[x][y] = true;
+            cells[x][y].value=player;
+            if(isWinning() && currentPlayer.equals(COMPUTER)){
+               return 10;
+            }
+            else if(isWinning() && currentPlayer.equals(HUMAN)){
+               return -10;
+            }
+            else if(!isWinning() && currentPlayer.equals(HUMAN)){
+               return 5;
+            }
+            cells[x][y].value=EMPTY;
+        }
+        return Math.max(tryCell(x+1, y+1, HUMAN,visited),Math.max(tryCell(x+1, y, HUMAN,visited),tryCell(x, y+1, HUMAN,visited))); 
+    }
+    
     public void doBestMove(){
-        //TODO    
-        System.out.println("Computer moved");
+//        check is full
+        if(!isFull()){
+            boolean[][] visited = new boolean[size][size];
+            Score s = new Score(Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE);
+            int score = Integer.MIN_VALUE;
+            for(int i=0;i<cells.length;i++){
+                for(int j=0;j<cells[0].length;j++){
+                    // tryEachCell with no value
+                    if(cells[i][j].value.equals(EMPTY)){
+                        score = tryCell(i, j, COMPUTER,visited);
+                        if(score == 10){
+                            s.x = i;
+                            s.y = j;
+                            //s.score = score;
+                            continue;
+                        }
+                        else if(score == -10){
+                            break;
+                        }
+                        s.x = Math.max(s.x,i);
+                        s.y = Math.max(s.y,j);
+                        //s.score = Math.max(s.score,score);
+                    }
+                }
+            }
+            
+            if(cells[s.x][s.y].value.equals(EMPTY)){
+                //set the cell value
+                cells[s.x][s.y].value = COMPUTER;
+                //display the change
+                display.replaceCell(s.x,s.y,COMPUTER);
+            }
+            else{
+                for(int i=0;i<cells.length;i++){
+                    for(int j=0;j<cells[0].length;j++){
+                        if(cells[i][j].value.equals(EMPTY)){
+                            cells[i][j].value = COMPUTER;
+                            //display the change
+                            display.replaceCell(i,j,COMPUTER);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
     
     public boolean isWinning(){
-        //get the currentPlayer
-        // any column with row same
-        // any row with same column
+        
+        boolean columnInRow = true;
+        boolean rowInColumn = true;
+        boolean increasingFromTopToBotton = true;
+        boolean decreasingFromLastToStart = true;
+        // any column with same value
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[0].length;j++){
+                if(!cells[i][j].value.equals(currentPlayer)){
+                    columnInRow = false;
+                    break;
+                }
+                else
+                    columnInRow = true;
+            }   
+            if(columnInRow)
+                return columnInRow;
+        }
+        
+        // any row with same value
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[0].length;j++){
+                if(!cells[j][i].value.equals(currentPlayer)){
+                    rowInColumn = false;
+                    break;
+                }
+                else
+                    rowInColumn = true;
+            }   
+            if(rowInColumn)
+                return rowInColumn;
+        }
         // row and column increasing
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[0].length;j++){
+                if(i == j){
+                    if(!cells[i][j].value.equals(currentPlayer)){
+                        increasingFromTopToBotton = false;
+                    }
+                    else
+                        increasingFromTopToBotton = true;
+                }
+            }
+        }
+        if(increasingFromTopToBotton)
+            return increasingFromTopToBotton;
+        
         // row and column decreasing
-        return false;
+        for(int i=cells.length-1;i>=0;i--){
+            for(int j=cells.length-1;j>=0;j--){
+                if(i == j){
+                    if(!cells[i][j].value.equals(currentPlayer)){
+                        decreasingFromLastToStart = false;
+                    }
+                    else
+                        decreasingFromLastToStart = true;
+                }
+            }  
+        }
+        if(decreasingFromLastToStart)
+            return decreasingFromLastToStart;
+        
+        return columnInRow || rowInColumn || increasingFromTopToBotton || decreasingFromLastToStart;
     }
     
     public void placeMark(int x, int y){
-    //TODO 
-        int offSetX = 0;
-        int offSetY = 0;
-        if(x == 0)
-            offSetX = 2;
-        if(y == 0)
-            offSetY = 4;
-        
-        for(int i=0;i<board.length;i++){
-            for(int i=0;i<board.length;i++){
-                
-            }
-        }
-        
-        cells[x][y].value = HUMAN;
+            //set the cell value
+            cells[x][y].value = HUMAN;
+            //display the change
+            display.replaceCell(x,y,HUMAN);
     }
-
-    public void printCurrentBoardStatus(){
-        //print the board
-        for(int i=0;i<board.length;i++){
-            for(int j=0;j<board[0].length;j++)
-                System.out.print(board[i][j]);
-            System.out.println("");
-        }
-            
-        
+    
+    public static void main(String[] args){
+        Board b = new Board(3);
+        for(int i=0;i<3;i++)
+            for(int j=0;j<3;j++)
+                b.placeMark(i,j);
     }
     
     public void setCurrentPlayer(String currentPlayer) {
