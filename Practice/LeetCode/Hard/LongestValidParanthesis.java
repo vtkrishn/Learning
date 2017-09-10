@@ -1,4 +1,21 @@
 class Solution {
+    public static int longestValidParentheses(String s) {
+	    int max = 0;
+        int[] dp = new int[s.length()+1];
+        for(int i=1;i<=s.length();i++){
+            int j = i-2-dp[i-1];
+            if(s.charAt(i-1) == '(' || j<0 || s.charAt(j) == ')')
+                dp[i] = 0;
+            else{
+                dp[i] = dp[j]+2+dp[i-1];
+                max = Math.max(max,dp[i]);
+            }
+        }
+        return max;
+    }
+}
+--------------------
+class Solution {
     public int longestValidParentheses(String s) {
       Stack<Integer> stack = new Stack<Integer>();
         int n = s.length();
