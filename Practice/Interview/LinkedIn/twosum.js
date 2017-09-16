@@ -12,3 +12,14 @@ var twoSum = function(nums, target) {
            map[nums[i]] = i;
       }
     };
+------
+//python
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        map = {}
+        for i in range(len(nums)):
+            if target-nums[i] in map.keys():
+                return [map[target-nums[i]],i]
+            else:
+                map[nums[i]] = i
