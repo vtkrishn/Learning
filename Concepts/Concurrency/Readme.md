@@ -110,7 +110,7 @@ private ThreadLocal myThreadLocal = new ThreadLocal<String>() {
 
 #SpinLock
 * wait call within while loop is called spin lock
-* while(isLocked)
+* while(isLocked)``
 
 #response time
 total time taken for the request or service to complete
@@ -127,8 +127,7 @@ round trip delay in network Latency
 * bandwidth - maximum channel capacity
 
 #ACID rule
-Atomictiy - every transaction should be atomic. maintained in
-deadlocks, db failures, cpu failures, system failures,
+Atomictiy - every transaction should be atomic. maintained in deadlocks, db failures, cpu failures, system failures,
 Consistency - the changes or the view should be consistent across different users
 isolation - user should be isolated and involved in the concurrent transaction
 Durability - the commit should exist for later retrieval evn if power goes off etc
@@ -176,15 +175,7 @@ signal()
 
 #Read Write Locking
 
-#countdown latch
-
 #producer consumer
-
-#Atomic Variables
-
-#Barrier
-
-#Guarded Blocking
 
 #Executors
 
