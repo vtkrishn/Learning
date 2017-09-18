@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thread - Introduction</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <pre>
+    long and double are not thread safe in java
+    </pre>
+    <h1>Thread Notes</h1>
+    <h3>Process</h3>
+    <ol>
+      <li>Instance of a program being executed</li>
+      <li>Can contain one or more threads</li>
+      <li>Separate address space and communition through IPC</li>
+      <li>Single/Multi Threaded</li>
+    </ol>
+    <h3>Thread</h3>
+    <ol>
+      <li>Lightweight subset of a process</li>
+      <li>need fewer resources to create than process</li>
+      <li>Shared address space</li>
+    </ol>
+    <h3>Concurrency</h3>
+    <ol>
+      <li>Running more than one tasks simultaneously in single processor</li>
+    </ol>
+    <h3>Parallelism</h3>
+    <ol>
+      <li>Dividing single process into multiple subtasks and combining using threads</li>
+      <li>Fork and Join, ExecutorServices in java</li>
+    </ol>
+
+    <h3>Shared Resources</h3>
+    <ol>
+      <li>In concurrent environment some of the resources are meant for shared access</li>
+      <li>Each thread will have their own local copy and most of the resources will be accessed through synchronized access</li>
+    </ol>
+    <h3>Concurrency Models</h3>
+    <ol>
+      <li>Parallel/Delegate Workers [<strong>shared data, no job ordering, race condition, deadlocks</strong>]</li>
+      <li>Assembly Line [<strong>no shared data, job ordering possible</strong>]</li>
+      <li>Functional Parallelism [<strong>fork and join, streams</strong>]</li>
+    </ol>
+    <h3>Synchronization</h3>
+    <h3>Thread in Java</h3>
+    <h3>Creation</h3>
+    <ol>
+      <li>Extends Thread</li><pre><font face="Courier New">public class MyThreadExtendsThread <font color="red">extends Thread</font>{
+        public void run(){
+          while(true){
+          System.out.println(Thread.currentThread().getName()+" Hi from extended thread");
+            try {
+              Thread.sleep(7000);
+              //System.exit(0);
+            } catch (InterruptedException e) {
+              e.printStackTrace();
+            }
+          }
+        }
+      }
+</font>
+      </pre>
+      <li>Implements Runnable</li>
+      <pre><font face="Courier New">public class MyThreadImplementsRunnable <font color="red">implements Runnable</font>{
+    public void run() {
+        while(true){
+         System.out.println(Thread.currentThread().getName()+ " Hi from runnable thrread");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        <font color="red">Thread t = new Thread(new MyThreadImplementsRunnable());
+        MyThreadExtendsThread mt = new MyThreadExtendsThread();</font>
+        //set the name for the threads
+        t.setName("RunnableThread");
+        mt.setName("ExtendedThread");
+        //starting the threads
+        t.start();
+        mt.start();
+        try {
+            //waits for the thread to die
+            t.join();
+            mt.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+</font>
+      </pre>
+    </ol>
+    <h3>States</h3>
+    <h3>Operations</h3>
+    <pre>
+    control synchronization
+    data access synchronization
+    </pre>
+    <h3>Critical Section</h3>
+    <ol>
+      <li>Its a block in the code where the shared resources are modified</li>
+      <li>All local variables inside a method are thread safe</li>
+      <li>If one thread is in the critical section no other thread should be in the same place</li>
+    </ol>
+
+    <h2>Locks</h2>
+
+    <h3>Atomic Operations</h3>
+    <h3>Atomic Variable</h3>
+    <ol>
+      <li>Used to support lock-free and thread safe programming on single variable</li>
+      <li>Compare and Swap based counter implementation for better performance than lock based</li>
+    </ol>
+    <pre>
+      <strong>Example</strong> : Checking if a variable is locked, and then setting it to true
+      <strong>Problem</strong> : Two thread can see the value of locked as false at the same time
+      <strong>Options</strong> : use the synchronized keyword, explicit lock, or make the mutation of the variable atomic
+      <strong>Code</strong> :
+    <font face="Courier New">
+    ------------- <font color="green">Using Synchronized </font>---------------------
+        class MyLock {
+          private boolean locked = false;
+          <font color="red">public synchronized boolean lock() {</font>
+            if(!locked) {
+                locked = true;
+                return true;
+            }
+            return false;
+          }
+        }
+    ---------------<font color="green">Using Atomic </font>-------------------------
+        public static class MyLock {
+          <font color="red">private AtomicBoolean locked = new AtomicBoolean(false);</font>
+
+          public boolean lock() {
+            return locked.compareAndSet(false, true);
+          }
+        }
+    -------------------------------------------------
+    </font>
+    </pre>
+    <strong>Reference</strong>
+    <h4>java.util.concurrent.atomic</h4>
+    <ol>
+      <li>AtomicBoolean / AtomicReference</li>
+      <ol>
+        <h5><li>compareAndSet()</li>
+          <li>getAndSet()</li></h5>
+      </ol>
+      <li>AtomicInteger / AtomicLong</li>
+      <ol>
+        <h5><li>incrementAndGet()</li>
+        <li>decrementAndGet()</li>
+        <li>getAndIncrement()</li>
+        <li>getAndDecrement()</li>
+          <li>compareAndSet()</li></h5>
+      </ol>
+    </ol>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+    <h3>Deadlock</h3>
+    <ol>
+      <li>Mutual Exclusion</li>
+      <li>Hold and Wait</li>
+      <li>No Preemption</li>
+      <li>Circular Wait</li>
+    </ol>
+    <h3>Concurrent Problems</h3>
+    <ol>
+      <li>Race Condition</li>
+      <li>Deadlock</li>
+      <li>Livelock</li>
+      <li>Starvation</li>
+      <li>Priority Inversion</li>
+    </ol>
+    <h3>Race Condition</h3>
+    <ol>
+      <li>Two threads trying to change the variable value simultaneously inside critical section</li>
+      <li>Shared resources are safe to read but write is a problem</li>
+      <pre>
+      <strong>Example</strong> : increment a variable inside critical section
+      <strong>Problem</strong> : Two thread can see the value of locked as false at the same time
+      <strong>Options</strong> : use the synchronized keyword, explicit lock, or make the mutation of the variable atomic
+      <strong>Code</strong> :
+      </pre>
+    </ol>
+    <h3>Semaphone</h3>
+    <ol>
+      <li>Control access to one ore more resources</li>
+      <li>usually a variable that stores the number of resources that can be used</li>
+      <li>uses two atomic operations</li>
+    </ol>
+    <h3>Mutex</h3>
+    <ol>
+      <li>kind of semaphore which takes two values [<strong>resource free, resource busy</strong>]</li>
+      <li>protects the critical section</li>
+    </ol>
+    <h3>Monitor</h3>
+    <ol>
+      <li>getting mutual exclusion over a shared resources</li>
+      <li></li>
+    </ol>
+    <h3>Thread</h3>
+    <ol>
+      <li>Lightweight process</li>
+      <li>need fewer resources to create than process</li>
+    </ol>
+    <h2>Concurrency Patterns</h2>
+
+
+    <h2>Guarded Blocks</h2>
+      Thread coordination using shared variable
+      <h3>When</h3>
+        Do not continue with the guarded block if a shared variable is changed
+        <br/>Ideal for 2 threads
+      <h4>Example</h4>
+        Produced - consumer
+      <h4>Code</h4><pre>
+        <font face="Courier New">
+        //get method
+        <font color="red">while (empty) {</font>
+            try {
+                wait();
+            } catch (InterruptedException e) {}
+        }
+
+        //put method
+       <font color="red">while (!empty) {</font>
+            try {
+                wait();
+            } catch (InterruptedException e) {}
+        }
+        </font>
+      </pre>
+    <h2>Barrier</h2>
+    <ol>
+      <li>Cannot proceed untill all the thread come to a common ground</li>
+      <li>Atleast a minimum number of thread should call the await method to start</li>
+    </ol>
+    <pre>
+      <strong>Example</strong> : cyclic barrier set to 3 so that it will not start execution until a minimum of 3 threads calling the await method
+      <strong>Problem</strong> : Two thread can see the value of locked as false at the same time
+      <strong>Options</strong> : use the synchronized keyword, explicit lock, or make the mutation of the variable atomic
+      <strong>Code</strong> :
+      </pre>
+
+    <h4>when</h4>
+        Do not continue with the guarded block if a shared variable is changed
+      <br/>Ideal for more than 2 threads
+    <h4>Example</h4>
+        Matrix multiplication
+    <h4>Code</h4>
+    <pre>
+        <font face="Courier New">
+        public void run() {
+        while (!done()) {
+         processRow(myRow);
+
+         try {
+           <font color="red">barrier.await();</font>
+         } catch (InterruptedException ex) {
+           return;
+         } catch (BrokenBarrierException ex) {
+           return;
+         }
+       }
+       </font>
+      </pre>
+
+    <h4>Volatile Code</h4>
+    <pre>
+    updateVolatileVariable();//updates all variable changes to main memory
+
+    </pre>
+
+    <h4>CountDown Latch</h4>
+    Wait for one or more Threads before processing
+
+    <h4>Response Time</h4>
+    Total time taken for the service to complete
+
+    <h4>Latency</h4>
+    <ul>
+      <li>Round Trip delay</li>
+      <li>Network Latency</li>
+      <li>Mechanical Latency</li>
+      <li>Operational Latency</li>
+      <li>Hardware and Software Latency</li>
+    </ul>
+
+    <h4>Throughput</h4>
+    <ul>
+      <li>Maximum amount that can be sent through for processing</li>
+      <li>Bandwidth - Maximum Channel Capacity</li>
+    </ul>
+
+    <h4>ACID Rule</h4>
+    <ul>
+      <li><strong>Atomicity</strong> - every transaction should be atomic. maintained in deadlocks, db failures, cpu failures, system failures. Either Commit or Rollback, no partial state</li>
+      <li><strong>Consistency</strong> - the changes or the view should be consistent across different users regardless of geography, time zone etc</li>
+      <li><strong>Isolation</strong> - user should be isolated and involved in the concurrent transaction</li>
+      <li><strong>Durability</strong> - the commit should exist for later retrieval evn if power goes off</li>
+    </ul>
+
+    Slipped Conditions
+    Isolation Levels
+  </body>
+</html>
