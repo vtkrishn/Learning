@@ -1,0 +1,14 @@
+{
+  "name": "vtkrishn",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vinod Krishnan <vin.sinin@gmail.com>",
+  "license": "ISC",
+  "description": "My Package",
+  "customField": "Custom Field",
+  "otherCustomField": "This field is really cool"
+}
