@@ -1,4 +1,4 @@
-package com.learning.thread.pattern;
+package com.learning.thread.pattern.asyncSyncScheduler;
 
 import java.util.concurrent.Callable;
 

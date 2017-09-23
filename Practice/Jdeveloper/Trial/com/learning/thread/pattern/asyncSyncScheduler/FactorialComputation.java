@@ -1,4 +1,5 @@
-package com.learning.thread.pattern;
+package com.learning.thread.pattern.asyncSyncScheduler;
+
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
