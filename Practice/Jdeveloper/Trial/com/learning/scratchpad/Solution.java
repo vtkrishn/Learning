@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  3 1 2         SUCCESS => RECEIVED: 3 (we got three events)
  1 5 2 3       FAILURE => RECEIVED: 4, EXPECTED: 5 (the highest number that we got is 5, so we are missing 4 in the sequence from 1)
  4 2 3         FAILURE => RECEIVED: 3, EXPECTED: 4 (the highest number that we got is 4, so we are missing 1 in the sequence from 1)
- Test case: 2
+ Test case: 2f
  2
  1 p 2         FAILURE => WRONG INPUT (LINE 2) (the input contains invalid number)
  3 2           FAILURE => RECEIVED: 2, EXPECTED: 3 (the highest number that we got is 3, so we are missing 1 in the sequence from 1)
