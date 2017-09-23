@@ -19,9 +19,9 @@ public class FactorialComputation {
             //blocking and will be printed only when the f1 is computed with result
             System.out.println("Factorial of 10 : " + f1.get());
             //blocking and will be printed only when the f2 is computed with result
-            System.out.println("Factorial of 20 : " + f2.get());
+            System.out.println("Factorial of 12 : " + f2.get());
             //blocking and will be printed only when the f3 is computed with result
-            System.out.println("Factorial of 30 : " + f3.get());
+            System.out.println("Factorial of 15 : " + f3.get());
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
