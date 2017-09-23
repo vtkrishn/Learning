@@ -317,5 +317,32 @@ public class Main {
 
     Slipped Conditions
     Isolation Levels
+
+    <h3>Callable</h3>
+    <ul>
+      <li>Immediately returns a future object</li>
+      <li>pass Callable to the thread, so one thread is used to execute the callable object</li>
+      <li>uses call() method, Thread uses run() method</li>
+      <li>call() returns a value, run() cannot</li>
+      <li>Callable can throw checked exceptions</li>
+    </ul>
+
+    <h3>Future</h3>
+    <ul>
+      <li>stores the result of the asynchronous computation</li>
+      <li>you can cancel a task</li>
+    </ul>
+    <pre>
+    ExecutorService ex = Executors.newSingleThreadExecutor();
+      Future f1 = ex.submit(new Factorial(10));
+      Future f2 = ex.submit(new Factorial(12));
+      Future f3 = ex.submit(new Factorial(15));
+
+     //Factorial class implements Callable
+     public Integer call() throws InterruptedException {
+        return factorial(this.number);
+    }
+    </pre>
+
   </body>
 </html>
