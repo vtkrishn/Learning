@@ -1,4 +1,4 @@
-package com.learning.thead;
+package com.learning.thread;
 
 public class Printer extends Thread{
         

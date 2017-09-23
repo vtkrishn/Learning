@@ -1,4 +1,4 @@
-package com.learning.thead.pattern;
+package com.learning.thread.pattern;
 
 import java.util.concurrent.Callable;
 

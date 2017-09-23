@@ -1,4 +1,4 @@
-package com.learning.thead.pattern;
+package com.learning.thread.pattern;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
