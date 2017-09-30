@@ -20,13 +20,13 @@
     q.push(root);
 
     var i = 1;
-    while(q.length > 0){
+    while(q.length > 0 && i < treeStringSplit.length){
         var node = q.shift();
 
       if(node == null)
         continue;
 
-      if(treeStringSplit[i] !== '#'){
+      if(i< treeStringSplit.length && treeStringSplit[i] !== '#'){
         node.left = createTreeNode(treeStringSplit[i]);
         q.push(node.left);
       }
@@ -37,7 +37,7 @@
 
       i++;
 
-      if(treeStringSplit[i] !== '#'){
+      if(i< treeStringSplit.length && treeStringSplit[i] !== '#'){
         node.right = createTreeNode(treeStringSplit[i]);
         q.push(node.right);
       }
@@ -51,7 +51,7 @@
     return root;
   }
 
-  console.log(createTree("1,#,#"));
+  console.log(createTree("1,2,3"));
 
 
 })(typeof window === 'undefined' ? module.exports : window)
