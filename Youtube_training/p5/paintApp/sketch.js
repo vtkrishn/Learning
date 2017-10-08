@@ -1,11 +1,10 @@
 function setup() {
-    createCanvas(1024,1024);
+    createCanvas(200,200);
 }
 
 function draw() {
     
     //functions for different objects
-//    background(0,255,0);
 //    rect(100,200,75,125);
 //    line(30,20,85,75);
 //    ellipse(192,134,56,78);
@@ -20,5 +19,9 @@ function draw() {
 //    }
     
     //have ellipse draw when mouse movement
-    ellipse(mouseX,mouseY, 100,100);
+    ellipse(mouseX,mouseY, 1,1);
+}
+
+function mousePressed() {
+    background(255,255,255);
 }
