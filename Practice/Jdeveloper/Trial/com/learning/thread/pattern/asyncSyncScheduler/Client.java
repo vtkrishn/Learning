@@ -7,6 +7,7 @@ public class Client {
     
     public static void main(String[] msg){
         NonBlockingDispatcher nbd = new NonBlockingDispatcher();
+        String s;
         nbd.dispatch(10);
         nbd.dispatch(12);
         nbd.dispatch(15);
