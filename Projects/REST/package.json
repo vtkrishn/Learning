@@ -1,0 +1,14 @@
+{
+  "name": "rest-ip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinod Krishnan <vin.sinin@gmail.com> (https://vtkrishn.github.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
