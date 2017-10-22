@@ -1,0 +1,6 @@
+com.tax.sales.client
+com.tax.sales.entity
+com.tax.sales.exception
+com.tax.sales.logging
+com.tax.sales.test
+com.tax.sales.util

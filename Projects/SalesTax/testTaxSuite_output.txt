@@ -1,0 +1,307 @@
+---testGetQuantity---
+1
+---testSetQuantity---| int value - 2
+2
+---testGetName---
+book
+---testSetName---| value - milk
+milk
+---testSetName---| value - ''
+
+---testSetName---| value - null
+null
+---testGetPrice---
+12.49
+---testSetPrice---
+12.49
+---testGetItemType---
+IMPORTED
+---testSetItemType---
+LOCAL
+---testItem---
+1
+book
+12.49
+IMPORTED
+---testGetTotal---
+12.49
+---testSetTotal---
+12.49
+---testGetTaxAmount---
+0.0
+---testSetTaxAmount---
+12.34
+---testGetTotal---
+48.04
+---testGetGrandItemTotal---
+24.59
+0.0
+---testGetGrandTaxTotal---
+23.45
+0.0
+---testGetGrandTotal---
+0.0
+48.04
+---testGetProduct---
+com.tax.sales.entity.Product@1f7d134
+---testSetProduct---
+com.tax.sales.entity.Product@c7e553
+---testGetSize---
+1
+---testSetSize---
+0
+---testGetItemTotal---
+0.0
+---testSetItemTotal---
+23.45
+---testGetSalesTaxTotal---
+0.0
+---testSetSalesTaxTotal---
+12.34
+---testTaxCalculator---
+com.tax.sales.util.TaxCalculator@aa9835
+---testCalculateBasicTax--- item type - LOCAL , Item - Perfume
+Basic Tax :1.249 for Item :perfume : 1.249
+---testCalculateImportDutyTax---item type - IMPORTED , Item - book
+  || Import Duty :0.6245
+
+ for Item :book : 0.6245
+---testSalesTaxException---
+---testSalesTaxExceptionString---
+Testing
+---testLoadFromFile---
+---testSaveToFile---
+---testProcessInformation---
+1 book 23.45
+---testProcessFileInformation---
+1 book 12.49
+---testCalculateTotal---
+---testRoundValues---
+12.5
+1.5
+11.0
+0.123
+0.0
+0.25
+0.3
+0.283
+Input 1:
+1 book at 12.49
+1 music CD at 14.99
+1 chocolate bar at 0.85
+Quantity Item Price : 1,book,12.49
+1 book 12.49
+Import type : LOCAL
+Basic Tax :0.0  || Import Duty :0.0
+
+Item Price:12.49 || Sales Tax:0.0 || (Item + Sales Tax):12.49
+Quantity Item Price : 1,music,14.99
+1 music 14.99
+Import type : LOCAL
+Basic Tax :1.499  || Import Duty :0.0
+
+Item Price:14.99 || Sales Tax:1.499 || (Item + Sales Tax):16.489
+Quantity Item Price : 1,chocolate,0.85
+1 chocolate 0.85
+Import type : LOCAL
+Basic Tax :0.0  || Import Duty :0.0
+
+Item Price:0.85 || Sales Tax:0.0 || (Item + Sales Tax):0.85
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		book		12.49		12.49		0.0		12.49
+	1		music		14.99		14.99		1.499		16.489
+	1		chocolate	0.85		0.85		0.0		0.85
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.499
+									  Grand Total : 29.829
+Input 2:
+1 imported box of chocolates at 10.00
+1 imported bottle of perfume at 47.50
+Quantity Item Price : 1,chocolate,10.00
+1 chocolate 10.00
+Import type : IMPORTED
+Basic Tax :0.0  || Import Duty :0.5
+
+Item Price:10.0 || Sales Tax:0.5 || (Item + Sales Tax):10.5
+Quantity Item Price : 1,perfume,47.50
+1 perfume 47.50
+Import type : IMPORTED
+Basic Tax :4.75  || Import Duty :2.375
+
+Item Price:47.5 || Sales Tax:7.125 || (Item + Sales Tax):54.625
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		chocolate	10.0		10.0		0.5		10.5
+	1		perfume		47.5		47.5		7.125		54.625
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 7.625
+									  Grand Total : 65.125
+Input 3:
+1 imported bottle of perfume at 27.99
+1 bottle of perfume at 18.99
+1 packet of headache pills at 9.75
+1 box of imported chocolates at 11.25
+Quantity Item Price : 1,perfume,27.99
+1 perfume 27.99
+Import type : IMPORTED
+Basic Tax :2.799  || Import Duty :1.3995
+
+Item Price:27.99 || Sales Tax:4.198 || (Item + Sales Tax):32.188
+Quantity Item Price : 1,perfume,18.99
+1 perfume 18.99
+Import type : LOCAL
+Basic Tax :1.8989999999999998  || Import Duty :0.0
+
+Item Price:18.99 || Sales Tax:1.899 || (Item + Sales Tax):20.889
+Quantity Item Price : 1,pills,9.75
+1 pills 9.75
+Import type : LOCAL
+Basic Tax :0.0  || Import Duty :0.0
+
+Item Price:9.75 || Sales Tax:0.0 || (Item + Sales Tax):9.75
+Quantity Item Price : 1,chocolate,11.25
+1 chocolate 11.25
+Import type : IMPORTED
+Basic Tax :0.0  || Import Duty :0.5625
+
+Item Price:11.25 || Sales Tax:0.562 || (Item + Sales Tax):11.812
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		perfume		27.99		27.99		4.198		32.188
+	1		perfume		18.99		18.99		1.899		20.889
+	1		pills		9.75		9.75		0.0		9.75
+	1		chocolate	11.25		11.25		0.562		11.812
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 6.66
+									  Grand Total : 74.64
+---testManualEntry - calculate import duty---
+Quantity Item Price : 1,book,24.9
+1 book 24.9
+Import type : IMPORTED
+Basic Tax :0.0  || Import Duty :1.245
+
+Item Price:24.9 || Sales Tax:1.245 || (Item + Sales Tax):26.145
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		book		24.9		24.9		1.245		26.145
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.245
+									  Grand Total : 26.145
+---testManualEntry - calculate no tax---
+Quantity Item Price : 1,book,24.9
+1 book 24.9
+Import type : LOCAL
+Basic Tax :0.0  || Import Duty :0.0
+
+Item Price:24.9 || Sales Tax:0.0 || (Item + Sales Tax):24.9
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		book		24.9		24.9		0.0		24.9
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 0.0
+									  Grand Total : 24.9
+---testManualEntry - calculate basic tax---
+Quantity Item Price : 2,perfume,12.3
+2 perfume 12.3
+Import type : LOCAL
+Basic Tax :1.23  || Import Duty :0.0
+
+Item Price:24.6 || Sales Tax:1.23 || (Item + Sales Tax):25.83
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	2		perfume		12.3		24.6		1.23		25.83
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.23
+									  Grand Total : 25.83
+---testManualEntry - calculate basic tax and import duty tax---
+Quantity Item Price : 2,perfume,12.3
+2 perfume 12.3
+Import type : IMPORTED
+Basic Tax :1.23  || Import Duty :0.615
+
+Item Price:24.6 || Sales Tax:1.845 || (Item + Sales Tax):26.445
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	2		perfume		12.3		24.6		1.845		26.445
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.845
+									  Grand Total : 26.445
+---testFileEntry - calculate import duty---
+Quantity Item Price : C:\testInput.txt
+1 book 12.49
+Import type : IMPORTED
+Item Price:0.0 || Sales Tax:0.0 || (Item + Sales Tax):0.0
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		book		12.49		12.49		0.0		12.49
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 0.0
+									  Grand Total : 0.0
+---testFileEntry - calculate no tax---
+Quantity Item Price : C:\testInput.txt
+1 book 12.49
+Import type : LOCAL
+Item Price:0.0 || Sales Tax:0.0 || (Item + Sales Tax):0.0
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		book		12.49		12.49		0.0		12.49
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 0.0
+									  Grand Total : 0.0
+---testFileEntry - calculate basic tax---
+Quantity Item Price : C:\testInput.txt
+1 book 12.49
+Import type : LOCAL
+Basic Tax :1.249  || Import Duty :0.0
+
+Item Price:12.49 || Sales Tax:1.249 || (Item + Sales Tax):13.739
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		perfume		12.49		12.49		1.249		13.739
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.249
+									  Grand Total : 13.739
+---testFileEntry - calculate basic tax and import duty tax---
+Quantity Item Price : C:\testInput.txt
+1 book 12.49
+Import type : IMPORTED
+Basic Tax :1.249  || Import Duty :0.6245
+
+Item Price:12.49 || Sales Tax:1.874 || (Item + Sales Tax):14.364
+---------------------------------------------------------------------------------------------------
+	Quantity	Item		Price		Total		Tax		Total Price
+---------------------------------------------------------------------------------------------------
+	1		perfume		12.49		12.49		1.874		14.364
+---------------------------------------------------------------------------------------------------
+						      Sales Tax Total : 1.874
+									  Grand Total : 14.364
+---testFileEntry - file does not exist---
+Quantity Item Price : C;\testInput.txt
+The File does not exit
+---testConstants---
+fileHandler = java.util.logging.FileHandler@19fcc69
+MAX_FILE_SIZE = 4
+MAX_ARRAY_SIZE = 10
+IMPORTED_TYPE = IMPORTED
+LOCAL_TYPE = LOCAL
+COMMA = ,
+SPACE =  
+MANUAL_ENTRY = M
+FILE_ENTRY = F
+TAX_WAIVER_FILE = C:\taxWaiverItems.txt
+SALES_TAX_PERCENTAGE = 10
+IMPORT_DUTY_PERCENTAGE = 5
+ROUNDUP_FACTOR = 0.05
+---testGetLogger---
+java.util.logging.Logger@253498
