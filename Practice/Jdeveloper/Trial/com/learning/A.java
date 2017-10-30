@@ -5,7 +5,7 @@ public class A {
         return "Hello";
     }
     
-    public void test(){
+    protected void test(){
         System.out.println("A Test");
     }
 }

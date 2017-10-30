@@ -1,0 +1,57 @@
+Primitive Types and Reference Types
+  Integral Types : byte short int long char
+  Floating types: float double
+
+  For byte, from -128 to 127, inclusive
+  For short, from -32768 to 32767, inclusive
+  For int, from -2147483648 to 2147483647, inclusive
+  For long, from -9223372036854775808 to 9223372036854775807, inclusive
+  For char, from '\u0000' to '\uffff' inclusive, that is, from 0 to 65535
+
+  widens - Numeric promotion
+  if either the operand  is not an int, numeric promotion for 32 bit precision
+  if either the operand  is not a long  numeric promotion for 64 bit precision
+
+  boolean can be casted to String
+  if while do for - loops expects boolean
+
+  Types:
+    Class Type
+    Interface Type
+    TypeVariable - Annotations
+    Array Type
+
+  Heap Pollution
+
+  Object - instance of class or array
+    class instance creation expression
+    array instance creation expression
+
+  Operations on objects
+    Field access - with . operator
+    method access - with . operator
+    cast operator
+    instanceof operator
+
+  Class Object
+    clone, equals, finalize, notify, wait, toString, getClass, equals
+  Class String
+    concatenation operator - +
+
+  Reference type are same if
+    compile time type
+      part of same class - same interface
+    run time type
+      same class type, same interface type, loaded by same class loader
+
+Type Arguments
+  < ? extends B >
+  ? super B
+
+Type information are erased during compilation, and not completely available during run time
+type information that are available during run time - reifiable types
+Raw Type, primitive , array types
+Intersection types
+Sub types
+
+Variables - compile time type

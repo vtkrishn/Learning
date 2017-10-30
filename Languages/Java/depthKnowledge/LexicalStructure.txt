@@ -1,0 +1,79 @@
+https://docs.oracle.com/javase/specs/jls/se9/html/index.html
+
+Lexical Structure
+
+  Unicode Marker - u
+  Unicode Escape - \
+  Line Terminator - Lf, CR
+
+Input Elements and Tokens:
+  Whitepsace - Space, Horizontal Tab, form feed
+  Comments - /* */, //
+
+  Token :
+    Idetifiers : any unicode character not a keyword, null literal , boolean literal, first letter with be a java letter
+    keyword : all valid keywords - https://docs.oracle.com/javase/specs/jls/se9/html/jls-3.html#jls-3.9
+    const, goto are keywords but not allowed to use.
+
+    Literals:
+      integer literals: 1 L l(can be used but gives warning for confusion with 1)
+        decimal literals: 1 2 3 4 5 6 7 8 9 _ . underscore - 1_2_34 = 1234
+        Hex literals - 0x, OX  - [0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F]  _
+        octal literals - 0,   0 1 2 3 4 5 6 7 _
+        binary literals - 0 b B , 0 1
+
+    limits:
+      decimal max - 2147483647(2^31-1)
+      hex max - 0x7fff_ffff
+      octal max - 0177_7777_7777
+      binary max - 0b0111_1111_1111_1111_1111_1111_1111_1111
+
+      decimal min - -2147483648 (-2^31)
+      hex min - 0x8000_0000
+      octal min - 0200_0000_0000
+      binary min - 0b1000_0000_0000_0000_0000_0000_0000_0000
+
+      long decimal max -  9223372036854775807L (2^63-1)
+      hex long max - 0x7fff_ffff_ffff_ffffL
+      octal long max - 07_7777_7777_7777_7777_7777L
+      binary long max - 0b0111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111_1111L
+
+      long decimal min - -9223372036854775808L (-2^63)
+      hex long min - 0x8000_0000_0000_0000L
+      octal long min - 010_0000_0000_0000_0000_0000L
+      binary long min - 0b1000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000L
+
+      Floating Point Literals:
+        .
+        exponential - e E
+        signs - + -
+        f F d D
+        float limit - 3.4028235e38f
+        double limit - 1.7976931348623157e308
+      Boolean literals:
+          true false
+
+      Character literals: '' '\n' '\u03a9'
+      String literals: "" "\\"
+
+      Separators:
+      (   )   {   }   [   ]   ;   ,   .   ...   @   ::
+
+      Operators:
+      =   >   <   !   ~   ?   :   -> ==  >=  <=  !=
+      &&  ||  ++  --  +   -   *   /   &   |   ^   %
+      <<   >>   >>> +=  -=  *=  /=  &=  |=  ^=  %=
+      <<=  >>=  >>>=
+
+If an eligible \ is followed by u, or more than one u, and the last u is not followed by four hexadecimal digits, then a compile-time error occurs.
+An identifier cannot have the same spelling (Unicode character sequence) as a keyword (§3.9), boolean literal (§3.10.3), or the null literal (§3.10.7), or a compile-time error occurs.
+It is a compile-time error if the decimal literal 2147483648 appears anywhere other than as the operand of the unary minus operator; or if a decimal literal of type int is larger than 2147483648 (231).
+It is a compile-time error if a hexadecimal, octal, or binary int literal does not fit in 32 bits.
+It is a compile-time error if the decimal literal 9223372036854775808L appears anywhere other than as the operand of the unary minus operator; or if a decimal literal of type long is larger than 9223372036854775808L (263).
+It is a compile-time error if a hexadecimal, octal, or binary long literal does not fit in 64 bits.
+It is a compile-time error if a non-zero floating-point literal is too large, so that on rounded conversion to its internal representation, it becomes an IEEE 754 infinity.
+It is a compile-time error if a non-zero floating-point literal is too small, so that, on rounded conversion to its internal representation, it becomes a zero.
+It is a compile-time error for the character following the SingleCharacter or EscapeSequence to be other than a '.
+It is a compile-time error for a line terminator (§3.4) to appear after the opening ' and before the closing '.
+It is a compile-time error for a line terminator to appear after the opening " and before the closing matching ".
+It is a compile-time error if the character following a backslash in an escape sequence is not an ASCII b, t, n, f, r, ", ', \, 0, 1, 2, 3, 4, 5, 6, or 7. The Unicode escape \u is processed earlier (§3.3).
