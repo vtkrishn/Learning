@@ -1,0 +1,47 @@
+Java
+
+sudo apt-get update
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+Scala
+sudo apt install scala
+
+Zookeeper
+wget http://apache.claz.org/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
+tar zxvf zookeeper-3.4.11.tar.gz
+Default port: 2181
+cp conf/zoo_sample.cfg conf/zoo.cfg
+bin/zkServer.sh start
+bin/zkCli.sh -server 127.0.0.1:2181
+
+commands:
+help
+ls /
+create <node> <value>
+get /<node>
+set /<node> <new_value>
+delete /<node>
+
+help commands
+        get path [watch]
+        ls path [watch]
+        set path data [version]
+        delquota [-n|-b] path
+        quit
+        printwatches on|off
+        create path data acl
+        stat path [watch]
+        listquota path
+        history
+        setAcl path acl
+        getAcl path
+        sync path
+        redo cmdno
+        addauth scheme auth
+        delete path [version]
+        deleteall path
+        setquota -n|-b val path
