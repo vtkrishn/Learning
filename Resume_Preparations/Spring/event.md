@@ -22,3 +22,20 @@ MessageSource messageSource;
 		this.messageSource = messageSource;
 	}
 System.out.println("message ----> "+this.messageSource.getMessage("pointA.pointX", null,"nothing",null));
+
+
+------------
+
+@Component
+public class myListener implements ApplicationListener{
+
+  	<bean class="com.vtkrishn.spring.myListener" />
+
+own Custom Event
+    public class DrawEvent extends ApplicationEvent{
+
+    from the bean publish using   
+    ApplicationEventPublisher
+
+implement ApplicationEventPublisherAware class and set the publisher
+applicationEventPublisher.publishEvent(d);

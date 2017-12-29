@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd"
+        default-init-method="myInit" default-destroy-method="myDestroy"
+        >
+
+<bean id="parentTriangle" class="com.vtkrishn.spring.Triangle">
+	<property name="pointA" ref ="point0"/>
+</bean>
+
+<bean id="point0" class="com.vtkrishn.spring.Point" scope="singleton" >
+<qualifier value="circleRelated"/>
+<property name="x" value="0" />
+<property name="y" value="0" />
+</bean>
+
+<bean id="triangle" class="com.vtkrishn.spring.Triangle" parent="parentTriangle">
+	<property name="pointB">
+		<bean class="com.vtkrishn.spring.Point" init-method="pInit">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+		</bean>
+	</property>
+	<property name="pointC">
+		<bean class="com.vtkrishn.spring.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+		</bean>
+	</property>
+	<property name="points">
+	<list>
+		<ref bean="point0"/>
+	</list>
+   </property>
+	
+</bean>
+
+<alias name="triangle" alias="triangleAlias"/>
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" autowire="default">
+<property name="basenames">
+<list>
+<value>prop</value>
+</list></property>
+</bean>
+
+	<bean class="com.vtkrishn.spring.myListener" />
+
+<!--  <context:annotation-config /> -->
+<!-- 
+<bean class="com.vtkrishn.spring.DisplayNameBeanPostProcessor"/>
+<bean class="com.vtkrishn.spring.DisplayNameBeanFactoryPostProcessor"/>
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<property name="locations" value="prop.properties"/>
+</bean> -->
+</beans>
