@@ -14,10 +14,12 @@ Response Status Codes
    201 "Created" indicates a resource was successfully created
    202 "Accepted" indicates that an asynch operation was started
    204 "No Content" indicates success but with an intentionally empty response body
+
    301 "Moved Permanently" is used for relocated resources
    303 "See Other" tells the client to query a different URI
    304 "Not Modified" is used to save bandwidth
    307 "Temporary Redirect" means resubmit the query to a different URI
+
    400 "Bad Request" indicates a general failure
    401 "Unauthorized" indicates bad credentials
    403 "Forbidden" denies access regardless of authentication
@@ -27,4 +29,5 @@ Response Status Codes
    409 "Conflict" indicates a problem with the state of the resource
    412 "Precondition Failed" is used for conditional operations
    415 "Unsupported Media Type" means the type of payload can't be processed
+
    500 "Internal Server Error" indicates an API malfunction
