@@ -1,5 +1,3 @@
-import java.applet.Applet;
-import java.applet.AppletContext;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,7 +7,6 @@ import java.util.PriorityQueue;
 public class Skyline {
 
 	public static void main(String[] args) {
-		Applet 
 		
 		Skyline sky = new Skyline();
 		int[][] buildings = {
