@@ -14,6 +14,7 @@ public class Board {
 	private List<Piece> blackCapturedPieces = new ArrayList<>();
 	private boolean currentPlayerWhite;
 	private int gameTurn = 0;
+	
 	public boolean isCurrentPlayerWhite() {
 		return currentPlayerWhite;
 	}
@@ -58,30 +59,27 @@ public class Board {
 		return stb.toString();
 	}
 	public void printBoardStatus() {
+		System.out.println("GAME TURN : "+ gameTurn);
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("White captured pieces :" + displayCapturedPiece(whiteCapturedPieces));
 		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("     0  1  2  3  4  5  6  7");
+		System.out.println("-----------------------------------------------------------------------------");
+		int count = 0;
 		for(Tile[] tile : getTiles()) {
+			System.out.print(count++ +" | ");
 			for(Tile t : tile) {
 				if(t.getPiece() != null)
 					//System.out.print(t.getPiece() +"-"+ t.getPiece().getColor() + "\t");
-					System.out.print(t.getPiece() + "  ");
+					System.out.print(" "+t.getPiece() + " ");
 				else
-					System.out.print("." + "  ");
+					System.out.print(" ." + " ");
 			}
 			System.out.println("");
 		}
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Black captured pieces :" + displayCapturedPiece(blackCapturedPieces));
 		System.out.println("-----------------------------------------------------------------------------");
-	}
-	
-	private int[] getWhiteRows() {
-		return new int[] {0,1};
-	}
-	
-	private int[] getBlackRows() {
-		return new int[] {6,7};
 	}
 	
 	private void placePieces(Tile.COLOR color) {
@@ -105,6 +103,21 @@ public class Board {
 				}
 			}
 		}
+	}
+	
+	public boolean isAdvanced(Tile currentTile) {
+		int row = currentTile.getRow();
+		int col = currentTile.getColumn();
+		
+		if(currentTile.getPiece().getColor().equals("WHITE")) {
+			if(row == 7)
+				return true;
+		}
+		else {
+			if(row == 0)
+				return true;
+		}
+		return false;
 	}
 	
 	public void move(int fromX, int fromY, int toX, int toY) throws Exception {
@@ -144,7 +157,7 @@ public class Board {
 		
 		//if the target piece is null then proceed for legal move
 		if(toPiece == null) {
-			List<int[]> legalMoves = fromPiece.getLegalMove(fromTile);
+			List<int[]> legalMoves = fromPiece.getLegalMove(fromTile,this);
 			boolean valid = false;
 			for(int[] val : legalMoves) {
 				if(val[0] == toTile.getRow() && val[1] == toTile.getColumn()) {
@@ -165,7 +178,7 @@ public class Board {
 				System.out.println("Invalid Move");
 		} // if the target piece is not null then its a capturing move
 		else if(toPiece != null) {
-			List<int[]> captureMoves = fromPiece.getCaptureMove(fromTile);
+			List<int[]> captureMoves = fromPiece.getCaptureMove(fromTile,this);
 			boolean valid = false;
 			for(int[] val : captureMoves) {
 				if(val[0] == toTile.getRow() && val[1] == toTile.getColumn()) {
@@ -187,10 +200,16 @@ public class Board {
 				gameTurn++;
 				setCurrentPlayerWhite(!currentPlayerWhite);
 			}
-			else
+			else {
 				System.out.println("Invalid Move");
+				return;
+			}
 			
 		}
+		
+		//pawn advance
+		if(toPiece.getName().equals("PAWN") && isAdvanced(toTile))
+			System.out.println("PAWN advanced choose option [QUEEN, KNIGHT, ROOK, BISHOP]");
 	}
 	
 	private void addPawns(Tile.COLOR color, Tile t) {

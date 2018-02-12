@@ -2,6 +2,7 @@ package main.piece;
 
 import java.util.List;
 
+import main.Board;
 import main.Tile;
 import main.Tile.COLOR;
 
@@ -15,14 +16,15 @@ public abstract class Piece {
 	COLOR color;
 	String name;
 	boolean moved;
+	boolean supported;
 	
 	public Piece(COLOR color, String name) {
 		this.color = color;
 		this.name = name;
 	}
 	
-	public abstract List<int[]> getLegalMove(Tile currentTile);
-	public abstract List<int[]> getCaptureMove(Tile currentTile);
+	public abstract List<int[]> getLegalMove(Tile currentTile, Board board);
+	public abstract List<int[]> getCaptureMove(Tile currentTile, Board board);
 	
 	@Override
 	public String toString() {
@@ -30,7 +32,7 @@ public abstract class Piece {
 		if(name.equals("PAWN"))
 			value = "x";
 		else if(name.equals("ROOK"))
-			value = "||";
+			value = "|";
 		else if(name.equals("KNIGHT"))
 			value = "@";
 		else if(name.equals("BISHOP"))

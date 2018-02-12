@@ -3,6 +3,7 @@ package main.piece;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.Board;
 import main.Tile;
 import main.Tile.COLOR;
 
@@ -13,7 +14,6 @@ import main.Tile.COLOR;
  * if the piece is there then the player loses that piece and the current piece takes that position, maintain players piece count
  * check for enpassant logic
  * if the pawn advances to the init position + 6, then convert the piece (QUEEN, ROOK, KNIGHT, BISHOP)
- * if the x+1, col, has piece then you cannot move, it will invalid move
  * @author vtkrishn
  *
  */
@@ -22,25 +22,19 @@ public class Pawn extends Piece{
 		super(color, name);
 	}
 	
-	
-	public List<int[]> getLegalMove(Tile currentTile){
+	public List<int[]> getLegalMove(Tile currentTile,Board board){
 		List<int[]> result = new ArrayList<int[]>();
 		if(!moved) {
-			if(color == COLOR.WHITE)
 				result.add(new int[] {currentTile.getRow() + 2,currentTile.getColumn()});
-			else
 				result.add(new int[] {currentTile.getRow() - 2,currentTile.getColumn()});
 		}
-		
-		if(color == COLOR.WHITE)
 			result.add(new int[] {currentTile.getRow() + 1,currentTile.getColumn()});
-		else
 			result.add(new int[] {currentTile.getRow() - 1,currentTile.getColumn()});
 		
 		return result;
 	}
 		
-	public List<int[]> getCaptureMove(Tile currentTile){	
+	public List<int[]> getCaptureMove(Tile currentTile,Board board){	
 		List<int[]> result = new ArrayList<int[]>();
 		if(color == COLOR.WHITE) {
 			result.add(new int[] {currentTile.getRow()+1, currentTile.getColumn() + 1});

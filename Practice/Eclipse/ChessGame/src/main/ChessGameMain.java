@@ -5,14 +5,20 @@ import java.util.Scanner;
 public class ChessGameMain {
 	
 	public static void main(String[] args) {
+		//get the board
 		Board board = new Board();
+		
+		//place the pieces
 		board.placePieces();
+		//display the board se
 		board.printBoardStatus();
 		
+		//scan for user inputs
 		Scanner scan = new Scanner(System.in);
 		System.out.println("White piece to move first");
 		System.out.println("Enter which piece to move ::from <ROW>,<COL> ::");
 		String move = scan.nextLine();
+		//ABORT to exist out from this loop
 		while(!move.equals("ABORT")) {
 			
 			String[] fromString = move.split(",");
