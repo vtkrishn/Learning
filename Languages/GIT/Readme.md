@@ -1,5 +1,7 @@
 https://git-scm.com/docs
 
+git config --global credential.helper cache
+
 ## Git init in a foloder
     go to that folder (cd /scratch/vtkrishn/my_repository)
     git init

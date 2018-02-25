@@ -21,6 +21,10 @@ common options
 -v -verbose, version
 -w - width, warning
 -x - enable, extract
+-z - compress
+
+
+
 
 File System
 --------------
