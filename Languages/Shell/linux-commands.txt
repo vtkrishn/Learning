@@ -1,0 +1,266 @@
+common options
+-a - all, append
+-b - byte, block, buffer, batch
+-c - command arguments, character, count
+-d - debug, delete, directory , D - Define
+-e - execute, edit, exclude
+-f - force, file
+-g - global
+-h - human readblity, help , header
+-i - interactive,ignore case I - include
+-k - kilo, keep
+-l - list, long, length, lock
+-n - number, not
+-o - output
+-p - print, port
+-q - quiet
+-r - recursive, reverse
+-s - sorting, summarize, size, silent
+-t - tag
+-u - user, unique
+-v -verbose, version
+-w - width, warning
+-x - enable, extract
+
+File System
+--------------
+> - create file
+>> - append to the file
+cksum 1.txt - chksum for the file to validate the stream of data
+pwd - print working directory
+mv src dest - move files
+file file1 - get the type of the file
+basename directory - will retrieve the last directory name without a slash, used to get the file name
+dirname  directory - will retrieve the directory, used to get the directory name
+
+touch filename - creates a file
+touch -a filename - modifies the access time
+touch -m filename - modifies the modification time
+
+crontab
+
+df - disk free space
+df -h - human readable
+du - disk usage
+du -sh * - disk usage with size in human readble form
+
+mkdir -p /tmp/a/b/c - nested directory
+mkdir -p /tmp/{a/b/{c,d},e,f} - creates e,f under tmp, and c,d under a/b
+
+rm -i file - interactive removal
+rm -r directory - recruse removal in the directory
+
+rmdir/rd directory - removes the directroy
+
+
+cat filename - displays file name
+cat -n filename - displays with line number
+cat file1 file2 - concatenate two files
+cat file > 1.txt - send the output to 1.txt
+tac - reverse of cat
+
+cd - same directory
+cd .. - change one level up
+cd directory - takes you to the directory
+cd ~ - takes you to the logged in users home
+cd - - will take you to the previos directory
+
+cmp file1 file2 - compare two files
+cmp - b file1 file2 - byte differences
+cmp -l file1 file2 - verbose
+
+cp sourcefile targetDir - copy from source to destination
+cp -r src dest - recursive copying
+cp -v src dest - verbose mode of copying
+
+Admin
+-------
+chgrp
+chmod 777 filename - change permission of the file
+chown root /u - change the owner of /u to root
+
+Others
+-------
+alias - will print all th aliases
+alias ls='ls -lrt' - create an alias for ls
+alias -p - will also print the alias
+alias myalias - display the alias for myalias
+
+unalias myalias - will remove the alias defined for myalias
+
+cal - calendar (-y)
+cal 2015 - displays 2015 calendar
+cal 6 2016 - display august calendar
+
+date - date time
+time - time a command
+env - lists the env variables
+id - displays user id
+hash - hash table for the command and hits
+logname - user login nameman - manual
+split - split the file into pieces, default 1000 lines
+tty - displays terminal name
+umask - file permission masking
+uname -a - displays system information
+write tty - write mesage on another users terminal
+fuser - list which process used by which user for specified file mount
+
+Programming
+--------------
+echo - displays message
+echo -e "\033[9;42m vinod  \033[m" - displays in color
+expr [length, index ,substr] - expression options
+read - read a line from the standard input
+true \ false
+tee - duplicate the standard output
+
+
+Process Management
+---------------------
+at - executes someting at specific time
+atq - will list all the queues for the at command
+atrm jobid - will remove the at q with the jobid
+batch - is similar to at command
+
+
+bg - will list all baground jobs
+fg - will list all foreground jobs
+& - any command run will & will run in the background
+kill -9 processid - kill a process with processid
+nice - nicenesss for process secheculing, -20 to 19 for priority with -n option
+wait - wait for the process to complete
+
+vi
+touch - modify the file
+
+others
+----------
+
+
+tail -n 5 file - display last n lines
+tail -r -n 5 file - reverse output
+tail -f file - live output
+tail -f file | grep pattern - filtering on live stream
+
+tree
+tree -d -L 2 - displays only directory in tree structure upto 2 level
+tree -d /usr/ - display tree of the directory
+
+wc -l - line count
+wc -w - workd count
+
+rev - reverse output
+sort - sort the output
+uniq - get uniq values
+diff - diff between two files
+
+last - list all last logged in users
+join - join two files
+read - read one line
+
+free
+kill
+uname -a - get the os information
+sleep n - sleep for n seconds
+
+
+
+cut (cut and modify)
+--------------------
+
+
+tar (archive)
+------
+tar -c tools/ - create archive of the content under tools
+tar -cf tools/ - save the file
+tar -cvf tools/ - verbose archive saving
+tar -tf foo.jar - list files in existing archive
+tar -r foo.jar readme.txt - append to existing archive
+tar -u foo.jar readme.txt - updating to existing archive
+tar -xvf foo.jar - extracting verbose list
+
+
+list (ls)
+------------
+ls -all - display all files including hidden files
+ls -l - long form
+ls -h - human readable sizes
+ls -h - long form with human readable sizes
+ls -lhS - do sorting on long form human readable sizes
+ls -lt - sort based on time
+ls -lrt - reverse sort based on time
+
+link (ln)
+-------------
+ln a.txt b.txt - create hard link for file
+ln -f a.txt b.txt - create hard link and force if file exists
+ln -s a.txt b.txt - symbolic link , act as a pointer to the source file
+
+process (ps)
+-------------
+ps u - display user oriented process
+ps -e - display all process
+ps -U vtkrishn - will filter for the user
+ps -m - sorting based on memory usage
+ps -L - list all the options
+ps -O etime %cpu - options
+ps -m - -O etime - elapsed time sorted by memory
+ps -r - -O %cpu - elapsed time sorted by cpu usage
+
+find (find the files)
+----------
+find PATH_TO_SEARCH OPTIONS_TO_USE PATTERN_TO_SEARCH_FOR
+find . -name model.txt - search for model.txt file in current path
+find . -path \*session\* - search in the paths
+find . -type f|d -name model.txt - provide type as file or directory
+find . \( -type f -or -type d\) -name model - using or to search for model as file or directory type
+find . -not -name model.txt
+find . -mtime -1 - find by last modified in n days
+find . -mmin -5 - find by last modified in n minutes
+find . -size +200k - search for file greater than 200K
+find . -name model.txt -print -delete - search for model.txt and print it and delete the same
+
+grep (find something in the files like string pattern)
+------
+grep create cron.log - find the create word in the cron.log
+grep "r.log" Readme.txt - get the pattern with regex in the file
+grep -c ruby readme.txt - count the occurance
+grep -n ruby readme.txt - display the line number
+grep -i ruby readme.txt - case insensitive search
+grep -R "read" . - recursive search
+grep -R --include "*.txt" "read" . - recursive search and including some filter files
+ps -e | grep forego - search in standard output
+grep -v "not" readme.txt - inverted search
+grep -v "^$" Readme.txt | grep -v "a" -  get all does not contain blank line and does not contain 'a'
+
+sed (search editor)
+-------------------
+cat cron.log | sed "s/[a-z]/*/g" - search and substitute all [a to z] to *, global replace
+sed -e "s/[a-z]/*/2" cron.log - search and substitute 2nd occurance
+sed -i "s/[a-z]/*/2" cron.log - save the changes
+sed -i.tmp "s/[a-z]/*/2" cron.log - save the changes in the .tmp file extension
+sed -e "s/[a-z]/*/i" cron.log - case insesitive search and substitute
+sed -e "/out/s/[a-z]/*/g" cron.log - operate only if it matches the out pattern
+sed -e "s/[a-z]/*/p" cron.log - print the matches
+sed -e "/vinod/d" cron.log - delete the content
+
+tr (tranpose)
+--------------
+tr '{}' '()' < inputfile > outputfile - translate the contents
+ls -lrt | tr nov NOV - convert Nov to NOV
+tr a-z A-Z - convert lower to upper
+cat cron.og | tr -d 't' - delete the character 't' occurance
+
+curl
+-----
+curl url - list url html
+curl -i url - lists url with request, response, header content and html
+curl -L - will take you to the redirected page if the first page requested is not available or moved
+curl -O download_url - downloading
+curl -o <custom_name> download_url
+curl -X POST | PUT url - change to HTTP request method, use quotes for sending parameters
+curl -X POST -d "param1=value1&param2=value2" url - send data
+curl -X POST -d @file.json url - send data using a file
+curl -X POST -F object[key1]=value1 -F object[key2]=value2 url - send form values
+curl -X POST url -H "Accept: application/json" - set the header eg. accepting the json file
+curl -X POST -u "username:password" login_url
