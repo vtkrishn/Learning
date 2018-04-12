@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class DisjointSet {
 
+
 	Map<Integer, Node> map = new HashMap<Integer, Node>();
 	class Node{
 		int data;
