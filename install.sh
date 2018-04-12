@@ -57,10 +57,10 @@ kibana
 vi /etc/kibana/kibana.yml
 
 mongo
------- 
+------
 138  vi /etc/yum.repos.d/mongodb-org-3.6.repo
   139  sudo yum install -y mongodb-org
-  140  vi /etc/mongod.conf 
+  140  vi /etc/mongod.conf
   141  sudo service mongod start
   142  sudo chkconfig mongod on
   143  sudo service mongod stop
@@ -72,10 +72,20 @@ nodejs
   150  curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
   151  sudo yum install -y nodejs
 
+  atom
+  -----
+  sudo yum install atom.x86_64.rpm
 
-
-
-
-
-
-
+  cassandra
+  -------------
+   197  vim /etc/yum.repos.d/datastax.repo
+  198  yum -y install dsc20
+     53  systemctl status cassandra
+   54  sudo chkconfig --add cassandra
+   55  sudo -i service cassandra
+   56  sudo -i service cassandra start
+   57  sudo -i service cassandra stop
+   58  sudo /bin/systemctl enable cassandra.service
+   59  sudo systemctl start cassandra.service
+   60  sudo systemctl stop cassandra.service
+   61  sudo -i service cassandra start
