@@ -89,3 +89,12 @@ nodejs
    59  sudo systemctl start cassandra.service
    60  sudo systemctl stop cassandra.service
    61  sudo -i service cassandra start
+
+redis
+-------
+ 209  sudo yum install epel-release
+  210  sudo yum update
+  211  sudo yum install redis
+  212  sudo systemctl start redis
+  213  sudo systemctl enable redis
+  214  redis-cli ping
