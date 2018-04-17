@@ -3,21 +3,12 @@ Programming Ability
 https://google.github.io/styleguide/javaguide.html
   Knowledge in Java (or Python):
   Basic data structures and algorithms
-End to End Systems Design Knowledge:
-  Translate requirements into an application design or system design
-Systems Integration Knowledge/Ability:
-  Experience and knowledge of integrating 3rd party software process, constraints, benefits, etc.
-  Domain and System Integration [This will cover the designing integration between two systems: A & B for example.
-  Discuss firewalls / proxys,
-  failure recovery,
-  large data loads,
-  low latency requirements,
-  security) -
-  More details here: http://www.enterpriseintegrationpatterns.com/
+
 Customer & IT Focus:
   Client interactions
   project date focus/urgency
   service level agreements
+
 Domain Knowledge:
   Understanding of business processes
   functionality of third party systems
@@ -27,19 +18,6 @@ this is the canonical model design, design a [blank] system,
 come up with a data model,
 class or relational table, Entity Relationship Diagram cardinality]
 
-End-to-End Application / System Design:
-● Ability to translate requirements into an application design or system design.
-● The following are the qualities we should look for:
-○ Data modeling, object modeling, design concepts for sharing data between multiple
-systems
-○ Architecture (messaging, api’s, tier systems design)
-○ Security
-○ Performance
-○ Storage, including SQL & NoSQL
-
-Demonstrates grasps on internal applications and integration points
-● Everything that goes it on the frontend and backend
-● Focus on customer satisfaction and user experience
 
 Ask if they want you to focus on one component or another
 ● When asking clarifying questions - ensure you ask open ended questions to gather more info
@@ -51,41 +29,15 @@ Ask if they want you to focus on one component or another
 ● Is there people employee data warehouse we can hook into?
 
 
-Can you see the big picture - identify overall system design and different components that go into
-Design and how they connect together to form a holistic system
-● Ability to understand the business problem (identify the functional requirements)
-● Ability intelligently discuss the design choices you are making
-● Understanding of design methodologies to build a robust application
-Discuss pro's and con’s (trade offs)
-● Stay unbiased, don’t jump into absolute statements
-● Provide support to your solution; justify your recommendation
-● Always a good idea to sustain your recommendation with good points, good arguments
-● Recommend we go with A ,because of B and C
-● Emphasize list entities and attributes
-● Preparation is key: refresh up on the entire data modeling process
-
-
-
-How you approach integration with two systems: How do you get System “A” to talk with System “B”
-○ Middleware
-○ Interoperability
-○ Protocols
-○ Security
-● How to build a robust integration system
-● How to handle errors in integration
-● How to handle concurrency
-
 Demonstrate experience with and understanding of current/past employers’ business
 processes
 ● Demonstrate experience with and knowledge of the functionality of third party systems
 ● Capability to understand new business processes/problems and identify the requirements for
 which you would build an application
-● Pick a solution design you previously completed. Describe the overall business process it was
-a part of, the specific functionality of your solution, and how it fits into the overall whole
+● Pick a solution design you previously completed. Describe the overall business process it was a part of, the specific functionality of your solution, and how it fits into the overall whole
 ● Technical part and the functional part
 ● We use technology to solve business problems
-● Let's say you have a customer in finance and they have a feature request, how you would you
-outline and roadmap it?
+● Let's say you have a customer in finance and they have a feature request, how you would you outline and roadmap it?
 
 4) Customer Focus:
 ● Ability to think about “impact” on the customer/client
@@ -96,5 +48,4 @@ outline and roadmap it?
 ● Passion for working with internal customers (Googlers)
 ● Ability to meet SLAs
 ● Interest in business process
-● Understands that our work involves dimensions of both application maintenance and
-operations (keeping services running to agreed SLA’s)
+● Understands that our work involves dimensions of both application maintenance and operations (keeping services running to agreed SLA’s)

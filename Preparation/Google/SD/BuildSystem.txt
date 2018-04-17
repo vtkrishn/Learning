@@ -1,0 +1,21 @@
+Questions
+-------------
+Who are the users?
+  developers
+  integrators
+What all options it can have?
+  merging options
+  Automatic running if it finds new code
+  Continuous integrations
+    Basic error checking
+    code checking from different developers
+      efficient merging of code
+    Dependency management
+    Versioning
+variable addition for some passwords
+Authentication
+
+developer code is checked in
+
+concurrency
+storage of Data

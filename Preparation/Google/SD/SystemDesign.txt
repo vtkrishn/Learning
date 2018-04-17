@@ -1,0 +1,48 @@
+End to End Systems Design Knowledge:
+  Translate requirements into an application design or system design
+Systems Integration Knowledge/Ability:
+  Experience and knowledge of integrating 3rd party software process, constraints, benefits, etc.
+  Domain and System Integration [This will cover the designing integration between two systems: A & B for example.
+  Discuss firewalls / proxys,
+  failure recovery,
+  large data loads,
+  low latency requirements,
+  security) -
+  More details here: http://www.enterpriseintegrationpatterns.com/
+
+
+Can you see the big picture - identify overall system design and different components that go into
+Design and how they connect together to form a holistic system
+● Ability to understand the business problem (identify the functional requirements)
+● Ability intelligently discuss the design choices you are making
+● Understanding of design methodologies to build a robust application
+Discuss pro's and con’s (trade offs)
+● Stay unbiased, don’t jump into absolute statements
+● Provide support to your solution; justify your recommendation
+● Always a good idea to sustain your recommendation with good points, good arguments
+● Recommend we go with A ,because of B and C
+● Emphasize list entities and attributes
+● Preparation is key: refresh up on the entire data modeling process
+
+How you approach integration with two systems: How do you get System “A” to talk with System “B”
+○ Middleware
+○ Interoperability
+○ Protocols
+○ Security
+● How to build a robust integration system
+● How to handle errors in integration
+● How to handle concurrency
+
+End-to-End Application / System Design:
+● Ability to translate requirements into an application design or system design.
+● The following are the qualities we should look for:
+○ Data modeling, object modeling, design concepts for sharing data between multiple
+systems
+○ Architecture (messaging, api’s, tier systems design)
+○ Security
+○ Performance
+○ Storage, including SQL & NoSQL
+
+Demonstrates grasps on internal applications and integration points
+● Everything that goes it on the frontend and backend
+● Focus on customer satisfaction and user experience

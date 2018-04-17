@@ -1,0 +1,17 @@
+Who are the Users?
+  internet Users
+what are the storage needs?
+Scalability?
+bandwidth, latency
+Quality of video
+caching the video
+available across the globe
+Notification of new video
+recommendations
+
+security
+user registrations
+comments
+
+consistency
+if user uploads it can be eventually consistent

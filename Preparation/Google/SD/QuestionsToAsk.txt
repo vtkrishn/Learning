@@ -1,0 +1,10 @@
+Who are the users?
+Where is the data coming from?
+How much data is expected to serve?
+What is the QPS requirements?
+Do we care about the latency?
+Do we care about the consistency?
+Do we care about the Availability?
+How to make it work for single systems with one thread
+How to make it work for single systems with multiple thread
+How do we scale for multiple request will low latency
