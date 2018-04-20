@@ -1,0 +1,22 @@
+library
+                Account
+Book - Author - Library - Librarian - Catalog
+                  Search
+    Book Item     Manages
+
+
+------------
+Online Shopping cart
+
+Web User
+        Customerr - Account --- Payment
+Shopping Cart
+        Line Item     Order   OrderStatus
+Product
+-------------
+Movie Database
+
+User
+Ticket  Ticket Type
+Payment    Booking
+Theatre  --- Show  -- Seat

@@ -1,3 +1,121 @@
+
+
+	* Clarify the question
+	* Work on examples
+	* Run with some set of input/outputs
+	* Spell out the brute force approach
+	* Think out loud
+	* Apply patterns
+	* Present the solution
+	* use libraries if needed
+	* Focus on the top level Algorithm
+	* Assume valid inputs
+	* Test corner cases
+	* Syntax Checking
+	* Analyze the complexities
+	* minimize the code - solution should be of 20 to 30 lines max
+
+
+Senior qualities
+------------------
+
+	* Handle entire SDLC
+	* Lead others and others look for your guidance
+	* Self managing your project
+	* Strong Debugging Skills
+	* Strong understanding of design patterns
+	* Understanding of Queuing, Caching, Logging, Security, Persistence, Concurrency
+
+
+	* A self-starter who takes ownership of what you build.
+	* Passionate for open source technologies, frameworks, and modern tools and integrating them into existing systems whenever appropriate.
+	* A firm believer is the value of testing your code and actively practice test-driven development.
+
+
+  	* What Motivates
+  	*
+  		* Like to learn new things and process
+  		* motivated for challenges
+  		* Passionate about what I do
+
+  	* Why should hire you
+  	*
+  		* job well
+  		* right fit
+  		* Experience in Agile
+
+  	* How you will contribute to this company
+  	*
+  		* I will try to apply what I learnt and make the best
+  		* past experience
+
+  	* Where do you see in 5 years
+  	*
+  		* Senior Technical Architect
+  		* Like to be an architect and to build a system end to end
+
+  	* Pressure and workload and how you overcome
+  	*
+  		* Example of people leaving and vacation had to work and solve problems
+  		* customer issue and highly escalated problems, figured the issue and nailed it
+  		* Delivered the project will less resources, extra hours, reprioratization, team updates
+
+  	* Difficulty with employee
+  	*
+  		* document everything to establish a fact
+  		* provide a plan to improve
+  		* final case will be to release the member in some case we have done it
+
+  	* Conflict with the team and how you handled
+  	*
+  		* Technical issue
+  		* prove a point in  a meeting and end with a conclusion
+  		* Give data points on the fact to support my view
+  		* collaboration
+
+  	* team morale low and how you uplift it
+  	*
+  		* learning the problems
+  		* if i can do will try to make it possible
+  		* organized lunch and frequent team meetings to learn more and connect socially
+  		* promoted things which works well
+
+  	* How you handle pressure
+  	*
+  		* step back and see it outside which will create a pattern to work out a plan
+  		* list down issues for priority
+  		* re scope
+  		* regular breaks to keep ur mind clean
+  		*
+
+
+  	* What to do project priority changes constantly
+  	*
+  		* changes you cannot change
+  		* whichever we can apply we will adapt and some need to be rejected which might have other complications
+  		* higher costs
+
+  	* Learned from mistakes
+  	*
+  		* Don't make quick decisions and react do impact analysis
+
+  	* Set manager expectations
+  	*
+  		* plan
+  		* priority
+  		* daily updates
+  		* different treatment
+  		* engage stake holders for better clarity
+
+  	* How to form a team
+  	*
+  		* decide on the objectives
+  		* need to move to a next stage
+  		* give ideas
+
+
+
+
 Composer
 --------------------
 Object sharing
@@ -40,3 +158,33 @@ Elastic POC
 GET/_search
 POST - create
 PUT/index - create or update
+
+	*
+Implemented an advanced search filter with optimization and improved response time by 10 sec
+
+	*
+		* wild card characters, function based index, tuning the query, match more criteria, most recent search
+		* execution plan, avoid FTS, EXISTS clause (Range/Index Scan)
+		* using AND and = and joins
+		* join ordering
+		* choosing driving table and driving index
+		* choosing right index
+		* use optimizer hitns
+		* dont use IN or NOT IN (use EXISTS or NOT EXISTS)
+		*
+
+*
+Developed audit trail feature to trace production problems
+Reengineered an existing api to reduce number of iterations and increased the performance by 10%
+
+	*
+		* reduced loop execustions and reducing the cost
+		* with extra parameter from the callee
+		*
+
+
+	*
+Automated deployment using shell script and reduced deployment time and execution cost
+
+	*
+		* cron job to start a schedule with the code, create a local env. automatically starts deployment and run lrg test and reports the work
