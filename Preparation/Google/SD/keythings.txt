@@ -1,52 +1,197 @@
+OSI Model
+	User Layer - Application, Presentation, Session
+	Transport layer – TCP, UDP
+	Network layer – (IP)
+	Data link -
+	Physical – hub, switch  - hardware - Bits
+
+	TCP (Connection)
+o	Transmission control protocol
+o	Congestion control / Flow control
+o	Error checking, reliable – Checksum, CRC-  all data received, in order
+o	Three-way handshake (SYN, SYN-ACK, ACK) connection established for maintaining the session
+	UDP (Connectionless)
+o	VOIP, Streaming media
+o	Datagram packets
+
+
+HTTP - Application protocol
+  HTTPS - secured
+  TLS - transport layer security
+    ALPN - Application later protocol Negotiation
+  certificates
+  compression, encrypted
+  verb - GET, POST, PUT,DELETE (PUT, DELETE - multiple call same effect - idempotent)
+  Session
+  Request/ Response Header
+  Stateless
+    cookies
+  TCP
+  UDP
+
+HTTP 1.1
+  persistence connection
+  Keep alive
+  chunked transfer encoding
+
+HTTP 2
+  Data compression of HTTP header
+  pipelining of requests
+  multiple request over single TCP connection
+
 DNS
-  Load balancing
+  Name lookup
+  Address resolution
+  Caching
+  Client lookup from cache
+  Reverse lookup
+
+Load balancing
     round robing
     least connection
-    DNS cache
-    routing
+    Sticky Session
+    Task Queue
+    Autonomous Queue
+  DNS cache
+  routing
 
     client side load balancing
     server side load balancing
-    HTTP cacing, compression, Firewall, rate shaping,DDOS, health check, tcp buffering
-
+    HTTP caching, compression, Firewall, rate shaping,DDOS, health check, tcp buffering
+    level 7, level 4
+    software and hardware load balancer
 
 Cache
-  write behind
-  write ahead
+  write through - whenever there is a change write to the cache and server
+  write behind - write only to the cache
+  browser cache
+  cpu cache
+  Disk cache
+  DNS cache
+  Cache Algorithm
+    Time to Live
+    FIFO
+    LIFO
+    LRU
+    MRU
+    LFU
+    Random Replacement
+    Cache invalidation
+  Cache DB Queries
+  Memoization
+  In Memory object queries
 
 Replication
+  Inter process communication
+    RPC
   Database
   file
   peer to peer
-
-
-Latency
   Failover
   Inter process communication
   Active Replication
+    request processed by all the servers
   passive Replication
+    request processed by only Master
+  Disk Mirroring
+  Disk Cloning
+  RAID - Redundant Array of independent disks
+  Fail Fast, On Fail try next, On Fail Try all
 
+Latency
+  Network Latency
+  Mechanical Latency
+  CPU Latency
+  OS Latency
+  Interrupt Latency
 
-Scheduling
+OS Scheduling
+  Job queue ---   ready Queue -- OS
+             CPU
+  Interrupts --   IO Waiting
+
+Long Term Scheduler - balnce mix of jobs
+Short Term Scheduler - CPU scheduler - fast
+Medium Scheduler -Swapping
+
+Process
+  Swapping
+    moving the process from main memory to secondary
+  Segmentation
+    process divided into segments
+    segment map table
+  Pagination
+    process divided into pages
+    main memory divided into frames
+    page map table
+    physical address - frame number + page offset
+    Logical address - page number + page offset
+  Fragmentation
+    internal
+      memory block allocated is more than required
+    External
+      Free memory is in between used memory
+  Virtual Memory
+  Demand Paging
+    Page fault - CPU request page and if its not thee in the main memory
 
 
 Pooling
-
+  Memory Pooling
+  Object pooling
+  Thread Pooling
 
 Concurrency
+  cpu
+    Fetch - Decode - Execute - Store
 
 
 
 Indexing
+  Normalize
+  DeNormalize
 
-
-Sharding
-
-
-Partitioning
-
-Network
-
-
-ACID
-CAP
+  ACID property
+  •	Atomicity (Concurrency control)
+  o	Either commit or rollback. Commit transaction is in divisible
+  o	Compare and set
+  
+  o	Fetch and add
+  •	Consistency (Replication)
+  o	  Changes are seen across all users the same way
+  	  Eventual consistency – if guaranteed updates do not take long time then eventually the data will be consistent
+   	Weak consistency  - return the results before repairing
+  	  Strong consistency –  repair and then return the results
+  o	Replication
+  	Data base replication  - Master/Master, Master/Slave
+  	Database Mirroring –
+  •	  Snapshot - complete database is copied another database in same server or different server
+  •	  Merging – Two or more databases is merged to single database
+  •	  Transactional – initially will get full database and after that changes comes periodically
+  •
+  •	Isolation (Concurrency control)
+  o	  Multiple transaction running in parallel do not affect each other
+  o	  Transactions do no see until committed
+  o	Isolation levels – how deep a transaction is isolated from others
+  	  Serializable – Read, Write, Range locks
+  	  Repeatable reads – Read, Write locks, lock on read rows so that the query result is same all the time
+  	  Read committed – Write locks, Read will wait until the transaction committed
+   	Read uncommitted – No locks, Read will not wait until the rows are committed
+  o	  Dirty Reads (read uncommitted data by other transaction)
+  o 	Non-Repeatable reads (Some one updates or deletes the row which was read earlier)
+  o	  Phantom Reads (Range query some one inserts in the range between transactions)
+  •	Durability (Transaction Processing)
+  o	  Once committed then the data is persisted across crashes
+  o	  Non volatile storage
+  o	  Flush the transaction log records before commit
+   	If its written in the transaction log then its considered committed
+  o	Two phase commit
+  	Leader asks for consensus and all other workers reply with yes or no
+  •	  If all yes then commit
+  •	  If any no then rollback
+   	Blocking protocol
+  	  Paxos, consensus
+  o	Three phase commit
+  	  Leader asks for consensus
+  	  Pre commit acknowledgement
+  	  Do commit

@@ -20,6 +20,32 @@ do we have to enhance the data
 do we have to validate
 do we have to sort
 
+Common items
+-----------------
+Batch
+Servicing
+Management
+Reporting
+Layering
+Scheduling
+Pub subscribe
+events
+Queue
+External Source
+Metadata
+Validation
+Rules
+Standardization
+Massaging
+Resolution
+Security
+Transformation
+Auditing
+Synchronization
+Persistance
+State Management
+Transaction
+References
 
 
 multi system
