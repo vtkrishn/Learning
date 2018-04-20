@@ -1,0 +1,42 @@
+Composer
+--------------------
+Object sharing
+Sandbox
+UI changes
+MDS
+  standard objects
+  custom objects
+  browser base object customization at runtime
+------------
+Import / Export Data from CSV
+  import file -> file processor - interface db
+  xml , csv, zip
+  import file is uploaded, updated
+  saved to db
+  then manipulated to interface tables and transaction tables
+  service - soa
+  mapping - routing - transformation
+  invoke odi
+  convert to interface tables - asynchronous jobs queued
+  process enrichment
+  Dehydrate
+    Extensibility problems
+      custom attributes
+  ----
+  Export security
+  Export from different UI to csv file
+  metadata defined for each of the objects
+  problems
+    user error, queuing problem
+    mapping, column assignment
+-------------
+Offline data sync
+cache, offline indicator, sync, security
+local store
+push , pull, implicit push, purging
+offline patterns - red only, read write, last write wins etc, read many, write once
+--------
+Elastic POC
+GET/_search
+POST - create
+PUT/index - create or update

@@ -1,0 +1,52 @@
+DNS
+  Load balancing
+    round robing
+    least connection
+    DNS cache
+    routing
+
+    client side load balancing
+    server side load balancing
+    HTTP cacing, compression, Firewall, rate shaping,DDOS, health check, tcp buffering
+
+
+Cache
+  write behind
+  write ahead
+
+Replication
+  Database
+  file
+  peer to peer
+
+
+Latency
+  Failover
+  Inter process communication
+  Active Replication
+  passive Replication
+
+
+Scheduling
+
+
+Pooling
+
+
+Concurrency
+
+
+
+Indexing
+
+
+Sharding
+
+
+Partitioning
+
+Network
+
+
+ACID
+CAP

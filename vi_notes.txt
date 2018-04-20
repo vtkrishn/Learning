@@ -1,0 +1,8 @@
+vi -A textfile.txt - right to left
+vi -x textfile.txt - encrypt the file, to unset the key do :set key=
+
+The below command will read from the stdin
+grep . *.txt | vi - 
+
+vi - p <files> - open in tab format different files
+

@@ -1,0 +1,28 @@
+1 find anagram of two list A and B return a list of index
+  store B in map
+  iterate A and store the indexes in result
+  return result
+-------------------------
+2 license key formatting
+  use string builder - replace '-' with ''
+  make it uppercase
+  then from backward at k positions insert '-'
+-----------------------
+3 - Moving average
+  add to the queue
+  have counter and moving sum
+  if count == size then remove first element from queue and return the sum - first element
+-------------
+4 Repeated string match
+  add A using string builder and increment counter
+  if the index of B is positive then return counter
+  other wise append A once and check, then return counter + 1
+  else return -1
+--------------------
+plus one for integer array
+  iterate from backward
+  if the digit is less than 9 then add 1 and return
+  else set digit to 0
+  finally set a number with (n+1) length and set [0] = 1 and return
+---------------------
+  
