@@ -1,0 +1,21 @@
+longest Absolute path
+Add to the stack
+if . then we found the file
+-----------------------------
+Next closest Time
+dfs pruning
+sort and compute from the right -
+HH:M_
+HH:_M
+--------------------
+Longest Consecutive Sequence
+  BFS
+  DFS
+----------
+ZigZag iterator
+  put elements of alternate list in queue for next
+------
+Decode String
+Stack
+-----
+merge intervals
