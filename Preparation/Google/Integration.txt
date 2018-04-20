@@ -1,0 +1,79 @@
+multi system
+XML
+different Data
+
+Data Replication
+Shared DB or Business Functions
+Service oriented architecture
+Distributed Business process
+Business-to-Business integration
+
+Loose Coupling
+  RPC
+  RMI
+  Corba
+  Microsoft DCOM
+
+TCP/IP
+  connection socket
+
+Things to consider
+  platform (Windows, Linux, etc)
+  technology (java, C, C#)
+  Location of server(machine addresses)
+  Time format - Time zone
+  Data format
+
+Web APP
+    Soap Service - XML
+    REST - Stateless
+  Channel
+  Financial System
+
+Application - end points ---- Messages ---- channel --- Routing -- Translation - Application
+                                                      |
+                                                      |
+                                              System Management
+
+Web interface ordering                              Billing / Accounting
+Mobile interface ordering ----    Toys R US ---     Shipping
+customer care ordering                              Toys Inventory
+Email ordering                                      Toys Catalog
+                                                    Gadget Inventory
+                                                    Gadget Catalog
+
+Order can b taken in different channels
+
+each one will have separate message queue - channels
+http://camel.apache.org/enterprise-integration-patterns.html
+Channel Adapter - application can talk to different application using API and publish and receive messages to/from channel
+Message Channel - application talk to another application using channels
+Messaging Gateway - Application access another system using Gateway
+Messaging - integrate multiple application to talk to each another - Message Bus
+Message Translator - application use different data formats while messaging and how efficiently they can communicate
+point to point channel - one receiver is sure to receive the document or message sent
+Datatype channel - message is passed and the receiver knows how to process it
+publish-subscribe channel - sent events so that interested parties can act upon it
+Aggregator - combine results of related messages together and process
+Content base router - route to the system based on the Content
+Invalid Message channel - gracefully handle invalid Messages
+Splitter - related messages needs to be processed in a different way
+pipes and filters - perform complex processing on a message with modular components
+Correlation identifier - requestor got a reply and to validate which request this reply is for
+Content enricher - how to communicate with missed details from the message
+Message router - decouple individual messages can be passed to different filters
+Message Filter
+Return address
+
+
+
+
+Web interface
+Mobile interface   --- Endpoint - Gateway - WEB_NEW_ORDER -- Point to Point channel --- Message Translator |
+                                                                                                           |
+Call Center   --- Endpoint - Gateway - CC_NEW_ORDER -- Point to Point channel --- Message Translator ------| ------- Point to point - NEW_ORDER --- Messages
+                                                                                                           |
+FAX   --- Endpoint - Gateway - FAX_NEW_ORDER -- Point to Point channel --- Message Translator  ----------- |
+
+
+Routing
