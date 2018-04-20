@@ -1,3 +1,27 @@
+http://camel.apache.org/enterprise-integration-patterns.html
+Things to consider
+  platform (Windows, Linux, etc)
+  technology (java, C, C#)
+  Location of server(machine addresses)
+  Time format - Time zone
+  Data format
+
+How to communicate
+How the data is coming
+what if the data  is broken
+message size
+message frequency
+message formats
+what if there is an fault or error
+Who are all listening to this
+Do receiver know who is sending the data
+do we have to filter
+do we have to enhance the data
+do we have to validate
+do we have to sort
+
+
+
 multi system
 XML
 different Data
@@ -16,13 +40,6 @@ Loose Coupling
 
 TCP/IP
   connection socket
-
-Things to consider
-  platform (Windows, Linux, etc)
-  technology (java, C, C#)
-  Location of server(machine addresses)
-  Time format - Time zone
-  Data format
 
 Web APP
     Soap Service - XML
@@ -45,7 +62,6 @@ Email ordering                                      Toys Catalog
 Order can b taken in different channels
 
 each one will have separate message queue - channels
-http://camel.apache.org/enterprise-integration-patterns.html
 Channel Adapter - application can talk to different application using API and publish and receive messages to/from channel
 Message Channel - application talk to another application using channels
 Messaging Gateway - Application access another system using Gateway
