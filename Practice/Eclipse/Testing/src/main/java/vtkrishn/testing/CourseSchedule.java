@@ -3,30 +3,30 @@ package vtkrishn.testing;
 import java.util.LinkedList;
 
 public class CourseSchedule {
-	
+
 	public static void main(String[] args) {
 		int[][] arr = {{1,0}};
 		canFinish(2, arr);
-		
+
 	}
-	
+
 	public static boolean canFinish(int numCourses, int[][] prerequisites) {
 	    if(prerequisites == null){
 	        throw new IllegalArgumentException("illegal prerequisites array");
 	    }
-	 
+
 	    int len = prerequisites.length;
-	 
+
 	    if(numCourses == 0 || len == 0){
 	        return true;
 	    }
-	 
+
 	    // counter for number of prerequisites
 	    int[] pCounter = new int[numCourses];
 	    for(int i=0; i<len; i++){
 	        pCounter[prerequisites[i][0]]++;
 	    }
-	 
+
 	    //store courses that have no prerequisites
 	    LinkedList<Integer> queue = new LinkedList<Integer>();
 	    for(int i=0; i<numCourses; i++){
@@ -34,10 +34,10 @@ public class CourseSchedule {
 	            queue.add(i);
 	        }
 	    }
-	 
+
 	    // number of courses that have no prerequisites
 	    int numNoPre = queue.size();
-	 
+
 	    while(!queue.isEmpty()){
 	        int top = queue.remove();
 	        for(int i=0; i<len; i++){
@@ -51,7 +51,7 @@ public class CourseSchedule {
 	            }
 	        }
 	    }
-	 
+
 	    return numNoPre == numCourses;
 	}
 }
