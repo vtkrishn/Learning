@@ -42,10 +42,13 @@ public class Skyline {
     public List<int[]> getSkyline(int[][] buildings) {
         List<Point> points = new ArrayList<>();
 		for(int[] b: buildings) {
-			points.add(new Point(b[0],-b[2],true));// when you sort x will be first always
-			points.add(new Point(b[1],b[2],false)); // when you sort y will be second always
+			points.add(new Point(b[0],-b[2],true));// when you sort x will be first always ((2,-10),(3,-15),(5,-12),(15,-10),(19,-8),
+			points.add(new Point(b[1],b[2],false)); // when you sort y will be second always ((9,10),(7,15),(12,12),(20,10),(24,8))
 		}
-
+		
+		
+		
+		
 		//sort based on x
 		Collections.sort(points, new Comparator<Point>() {
 			@Override
@@ -58,6 +61,7 @@ public class Skyline {
 					return -1;
 			}
 		});
+		//((2,-10),(3,-15),(5,-12),(7,15),(9,10),(12,12),(15,-10),(19,-8),(20,10),(24,8))
 
 		//sort based on height
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(points.size(),new Comparator<Integer>() {
@@ -66,14 +70,27 @@ public class Skyline {
 				return o2.compareTo(o1);
 			}
 		});
-
+		/* 	(3,-15)
+		 *  (5,-12)
+		 *  (2,-10)
+		 *  (15,-10)
+		 * (19,-8)
+		 * (24,8)
+		 * (9,10)
+		 * (20,10)
+		 * (12,12)
+		 * (7,15)
+		 * 
+		 */
+		
+		
 		pq.offer(0);
 		List<int[]> result  = new ArrayList<>();
 
 		int pre = 0;
 		for(Point p: points) {
 			if(p.height < 0) // if height is negative then add the start point
-				pq.offer(-p.height);
+				pq.offer(-p.height); //15
 			else
 				pq.remove(p.height); // if height is positive then remove from the pq, end point
 
