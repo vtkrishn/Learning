@@ -1,0 +1,32 @@
+1 - UNION and UNION ALL
+union - no duplicates
+union all - duplicates (more performant, use when you know that there is no duplicates)
+
+2 - joins
+inner join - both table matching
+left join - return all from left table (even there is no match, for those records it will be shown as null from right)
+right join - opposite of left joins
+
+full join - like union, contains everything from left and right
+cross join -
+
+3 - where customer id(varchar) <> '123'
+will not include customer id which is null
+
+4 - flip Sex= 'm' to Sex = 'f'
+select
+case
+when Sex - 'm'
+'f'
+when Sex - 'f'
+'m'
+end
+from Table
+
+5 - using union all remove duplicates
+SELECT * FROM mytable WHERE a=X UNION ALL SELECT * FROM mytable WHERE b=Y AND a!=X
+
+6 - 5 highest value
+select TERRITORY_ID from MOT_TERRITORIES where rownum<6  order by TERRITORY_ID desc;
+
+7 - 

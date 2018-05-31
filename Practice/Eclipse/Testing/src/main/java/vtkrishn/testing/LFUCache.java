@@ -90,7 +90,7 @@ public class LFUCache {
 			node.val = value;
 			DLL dll = frequencyMap.get(node.freq);
 			dll.removeNode(node);
-			if(node.freq == 1 && dll.size == 0)
+			//if(node.freq == 1 && dll.size == 0)
 		}
 
 
