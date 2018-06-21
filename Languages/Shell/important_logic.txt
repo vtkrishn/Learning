@@ -1,0 +1,16 @@
+looping through items
+---------------------
+for i in $(ls -lrt .)
+do
+  echo $i
+done
+--------
+while [[ 1 ]]; do
+  echo 1
+done
+
+to call another script
+------------------------
+sh <another script>
+. <another script>
+source <another script>

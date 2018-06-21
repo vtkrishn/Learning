@@ -1,0 +1,70 @@
+Design principles
+-------------------
+SOLID
+Single Responsibility - Class should have single Responsiblty
+Open Close principles - Class should be open for extension and closed for modification
+Lischcov's Substitution - Interface should be able to subsititute for their base Class
+Interface segregation - clients are not forced to implement a fat Interface
+Dependancy inversion - instantiating and passing the object to the function for action on the object
+
+SQL Vs NOSQL
+---------------
+SQL -
+  Table - Joins - index
+    Row and columns
+    Good for ACID property
+    Schema based
+No SQL -
+  Document based, key values, json, graph based, Wide columns
+  CAP theorum
+  No schema
+
+Caching
+-----------
+Register
+L1 Cache
+L2 Cache
+L3 Cache
+Memory - TLB
+Hard Disc
+Load balancer
+Global cache
+server Cache
+client cache
+browser Cache
+Http cache
+
+user requests - Cache if it exists return from the cache - otherwise fetch from db - save it in cache and return
+cache invalidation
+  write through - both cache and memory is udpated, low latency
+  write around - if the write data is not immediatele required
+  Write back - writed to the main memory, coming back writing to the cache, high latency
+TTL
+eviction policy
+
+Indexing
+
+Web Socket
+Http 2 - handshake
+Bidirectionaal
+Les bandwidth than polling
+
+Sharding/partitioning
+
+Consistent Hashing
+Replication
+  Active
+  Mirrored
+
+long polling - Ajaz
+Socket
+
+
+
+
+
+
+
+Rebalancing
+horizontal partitioning
+vertical partitioning
