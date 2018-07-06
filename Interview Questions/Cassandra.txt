@@ -1,0 +1,21 @@
+https://www.tutorialspoint.com/cassandra/cassandra_quick_guide.htm
+Gossip protocol
+Wide Column No sql Databases
+no single point of failure
+
+Commit log
+Memtable
+Node
+Datacenter
+Memtable
+sstable
+
+Keysapce
+column family
+Super Column
+
+unstructured Data
+
+Cluster
+Session
+Resultset

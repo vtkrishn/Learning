@@ -1,0 +1,18 @@
+MySQL => Databases => Tables => Columns/Rows
+ElasticSearch => Indices => Types => Documents with Properties
+9200
+https://www.tutorialspoint.com/elasticsearch/elasticsearch_quick_guide.htm
+
+Index?
+Document?
+Schema?
+Dcoument Type?
+Filters?
+Tokenizers?
+Analyzers?
+Replica?
+Node?
+Shards?
+Clusters?
+Tribe Node?
+Inverted Index?

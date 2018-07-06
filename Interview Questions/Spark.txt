@@ -1,0 +1,29 @@
+https://www.tutorialspoint.com/apache_spark/apache_spark_quick_guide.htm
+
+RDD? Resilient Distributed Datasets
+SQL queries , stremaing Datasets
+real time data
+
+SPARK SQL
+SPARK Streaming
+
+RDD in memory - Distributed
+for ETL
+
+SparkContext
+SparkConf
+JavaRDD
+JavaPairRDD
+
+flatMap
+reduceByKey
+filter
+collect
+
+Management
+Yarn
+Mesos
+
+Performance
+Broadcast Variable - enhances efficiencies in join for small and large RDD
+Accumulators - update the value while executing in paralllel
