@@ -1,0 +1,2 @@
+<test-results tests="4583" failures="97" errors="19"><testsuite name="oracle.apps.sales.territoryMgmt.territories.AllBasicAcceptanceTests" timestamp="2018-08-01T03:10:54" hostname="slc15bnk" family="NO_REGISTERED_LBA_FOR_JPR_NAME" initiative="srg" jpr="SalesTerrMgmtTerritoriesModelTest" label="" product="NO_REGISTERED_LBA_FOR_JPR_NAME" lba="NO_REGISTERED_LBA_FOR_JPR_NAME" tests="2" failures="0" errors="0" time="79.65" runId="0">
+ 
