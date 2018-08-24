@@ -1,0 +1,52 @@
+Operating System Tuning
+Linux Tuning
+  TCP IP timeout - less number increases performance, release closed connections
+  File Descriptor - high is performance, change soft and hard limit
+  connection queue size - increase
+  ip port range - widen the range
+  Time wait connection recycling - enable
+  Reuse time wait connection - enable
+
+Server Tuning
+  Data source
+    increase connection pool
+    increase Thread pool
+    enable Servlet caching
+    enable HTTP transport persistent connections - keep-alive
+    optimize result caching
+    keep classpath short
+    reduce logging
+    increase server listen queues
+    avoid reverse DNS lookups
+    write time stamp instead of formatted dates
+    avoid paging
+
+JVM Tuning
+increase JVM heap size
+  -Xms minimum heap
+  -Xmx limit after which it throws OutofMemory error
+  -XXtlaSize - increase thread local area size
+
+HTTP Tuning
+  increase session timeout
+  enable compression
+    gzip, deflate
+
+Database Tuning
+  increase No of open cursors
+  share cursor sharing
+
+----------
+Key performance Factors
+
+Hardware Capacity
+  Processor speed
+  memory
+  network speed
+
+Platform
+  Database
+  Application Server
+  Web Server
+  Browser
+  Client OS

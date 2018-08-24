@@ -1,0 +1,326 @@
+https://www.javaperformancetuning.com/tips/rawtips.shtml
+Use profiler
+use StringBuilder instead of StringBuffer
+use apache StringUtil.replace
+use ArrayyList over Vector if no threading used
+Add element at the end of the ArrayList or Vector for best performance
+Vector and ArrayList are excellent performant for index based task only over head is range checking
+insertion involves Array copy which will hit performance
+List and Map has effient thread coding (Vector and Hashtable)
+ArrayList is better than linked list for bigger collectioon
+presize Array list improves performance
+Linked list cannot be presized
+Iterator traversal for arraylist is faster than linked list
+
+WeekHashMap is used to reduce memory leaks
+WeekHashMap can be used for caching, key must be recreatable
+String or Class are not good for key in WeekHashMap
+
+Avoid creating temp values inside for loops
+presize collections
+reuse objects where possible
+always return immutable object or pass in the object for any change
+use primitives for instance variables
+try converting strings to integer constants
+use Thread Local for threads with states
+
+use short circuiting
+int is faster than long
+Tune heap size & stac ksize
+keep classpath short
+
+more efficient to read multiple bytes at a time
+buffer should be in range of 512 to 4096 bytes for effciency
+Try to add all items at once in a collection if possible
+
+increase thread counts if everything is used, reduce it if some of them are idle
+use collection key comparison during sorting instead of individual sorting
+TreeSet.contains is faster than arraylist.contains
+
+try to use tail recursion
+use Double.parseDouble()
+
+Read About
+
+vmstat/top
+jstack
+java  -agentlib:hprof=cpu=times App
+escape analysis
+	Heap to Stack allocation
+	Sync Elision
+	Scalar replacement
+
+String Mutability
+JVM
+Hotspot
+JIT
+use static inner class
+use interfaces a lot
+
+-------------------------
+Profiling
+	Java
+		CPU, Threads, Memory, GC etc
+		APM
+			Metrics
+			Health
+			logging
+			Query
+			caching
+			dependencies
+			JIT
+			compilation
+Scalability Testing
+				Response Time
+				Throughput
+				Threshold load
+				CPU usage
+				Memory Usage
+				Network Usage
+				Web server request/ response
+				SQL plan
+
+https://confluence.oraclecorp.com/confluence/display/PSR/PSR+Profiles#PSRProfiles-Client-Side
+
+JMeter 0 load testing
+JRockit, JProfiler, JProbe - profiling
+JConsole - monitoring
+
+iostats
+top
+vmstats
+------------------
+CPU Utilizations
+Memory Usage
+Network Traffic
+Storage & I/O
+
+resmon - resource monitor
+netstat - no of active connections
+typeperf "\Memory\Available bytes" "\processor(_total)\%processor time" "(PDH-CSV 4.0)","\\Computer_name\Memory\Available bytes","\\ Computer_name\processor(_total)\ % processor time"
+
+JDK Monitoring
+jconsole
+jmap
+jhat
+jstat
+jvisualvm
+
+IDE monitoring
+JVM Monitor
+Mem Analyzer
+
+Standalone Monitoring
+JPrope
+JProfiler
+-----------
+Common issues
+
+Slow Response
+Threading issues
+	thread blocking
+	deadlock
+	Starvation
+Memory performance issues
+	Leak
+	improper caching
+	insufficient memory
+-------------
+CPU Performance factors
+	No of Cores
+	Clock Speed
+	Cache memory
+	Word Length
+	Address Bus Length
+	Data bit length
+Memory
+	Page Faults
+	Swap in
+	Swap out
+	No or writes
+	thrashing
+	Paging
+	Frame
+	Demand Paging
+
+Concurrency
+		Out of order execution
+
+
+Common issues
+-----------------------
+		All Users are suddenly complaining that system is slow
+		Particular Server  is unresponsive
+		Some of the flows response is slow
+		Only a particular user has slow performance
+		JVM restarting by itself
+		Unresponsive Database or Hang
+		Database queries/SQLs are slow
+
+
+Tkprof
+-----------
+
+performance monitoring
+performance profiling
+performance tuning
+
+CPU Utilization
+	compiler optimization
+	context switching
+	Wait time
+	idle time
+	clock cycle
+	caching
+	threads
+	contention
+		pstack
+		jstack
+	user time
+	previleged time
+	processor time
+	number of run queue
+	cache coherency
+		multiple processor - cache updates only one processor
+	processor affinity
+	uptime
+	sar
+	interrupts
+
+Memory Utilization
+	Pages
+	Swap in
+	Swap out
+	locking
+		look for context switch
+	pidstat -w
+	mpstat
+	Thread Migration
+	/proc/meminfo
+	slabinfo
+	ps aux
+		/proc/<pid>/maps
+
+Disk Utilization
+	iostat
+	use bufferedStream
+	acces and writing logs
+	sockets
+	disc activities
+
+Network Utilization
+	no of packets read and sent
+	incoming and outgoing requests
+	netstat -i
+	netstat -s
+	nicstat
+	use java NIO instead of Socket
+	tcpdump
+
+	strace
+	dmesg
+
+JVM
+		Hotspot
+		JIT compiler Client / Server
+		ordinary object pointers - full 64 bit object pointers
+		use -XX:+UseCompressedOops
+			-XX:+AggressiveOpts - for performance optimization
+		-XX:OptionName=<N>
+
+
+Synchronized HashMap
+ConcurrentHashMap
+
+Command Line Options
+------------------------
+-XX:FeatureName=
+			client - optimize for Client, small memory foot print
+			server - optimize for server, high throughput
+			-XX:+UseCompressedOops
+			-XMx - -Xms - same for latency and throughput, performance
+			-XX:NewSize , -XX:MaxNewSize - young permant generation size low and max
+			-ZZ:NewRatio - young and old generation ratio
+			-ZZ:SurvivorRatio - young and old generation ratio
+			-XX:PermGenSize , -XX:MaxPermGenSize - permant generation size low and max
+			 -UseParallelGC
+			 -UseParallelOldGC
+			-UseSerialGC
+
+		Full Identity Map - cache will never evict the object
+		Weak Identity Map - GC for weak references, good for memory
+
+	Increase Pool Size
+	Cache
+	Session Cache
+
+	Isolation level
+		Read uncommited
+		read commited
+			repeatable read
+
+	Mark transient
+	Connection pooling
+	bulk updates
+	correct database locking
+
+Web Services
+---------------
+	look for message size
+	operations
+	xml serialization
+	stream api
+	Log rotations
+	session persistance
+	content caching
+	compression
+	use proper scopes
+
+Web Application
+-----------------
+	secure
+	session
+	firewall
+
+PrintGCTimeStamps
+-verboseGC
+PrintGCDetails
+
+Thread dump
+	jstack
+
+GC
+---------
+System.gc()
+Sustem.currentTimeMillis()
+System.nanoTime()
+	PrintCompilation
+
+Garbage collectors
+----------------------
+Serial GC - basic single threaded
+CMS - concurrent mark and sweep - freeze application
+G1GC - same as concurrent for performance
+
+
+pause and stopping is not a matter
+performance matters
+ParallelGC an ParallelOldGC - both minor and major GC will be multithreaded
+		used for throughput
+ParallelGC - only young will be multithreaded and Old will be single threaded
+
+minor GC duration
+minor GC frequency
+measure full GC duration
+measure full GC Frequency
+
+minor GC - for eden full
+maxTenuringThreshold
+
+Java Application
+------------------
+
+use efficient algorithm
+reduce lock contention
+use buffered stream
+use volatile
