@@ -1,0 +1,46 @@
+remove all bookmarks
+remove all logins
+remove all personal contents
+make sure the personal content is not available
+sync mozila
+sync chrome
+
+----------
+Ask for focus areas
+Ask for some of the internal project details
+weekly meetings to track progress
+Monthly meeting for performance feedback
+log work in excel
+Create automation scripts
+Test efficiently
+Plan and time management
+Quit checking gmails or facebook
+Start learning - python, anaconda, spark sql, hive sql
+filter mails
+Remember Question Words - [What, Why, How, Whom, When, Whose, Where, Who, How much, How many]
+less eating and good sleep
+What went well and what did bad
+
+--------------------------------------
+Duties and Responsibilities
+
+Provide technical guidance in software design and development activities.
+Assist in maintenances and upgrades of existing software applications.
+Participate in design reviews and recommend improvements.
+Provide support in all phases of SDLC and ensure to deliver high-quality products.
+Provide trainings and mentor other Engineers when required.
+Analyze and troubleshoot application issues in a timely fashion.
+Develop most effective technical solutions to meet business requirements.
+Work with other Engineers in planning, prioritizing and executing assigned tasks within deadlines.
+Assist in risk assessment and mitigation activities.
+Attend team meetings to communicate project status and discuss about new ideas and any issues.
+Recommend new technologies to ensure quality and productivity.
+Assist in technical audits and make sure to implement audit recommendations.
+Make business presentations to management when needed.
+Work with QA team in preparing test cases, plans and procedures.
+
+code review of other developers' work
+making bigger technical design/architectural decisions and analyses
+mentoring of junior developers
+performance evaluation of junior developers
+responsibility over more projects/systems/modules

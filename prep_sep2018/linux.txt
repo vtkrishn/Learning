@@ -1,0 +1,21 @@
+import directories
+
+/var/log - 
+    boot.log
+    dmesg
+    messages
+
+/bin
+/usr/bin
+
+/proc
+/dev/
+/etc/fstab
+
+import commands
+
+
+import
+-------------------------------
+
+-------------------------------

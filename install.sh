@@ -104,3 +104,15 @@ sublime
   $ sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
   $ sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
   $ sudo yum install sublime-text
+
+
+docker build -t some-content-nginx .
+docker run --name some-nginx -d -p 8080:80 some-content-nginx
+docker run -p 9200:9200 -p 9300:9300 -d elasticsearch
+docker run -e ELASTICSEARCH_URL=http://rws66491fwks.us.oracle.com:9200 -p 5601:5601 -d kibana
+docker run -p 6379:6379 -d redis
+docker run -p 27017:27017 -d mongo
+docker run -p 7199:7199 -d cassandra
+docker run -p 11211:11211 -d memcached
+docker run -p 5672:5672 -d rabbitmq:3
+docker run -p 8080:8080 -d jenkins

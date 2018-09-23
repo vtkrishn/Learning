@@ -1,0 +1,6 @@
+Shutdown - = message but no Shutdown
+lshw - list hardware
+lscpu - list cpu's
+lsusb - list usbs
+uname -a for complete os details
+lsb_release -a 
