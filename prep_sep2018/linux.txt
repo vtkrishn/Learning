@@ -11,11 +11,17 @@ import directories
 /proc
 /dev/
 /etc/fstab
+zcat - compressed file checking
+syslogd
+wall - broadcast
+LILO - linux loader
+
 
 import commands
 
 
 import
+
 -------------------------------
 
 -------------------------------

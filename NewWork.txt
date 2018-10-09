@@ -4,6 +4,12 @@ remove all personal contents
 make sure the personal content is not available
 sync mozila
 sync chrome
+remove the cloud backup
+take aria screenshots
+take mail dumps
+take last 3 payslips
+take shell script and python.. important files
+Asks for feedback from team mates
 
 ----------
 Ask for focus areas
@@ -11,15 +17,41 @@ Ask for some of the internal project details
 weekly meetings to track progress
 Monthly meeting for performance feedback
 log work in excel
+Think all scenario's
+look for alternatives
+think for long vision how
+think out of the box
+take a deeper analysis of the issue
 Create automation scripts
-Test efficiently
+    automate everything if possible
+Test efficiently and covering all the scenarios
+do unit testing
+integration testing
 Plan and time management
 Quit checking gmails or facebook
+reduce pantry or talking time
 Start learning - python, anaconda, spark sql, hive sql
 filter mails
 Remember Question Words - [What, Why, How, Whom, When, Whose, Where, Who, How much, How many]
 less eating and good sleep
 What went well and what did bad
+
+--------------------------------------
+Qualities of Prinicipal
+    Set clear objectives
+    Give clear assigned tasks to Engineers
+    set reasonable expectations
+    remove obstacles
+    listen and cultivate strong relationships
+    care for the team
+    be accessible always
+    Have a good debugging skills
+    Know when not to do things
+    Mentor others, lead by example
+    review code meticluously
+    communicate complex technical ideas efficiently
+    specialize in something
+    admit what you do not know
 
 --------------------------------------
 Duties and Responsibilities

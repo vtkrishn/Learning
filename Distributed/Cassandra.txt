@@ -1,0 +1,576 @@
+Problem with RDBMS
+    increase memory
+    hardware
+    optimize / tune query
+    add more indexes
+    RDBMS  
+        Transactions
+        ACID
+        two phase commit
+            blocks with locking
+    Schema
+    Sharding
+        feature based sharding - functional segmentation
+        key based sharding 
+        lookup based - one node act as lookup server to point to correct node
+        shared nothing , decentralized
+        cassandra - shared nothing, all nodes are same, no master / slave
+    No SQL
+        Key Value store - Dynamo, Riak, Redis, memchached
+        column store - Big table , cassandra, hypertable , hbase
+        document store - mongodb, couchdb
+        graph db - neo4j, flockdb
+        object db - ORM, db4
+        xml db - Tamino, AG
+--------------------------------------------------------
+Cassandra
+    open source
+    Highly available
+        replace failed nodes with no downtime
+    elastically scalable
+        horizontal scalability
+        easily scale up and scale down
+        automatic rebalance of nodes
+    distributed and decentralized
+        each node is identical
+            gossip protocol
+            peer to peer protocol
+        No Master / slave
+        No Single point of failure
+    fault tolerant
+    tuneable consistancy
+        Strict consistancy
+            sequential
+        causal consistancy
+            reads after writes
+            global clock
+        weak eventual consistancy
+            evetually all replicas are consistant
+
+Replication factor
+    Read Quoram + write Quoram > Replication Factor
+Cosnistency level
+CAP theorum
+Row Oriented
+    each row can have different number of columns
+    stored in sparse multidimensional has table
+    Partitioned - each row is unique
+    supports flexible schema
+
+Good Fit for
+    Lot of writes with concurrent client threads
+    massive data sets - high performance requirments
+    you need several nodes to serve
+    requires high througput
+    homogeneous environment - peer to peer - synchronization
+    highly fault tolerant , no downtime or rolling upgrades
+    
+https://blog.pythian.com/cassandra-use-cases/
+--------------------------------------------------------
+CQLSH
+    HELP
+    DESCRIBE CLUSTER;
+        Cluster: Test Cluster
+        Partitioner: Murmur3Partitioner
+    SHOW VERSION;
+    DESCRIBE KEYSPACES;
+        system_auth   system_distributed  system_schema system        system_traces
+    CREATE KEYSPACE my_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+        NetworkTopologyStrategy    SimpleStrategy      OldNetworkTopologyStrategy
+    USE my_keyspace
+    CREATE TABLE user ( first_name text ,  last_name text, PRIMARY KEY (first_name)) ;
+    DESCRIBE TABLE user;
+    INSERT INTO user (first_name, last_name )  VALUES ('Bill', 'Nguyen');
+    SELECT COUNT (*) FROM user;
+    SELECT * FROM user WHERE first_name='Bill';
+    DELETE last_name FROM USER WHERE first_name='Bill';
+    TRUNCATE user;
+    DROP TABLE user;
+--------------------------------------------------------
+RDBMS
+    Database
+        table
+            row
+                column
+Cassandra
+    CLUSTER (collection of keyspaces)
+        KEYSPACE (collection of tables)
+            table (collection of rows)
+                row (collection of columns)
+                    primary key - 
+                    column  - Name/Value Pair
+TIMESTAMP
+    SELECT first_name, last_name,  writetime(last_name) FROM user;
+    (non primary key columns ) Each time a column is updated  - timestamp is generated 
+    no timestamp for primary key columns
+    UPDATE user USING TIMESTAMP 1434373756626000    SET last_name = 'Boateng' WHERE first_name = 'Mary' ;
+TIME TO LIVE
+    SELECT first_name, last_name, TTL(last_name) FROM user WHERE first_name = 'Mary';
+    UPDATE user USING TTL 3600 SET last_name =  'McDonald' WHERE first_name = 'Mary' ;
+DATA TYPES
+    int,  bigint, smallint, tinyint, varint
+    float, double, decimal
+    text, varchar, ascii
+    timestamp, date, time
+    uuid, timeuuid
+    boolean, blob, inet, counter
+COLLECTIONS
+    LIST -  ALTER TABLE user ADD phone_numbers list<text>;
+            UPDATE user SET phone_numbers = [ '1-800-999-9999' ] WHERE first_name = 'Mary';
+            UPDATE user SET phone_numbers = phone_numbers + [ '480-111-1111' ] WHERE first_name = 'Mary';
+    SET -   ALTER TABLE user ADD emails set<text>;
+            UPDATE user SET emails = { 'mary@example.com' } WHERE first_name = 'Mary';
+            UPDATE user SET emails = emails + { 'mary.mcdonald.AZ@gmail.com' } WHERE first_name = 'Mary';
+    MAP -   ALTER TABLE user ADD login_sessions map<timeuuid, int>; 
+            UPDATE user SET login_sessions = { now(): 13, now(): 18} WHERE first_name = 'Mary';
+
+SECONDARY INDEXES
+    CREATE INDEX ON user ( last_name );
+--------------------------------------------------------
+Data modeling
+    Difference between rdbms and Cassandra
+        No Joins
+        No referential integrity
+        denormalization
+        starts with query model instead of data model first
+        design for optimal storage
+--------------------------------------------------------
+Cassandra Architecture
+
+    Data center
+    Racks
+    Gossip
+    Snitches
+    Rings and tokens
+    partitioners
+    Replication strategy
+    Consistency levels
+    Queries and coordinator nodes
+    Commit log
+    Memtables
+    SSTables
+    Caches
+        Key cache
+        row cache
+        counter cache
+    Hited Handoffs
+    Lightweight Transactions
+    Paxos
+    Tombstones
+    Bloom filters
+    Compaction
+    Anti entropy
+    Repair
+    Merkle Tree
+
+--------------------------------------------------------
+Configuring 
+    Cluster
+    Seed node
+    partitioner
+    Snitches
+
+    Policies
+        load balancing Policies
+        retry Policies
+        speculative Policies
+        Address translator
+        Node discovery
+        Scema access
+--------------------------------------------------------
+Writing
+    extrmenly fast
+    append model with commit logs
+    lightweight transactions
+    insert and update treated as same
+    supports upsert
+WRITE CONSISTENCY LEVELS
+
+BATCHES
+
+Reading
+
+READ CONSISTENCY LEVELS
+
+READ REPAIR
+
+Range queery, ordering, filtering
+
+user defined functions
+user defined aggregates
+
+paging
+
+speculative retry
+
+Deleting
+    tombstones
+--------------------------------------------------------
+Clients
+
+    Maven - pom.xml 
+    cluster contact points
+        Cluster cluster = Cluster.builder().
+          addContactPoint("127.0.0.1").build();
+    protocol VERSION
+        Cluster.​Builder.​withProtocolVersion()
+    compression - LZ4, Snappy
+        com.datastax.driver.core.ProtocolOptions.Compression
+        Cluster.​Builder​.withCompression()
+    Session and connection pooling
+        cluster.init();
+        Session session = cluster.connect("hotel");
+
+        PoolingOptions poolingOptions = new PoolingOptions().
+        setMaxConnectionsPerHost(HostDistance.REMOTE, 1);
+
+        Cluster cluster = Cluster.builder(). 
+        addContactPoint("127.0.0.1").
+        withPoolingOptions(poolingOptions).build();
+
+    Statements
+        session.execute("SELECT * from hotel.hotels");
+        Simple Statements
+            SimpleStatement hotelInsert = session.newSimpleStatement(
+            "INSERT INTO hotels (hotel_id, name, phone) VALUES (?, ?, ?)",
+            "AZ123", "Super Hotel at WestWorld", "1-888-999-9999");
+            session.execute(hotelInsert);
+        Asynchronous Excecution
+            ResultSetFuture result =  session.executeAsync(statement);
+        Prepared Statements
+            PreparedStatement hotelSelectPrepared = session.prepare(
+            "SELECT * FROM hotels WHERE hotel_id=?");
+        Bound Statements
+            BoundStatement hotelSelectBound = hotelSelectPrepared.bind("AZ123");
+        Build Statements
+            QueryBuilder queryBuilder = new QueryBuilder(cluster);
+            BuiltStatement hotelInsertBuilt =
+            queryBuilder.insertInto("hotels")
+            .value("hotel_id", "AZ123")
+            .value("name", "Super Hotel at WestWorld")
+            .value("phone", "1-888-999-9999");
+        Object Mapper
+     Policies
+        Load Balancing Policies
+            RoundRobin​Policy
+            DCAwareRoundRobinPolicy
+            TokenAwarePolicy
+                Cluster.builder().withLoadBalancingPolicy(
+                new TokenAwarePolicy(new DCAwareRoundRobinPolicy.Builder().build());
+       Retry Policy
+       Speculative Execution
+       Address translator
+       Node discovery
+       Schema access
+--------------------------------------------------------
+
+--------------------------------------------------------
+--------------------------------------------------------
+Maintenance
+    nodetool status
+    nodetool tpstats
+
+    force cassandra to write from memtables to SSTables
+        nodetool flush
+
+    nodetool cleanup
+    REPAIR
+        nodetool repair 
+        full repair
+        incremental repair
+        anti compaction
+        sequential repair
+        parallel repair
+        partitionar range repair
+        subrange repair
+
+        Repair strategy
+            Repair frequency
+            Repair scheduling
+
+        rebuilding secondary indexes
+            good practice to do after repairing
+
+
+
+    Removing a node
+        nodetool removenode
+        nodetool assassinate (does not replicates the data)
+    
+    nodetool statusbackup
+    nodetool disablebackup
+
+    Snapshots
+        nodetool snapshot
+        nodetool listsnapshots
+        nodetool clearsnapshot
+
+--------------------------------------------------------
+Performance Tuning
+    cassandra-stress tool for chking performance
+    performance goals
+        no of USERS
+        how the application will be used
+        usage patterns
+        intended peak hours
+
+        consider
+            throughput - how much requests served in a given time
+            latnecy - how long to serve one request
+        tools
+            nodetool
+                proxyhistograms
+                tablehistograms
+            tablestats
+        Performance tradeoffs
+            Enable SStable compression
+            throttling network usage and threads
+            increase or decrease number of threads allocations to specific tasks like read or writes
+            increase heap size to decrease query time
+        Monitoring performance
+            Metrics
+                Read latency
+                write latency
+                partition size
+                cell count
+            nodetool proxyhistograms
+            nodetool settraceprobability
+
+            compacting large partitions
+                cassandra.yaml
+                    compaction_large_partition_warning_​threshold_mb
+            Tracing
+                cqlsh:hotel> TRACING ON
+                SimpleStatement hotelSelect = session.newSimpleStatement(
+                "SELECT * FROM hotels WHERE id='AZ123'");
+                hotelSelect.enableTracing();
+                ResultSet hotelSelectResult = session.execute(hotelSelect);
+                QueryTrace queryTrace = hotelSelectResult.getExecutionInfo().getQueryTrace();
+            stored in system_traces keyspaces
+            cassandra.yaml
+                tracetype_query_ttl
+                tracetype_repair_ttl
+
+            Caching
+                Key cache
+                    (map of partition keys to row index entries for faster read access into to SSTables)
+                        can be configured for per table basis
+                    cqlsh:hotel> DESCRIBE TABLE hotels;
+                    CREATE TABLE hotel.hotels (
+                        id text PRIMARY KEY,
+                        address frozen<address>
+                    ) WITH bloom_filter_fp_chance = 0.01
+                        AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+                    cqlsh:hotel> ALTER TABLE hotels 
+                                WITH caching = { 'keys' : 'NONE', 'rows_per_partition' : 'NONE' };
+                    key_cache_size_in_mb - default 5% of total jvm heap or 100 mb
+                Row cache
+                    caches entire row to speed up frequently accessed rows
+                    cqlsh:hotel> ALTER TABLE hotels
+                                 WITH caching = { 'keys' : 'NONE', 'rows_per_partition' : '200' };
+
+                Counter cache
+                    improves counter performance by reducing lock contention on frequently accessed counters
+                    counter_cache_size_in_mb 2.5% or 50MB
+
+                periodically saves cache to disks
+                    counter_cache_​save_period (default 4 hours)
+                    key_​cache_​save_period (efault disabled)
+                    row_cache_save_period (default 2 hours)
+                    no of keys to save in the file
+                        key_cache_keys_to_save
+                        row_cache_keys_to_save
+                        counter_​cache_​keys_to_save 
+                nodetool invalidatekeycache invalidate​rowcache invalidatecountercache 
+                setcachecapacity
+                setcachekeystosave 
+            
+            Memtables
+                cassandra uses memtables to speed up writing
+                stores in java heap
+                memtable_heap_space_in_mb
+                memtable_offheap_space_in_mb
+
+                memtable_flush_period_in_ms - interval option at which it will be flushed to disks
+            Commit logs
+                short term storages 
+                commit log is read when node is restarted, this is the only time commit log will be replayed and read, client will not read the commit log
+                commitlog_segment_size_in_mb - default 32 mb
+                commitlog_total_​space_in_mb - 
+                commitlog_compression 
+                commitlog_sync_period_in_ms - 10 sec
+            SSTable files
+                writes directly to disks asynchronously
+                buffer cache
+                 file_cache_size_in_mb - 512 mb
+                 buffer_pool_use_heap_if_exhausted  - true
+            Hinted Hadoffs
+                coordinator node will keep a copy of the data if the node goes down
+                hinted_handoff_throttle_in_kb
+                nodetool sethintedhandoff​throttlekb
+                hints_directory
+                max_hints_file_size_in_mb
+            Compaction  
+                SizeTieredCompactionStrategy
+                LeveledCompactionStrategy
+                DateTieredCompactionStrategy
+            Concurrency and Thrading
+                concurrent reads - default 32
+                concurrent writes - default 32
+
+            Networking an timeouts
+            JVM Settings
+                Memory
+                    if machine has < 1 GB of ram - heap is set to 50%
+                    if machine has > 4 GB of ram - heap is set to 25%
+                    for concurrent mark and sweep - do not set heap size > 8 GB
+                    -XX:+HeapDumpOnOutOfMemory
+                Garbage collections
+                    uses parallel copyting collectors - -XX:+UseParNewGC 
+                    -XX:SurvivorRatio - 8
+                    -XX:MaxTenuringThreshold - 1
+                    -XX:+UseConcMarkSweepGC
+                    gc_warn_threshold_in_ms - 1 sec
+            Cassandra stress
+
+--------------------------------------------------------
+Security
+
+    Authetication
+        Password Authenticator
+            org.apache.cassandra.​auth.​AllowAllAuthenticator
+            org.apache​.cassandra​.auth.Password​Authenticator (should use CassandraRoleManager)
+            configuration: (cassandra.yaml)
+                authenticator: AllowAllAuthenticator or authenticator: PasswordAuthenticator
+        Pluggable Authenticator
+            IInternode​Authenticator
+            AllowAllInternode​Authenticator
+                bin/cqlsh -u cassandra -p cassandra
+                cassandra@cqlsh> ALTER USER cassandra WITH PASSWORD 'Kxl0*nGpB6'
+                cassandra@cqlsh> CREATE USER jeff WITH PASSWORD 'i6XJsj!k#9';
+                LIST USERS; 
+                configure in ~/.cqlshrc
+                [authentication]
+                username = jeff
+                password = i6XJsj!k#9
+                
+                cassandra@cqlsh> login jeff 'i6XJsj!k#9'
+                jeff@cqlsh>
+
+
+    Role based authorization
+            org.apache.cassandra.auth.AllowAllAuthorizer
+            org.apache.cassandra.auth.CassandraAuthorizer
+            configuration: (cassandra.yaml)
+                authorizer: AllowAllAuthorizer
+                authorizer: CassandraAuthorizer
+                             GRANT SELECT ON hotel.hotels TO jeff;
+            cassandra@cqlsh> CREATE ROLE hotel_management;
+            cassandra@cqlsh> GRANT ALL ON KEYSPACE hotel TO hotel_management;
+            cassandra@cqlsh> GRANT hotel_management TO jeff;
+
+    Encryption
+        Kerberos
+            keytool
+            nodetool
+            truststore
+
+        SSL/ TLS
+        certificates
+            node to node Encryption
+            server_encryption_options:
+                internode_encryption: none
+                keystore: conf/.keystore
+                keystore_password: cassandra
+                truststore: conf/.truststore
+                truststore_password: cassandra
+                # More advanced defaults below:
+                # protocol: TLS
+                # algorithm: SunX509
+                # store_type: JKS
+                # cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,...]
+                # require_client_auth: false
+
+            two way certificate authentication
+            (cassandra.yaml)
+                require_client_auth = true
+            Client to node encryption
+                # enable or disable client/server encryption.
+                client_encryption_options:
+                    enabled: false
+                    optional: false
+                    keystore: conf/.keystore
+                    keystore_password: cassandra
+                    # require_client_auth: false
+                    # Set truststore and truststore_password if require_client_auth is true
+                    # truststore: conf/.truststore
+                    # truststore_password: cassandra
+                    # More advanced defaults below:
+                    # protocol: TLS
+                    # algorithm: SunX509
+                    # store_type: JKS
+                    # cipher_suites: [TLS_RSA_WITH_AES_128_CBC_SHA,...]
+    
+    Secure JMX access
+        conf/cassandra-env.sh
+            LOCAL_JMX=no
+            JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.port=$JMX_PORT"
+            JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
+            JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.ssl=false"
+
+            JVM_OPTS="${JVM_OPTS} -Dcom.sun.management.jmxremote.ssl=true"
+            JVM_OPTS="${JVM_OPTS} -Djavax.net.ssl.keyStore=conf/node1.keystore"
+            JVM_OPTS="${JVM_OPTS} -Djavax.net.ssl.keyStorePassword=cassandra"
+            JVM_OPTS="${JVM_OPTS} -Djavax.net.ssl.trustStore=conf/node1.truststore"
+            JVM_OPTS="${JVM_OPTS} -Djavax.net.ssl.trustStorePassword=cassandra"
+            JVM_OPTS="${JVM_OPTS} -Dcom.sun.management.jmxremote.ssl.need.client.auth=true"  
+    
+    Secure MBean
+            org.apache.cassandra.auth
+            PermissionsCacheMBean
+            cassandra.yaml
+                permissions_validity_in_ms
+--------------------------------------------------------
+Deploying and Integrating
+    Sizing the Cluster
+        Amount of data to be stored
+        calculations based on each column in a table
+        Replication factor for the table's keyspace and compaction strategy
+        Total size = size of the table * Replication factor of the keyspace * compaction strategy of the table
+            2 = SizeTieredCompactionStrategy
+            1.25  = other compaction strategies
+    Compute Power    
+        Development :
+            CPU atleast with 2 cores and 8 GB of memory
+        Production:
+            CPU atleast with 8 cores and 16 - 64 GB of memory (4 cores acceptable for VM's)
+    Storage:
+        supports both HDD and SDD
+            SDD for more performance, low latency random reads
+        HDD - spearate data and commit logs
+        SDD - data and commit logs can be on the same disks
+        Support both JBOD and RAID: (JBOD is more performant)
+            JBOD - just another bunch of disks
+            RAID - redundant array of independant disks
+        Avoid Network and Shared storage
+            wont scale well
+            require additional I/O wait time for read and writes over network
+    Network:
+        1 GB network bandwidth for throughput
+        configure firewalls
+        synchronize clocks on all nodes using Network Time Protocol (NTP)
+        Avoid load balancers
+        tune time outs , consider latency between data centers
+
+Cloud deployments
+    AWS
+    Azure
+    GCP
+Integrations
+    Elastic
+    Hadoop
+    Spark
+    
+Use cases
+    High volume Time series data
+    Cassandra Spark Connectors
