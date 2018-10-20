@@ -2,16 +2,37 @@ remove all bookmarks
 remove all logins
 remove all personal contents
 make sure the personal content is not available
+Check pc backup and delete from cloud
 sync mozila
 sync chrome
 remove the cloud backup
 take aria screenshots
 take mail dumps
+rws dumps
+slc15bnk dumps
+laptop dumps
 take last 3 payslips
 take shell script and python.. important files
 Asks for feedback from team mates
-
+letter from manager for future
+https://my.oracle.com/site/mktg/creative/templates/stationery/letterhead/cnt470989.htm
 ----------
+wjat is the advantage of the approach
+what is the down side of the approach
+what is the performance implicaton
+what are the work arounds
+what is the usabilty impact
+what are the other options available in pipeline
+how to approach the problem
+what is the round trip implications
+can we do anything in parallel
+what are the driving for going for the approach
+can we expose as a service
+take a decision and dont compromise on quality
+dont delay things
+review the progress regularly
+plan properly
+-------------
 Ask for focus areas
 Ask for some of the internal project details
 weekly meetings to track progress
