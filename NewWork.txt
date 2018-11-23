@@ -97,3 +97,83 @@ making bigger technical design/architectural decisions and analyses
 mentoring of junior developers
 performance evaluation of junior developers
 responsibility over more projects/systems/modules
+check if something needs to be done, analyze if that needs to be done in other places applications
+
+
+code review checklists
+-----------------------
+Am I able to understand the code
+is it well written
+is the code duplicated more than once
+can i unit test easily for possible issue isolation
+is the function or class is too big, modularize
+    is this code scalable
+    is this code performant
+    is security taken care
+    is code takes care of not functional requirements
+    code coverage
+    unit tests
+    is code follows defined Architecture
+
+check for GRASP
+    Controller, Creator, Indirection, information expert, high cohesion, low coupling, polymorphism,protected variations, pure fabrications
+check for SOLID 
+    Single responsibility, 
+    Open for extension and closed for modification
+    Liskovs substitution for interface
+    Interface segregation
+    Dependancy inversion
+
+
+
+-----------------------
+
+    Principle 1: Design for Many
+    Principle 2: Service-Oriented Architecture Beats Monolithic Application
+    Principle 3: Monitor Everything
+    Practice 1: Canary Deployments
+    Practice 2: Distributed Clock
+    Practice 3: Automate To Assist, Not To Control
+
+Availability – Operational characteristic of a system where it is always ready to handle requests.
+Scalability – The ability of a system to increase its capacity to handle more load. This could be achieved by adding more servers to a cluster.
+Performance – Speed at which a system is able to handle requests.
+Cost – Total cost of ownership of the system. This could include hardware, software, development, testing, hosting, and cloud infrastructure.
+Manageability – Maintenance, update, migration, scaling, and diagnostic should all be manageable.
+Reliability – Able to adapt to the load and respond properly during exceptional conditions.
+Heterogeneity – Ability to support a variety of devices and protocols.
+Fault Tolerance and Failure Management – Systems designed with an expectation of failure will make them more fault tolerant.
+Concurrency – When multiple parts work at the same time (a given for distributed systems).
+Migration and Load Balancing – Closely related to reliability, fault tolerance, and failure management.
+Security – Ensuring proper authorization and authentication between the users and components of the system is key ensuring the confidentiality and integrity of the data.
+Composability and Modularity – Many small subsystems and modules forming a larger system in a way that can be configured and reused in different ways
+
+
+Scalability Design Principles
+
+    Avoid the single point of failure. 
+    Scale horizontally, not vertically. 
+    Push work as far away from the core as possible. 
+    API first. 
+    Cache everything, always.
+    Provide as fresh as needed data.
+    Design for maintenance and automation.
+    Asynchronous rather than synchronous.
+    Strive for statelessness. 
+    This too shall fail. 
+
+
+    ----------------
+    Debugging steps
+
+    ecid
+    request id
+    trace
+    stack trace
+    thread dump
+    strace
+    dmesg
+    proc/pid/thread
+-----------
+new hire induction - orientation
+http://learnxinyminutes.com/
